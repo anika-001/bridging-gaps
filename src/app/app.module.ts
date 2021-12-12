@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WindowService } from './services/window.service';
 import { ConsultationComponent } from './consultation/consultation.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
