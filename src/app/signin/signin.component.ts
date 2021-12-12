@@ -5,8 +5,10 @@ import { Router } from '@angular/router';
 import { logindata, regdata } from '../JSONdata/signin';
 import { AuthService } from '../services/auth.service';
 import { WindowService } from '../services/window.service';
-// import firebase from 'firebase/app';
-import 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/environment';
+import { getAuth, RecaptchaVerifier } from "firebase/auth";
+// import 'firebase/auth';
 
 
 
@@ -17,8 +19,8 @@ import 'firebase/auth';
 })
 export class SigninComponent implements OnInit {
 errormessage:any;
-  constructor(private as: AuthService, private router: Router) { }
 
+  constructor(private as: AuthService, private router: Router, private win: WindowService) { }
   
   login: boolean = true;
   error: any;
@@ -29,9 +31,14 @@ errormessage:any;
   phoneno: boolean = false;
   signindataphoneno: any;
   signindataemail: any;
+  auth:any;
   
+  app = initializeApp(environment.firebaseConfig);
   // firebase.initilizeApp(this.config);
   // this.windowRef = this.win.windowRef;
+  
+  // initializeApp(environment.firebaseConfig)
+  
 
   phone() {
     this.phoneno = !this.phoneno;
@@ -81,6 +88,10 @@ errormessage:any;
   
   ngOnInit(): void {
     // firebase.initializeApp(this.config);
+    this.auth= getAuth();
+    this.windowRef = this.win.windowRef;
+    this.windowRef.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {}, this.auth);
+    this.windowRef.recaptchaVerifier.render();
     
     this.signindata = logindata;
     this.signupdata = regdata;

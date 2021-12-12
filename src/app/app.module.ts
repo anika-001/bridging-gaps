@@ -14,12 +14,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WindowService } from './services/window.service';
+import { ConsultationComponent } from './consultation/consultation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SigninComponent
+    SigninComponent,
+    ConsultationComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [WindowService],
+  
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
