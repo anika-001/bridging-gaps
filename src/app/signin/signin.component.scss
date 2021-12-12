@@ -344,14 +344,12 @@
 }
 
 .card{
-    position: absolute;
     width: 25vw;
     height: 65vh;
-    left: 800px;
-    top: 110px;
     background: rgba(8, 128, 142, 0.3);
     border-radius: 20px;
-    border-color: #005059
+    border-color: #005059;
+    overflow: hidden;
 }
 
 .loginsignup{
@@ -367,9 +365,10 @@
     background-color: #005059;
     height: 70vh;
     width: 40vw;
-    margin-left: -40%;
+    // margin-left: -40%;
     border-radius: 20px;
-    background-image:url("/src/app/signin/img/68312-login.gif");
+    background-image:url("../../assets/images/68312-login.gif");
+    background-size: 100% 100%;
 }
 
 .authtitle{
@@ -441,3 +440,22 @@
     border-color: #005059;
     background-color: rgba(255, 255, 255, 0.822);
 }
+
+.slider{
+    background-color: blueviolet;
+    width: 50vw;
+    display: flex;
+    transition: transform 2s ease-in-out;
+}
+
+.sliderloginreg{
+    background-color: cadetblue;
+    width: 25vw;
+    border: solid thin black;
+    
+}
+
+.sliderslide{
+    transform: translateX(-50%);
+}
+
