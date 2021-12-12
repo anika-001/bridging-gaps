@@ -15,11 +15,12 @@ import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SigninComponent
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
