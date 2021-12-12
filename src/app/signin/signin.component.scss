@@ -357,15 +357,17 @@
 }
 
 .authcard{
-    height: 80vh;
+    height: 70vh;
     width: 40vw;
-    background-color: bisque;
     display: flex;
     flex-direction: column;
+    background: rgba(8, 128, 142, 0.3);
+    box-sizing: border-box;
+    border-radius:25px;
 }
 
 .authtitle{
-    border: black thin solid;
+  
     height: 10vh;
     width: 100%;
     display: flex;
@@ -377,59 +379,50 @@
     font-weight:700;
 }
 
-.info{
-    border: black thin solid;
-    height: 60vh ;
-    width:100% ;
-    display: flex;
-    padding: 9px 12px;
-}
 .phone p {
- border: black thin solid;
- font-size:38px;
- text-align: center;
- display: flex;
- flex-direction: column;
- justify-content: center;
+font-size:25px;
+display: flex;
+flex-direction: column;
+justify-content: center;
 height: 150px;
-//  width: 50%;
-//  height:40vh;
+margin-left: 20%;
+
 }
  
 .phone input {
     width: 50%;
-    justify-content: center;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    margin-left: 24%;
+    color: #fff;
+    // margin-left: %;
     font-size:25px;
     border-radius: 20px;
+  
 }
 
-.password p {
-    border: black thin solid;
-    font-size: 38px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 150px;
-   //  width: 50%;
-   //  height:40vh;
-   }
+// .password p {
+//     border: black thin solid;
+//     font-size: 38px;
+//     text-align: center;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     height: 150px;
+//    //  width: 50%;
+//    //  height:40vh;
+//    }
 
-.password input 
-{
-    width: 50%;
-    justify-content: center;
-    display: flex;
-    font-size: 25px;
-    flex-direction: column;
-    text-align: center;
-    margin-left: 24%;
-    border-radius: 20px;
-}
+// .password input 
+// {
+//     width: 50%;
+//     justify-content: center;
+//     display: flex;
+//     font-size: 25px;
+//     flex-direction: column;
+//     text-align: center;
+//     margin-left: 24%;
+//     border-radius: 20px;
+// }
 
 .signup p 
 {
