@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WindowService } from './services/window.service';
 import { ConsultationComponent } from './consultation/consultation.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatGridListModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [WindowService],
   
