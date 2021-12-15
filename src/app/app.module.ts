@@ -16,6 +16,7 @@ import { SigninComponent } from './signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WindowService } from './services/window.service';
 import { ConsultationComponent } from './consultation/consultation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { ConsultationComponent } from './consultation/consultation.component';
     MatGridListModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [WindowService],
   
