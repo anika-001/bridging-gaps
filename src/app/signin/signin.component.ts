@@ -59,11 +59,13 @@ errormessage:any;
 
   submit() {
     if(this.login){
+      console.log(this.formlogin.value);
       this.as.login(this.formlogin.value).then(res => {
         this.router.navigate(['/home']);
       })
     }
     else{
+      console.log(this.formreg.value);
       this.formreg.get("role")?.setValue(this.signupdata[5].value);
       this.as.signup(this.formreg.value).then(res => {
         this.router.navigate(['/home']);
@@ -86,6 +88,8 @@ errormessage:any;
   })
   
   ngOnInit(): void {
+    console.log(this.formreg.value)
+    console.log(this.formlogin.value)
     // firebase.initializeApp(this.config);
     this.auth= getAuth();
     this.windowRef = this.win.windowRef;
