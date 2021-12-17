@@ -68,12 +68,7 @@ errormessage:any;
       })
     }
     else{
-<<<<<<< HEAD
-      console.log(this.formreg.value);
-      this.formreg.get("role")?.setValue(this.signupdata[5].value);
-=======
       // this.formreg.get("role")?.setValue(this.signupdata[5].value);
->>>>>>> d8c1a4def268d29bd37d02cf1f41c8fa31eb6637
       this.as.signup(this.formreg.value).then(res => {
         this.router.navigate(['/home']);
       })
