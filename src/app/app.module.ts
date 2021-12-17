@@ -16,6 +16,8 @@ import { SigninComponent } from './signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WindowService } from './services/window.service';
 import { ConsultationComponent } from './consultation/consultation.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { ConsultationComponent } from './consultation/consultation.component';
     AppComponent,
     HomeComponent,
     SigninComponent,
-    ConsultationComponent
+    ConsultationComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { ConsultationComponent } from './consultation/consultation.component';
     MatGridListModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [WindowService],
   

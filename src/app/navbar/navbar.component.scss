@@ -1,0 +1,39 @@
+
+body{
+	font-family: 'Roboto', sans-serif;
+}
+.navbar {
+    height: 10vh;
+    background-color: black ;
+    overflow: hidden;
+}
+
+.navbar-logo{
+	// padding: 3%;
+	color: #fff;
+    font-size: 2vh;
+    border: solid thin white;
+    background-image:url("../../assets/media/images/Logo.png");
+}
+
+#navbarinfo ul li a{    
+	color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 2vh;
+    display: flex;
+    flex-direction: row;
+    // padding: 20px 20px;
+}
+
+a:hover{
+    background-color: #0e151693;
+    border-radius: 25%;
+    justify-content: center;
+    font-size: small;
+}
+
+.navbar-show .navbar-nav {    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

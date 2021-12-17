@@ -39,7 +39,7 @@ export class AuthService {
       email: user.email,
       name: user.name,
       phone: user.phone,
-      role: user.role,
+      // role: user.role,
     })
   }
 
