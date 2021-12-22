@@ -8,4 +8,5 @@ import { AngularFireDatabase } from "@angular/fire/compat/database";
 })
 export class AppComponent {
   title = 'BridgGaps';
+  currentRating = 3;
 }
