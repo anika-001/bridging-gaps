@@ -17,14 +17,24 @@ body{
 	// padding: 3%;
 	color: #fff;
     font-size: 2vh;
-    border: solid thin white;
-    background-image:url("../../assets/media/images/Logo.png");
+    // background-color: pink;
+    // border: solid thin white;
+    // background-image:url("../../assets/media/images/Logo.png");
+}
+
+.logo{
+    height: 8vh;
+    width: 12vw;
+    background-image: url("../../assets/media/images/Logo.png");
+    background-size: 100% 100%;
+    // border: solid black;
+    // margin-top: -33%;
 }
 
 #navbarinfo ul li a{    
 	color: rgb(255, 255, 255);
     text-decoration: none;
-    font-size: 2vh;
+    font-size: 100%;
     display: flex;
     flex-direction: row;
     
