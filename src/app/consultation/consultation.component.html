@@ -1,52 +1,98 @@
-<p>consultation works!</p>
+<ng-template #t let-fill="fill">
+  <span class="star1" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+  </span>
+</ng-template>
+
 <div class="main">
   <div class="consult">
     <div class="list">
-      <div class="catalog">
-        list
+      <div class="doctor" *ngFor = "let x of [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9, 10]">
         <div class="pic">
 
         </div>
-      </div>
-    </div>
-    <div class="profile">
-
-      <div class="profile-card">
-        <h1>profile</h1>
-        <h2>kylie wilson</h2>
-        <h5>pyshiatrist</h5>
-        <div class="photo">
-
-        </div>
-
-        <div class="description">
-          <h3>Description</h3>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam excepturi modi sequi, sapiente molestiae
-          voluptatum ipsa? Corrupti nihil aperiam possimus vitae accusantium odio expedita, optio nisi minus ipsum
-          inventore aliquid molestias laborum doloribus veniam est quibusdam sit, blanditiis alias nam! Adipisci
-          aspernatur quas doloribus expedita, itaque mollitia! Perspiciatis, similique dolores?
-        </div>
-        <div class="review">
-          <button>view all</button>
-          <h6>Average Rating</h6>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-         
-          
-          <div class="tags">
-            <input type="voilet" placeholder=""
-            name="">
-            <input type="voilet" placeholder=""
-            name="">
-            <input type="voilet" placeholder=""
-            name="">
+        <div class="info">
+          <div class="name">kylie wilson</div>
+          <div class = "reviewre">Awesome Job!</div>
+          <div class="rating r1">
+            <ngb-rating
+              [max]="5"
+              [(rate)]="currentRating"
+              [readonly]="true"
+            ></ngb-rating>
           </div>
         </div>
       </div>
     </div>
+    <div class="profile">
+      <div class="profile-card">
+        <div class="title">Profile</div>
+        <div class="introcard">
+          <div class="photo"></div>
+          <div class="nameandprof">
+            <div class="name">Kyle Wilson</div>
+            <div class="prof">pyshiatrist</div>
+          </div>
+          <div class="rating">
+            <ngb-rating
+              [max]="5"
+              [(rate)]="currentRating"
+              [readonly]="true"
+              [starTemplate]="t"
+            ></ngb-rating>
+          </div>
+        </div>
+        <!-- <h1>profile</h1>
+        <h2>kylie wilson</h2>
+        <h5>pyshiatrist</h5>
 
+        
+        <h3>Average Rating</h3>
+
+        <ngb-rating [max]="5" [(rate)]="currentRating" [readonly]="false" [starTemplate]="t"></ngb-rating>
+        <h5>Current Rating: {{currentRating}}</h5>
+        
+        <div class="photo">
+
+        </div> -->
+
+        <div class="description">
+          <div class="desctitle">Description</div>
+          <div class="descdesc">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam
+            excepturi modi sequi, sapiente molestiae voluptatum ipsa? Corrupti
+            nihil aperiam possimus vitae accusantium odio expedita, optio nisi
+            minus ipsum inventore aliquid molestias laborum doloribus veniam est
+            quibusdam sit, blanditiis alias nam! Adipisci aspernatur quas
+          </div>
+        </div>
+
+        <div class="review">
+          <div class="reviewtitle">64 reviews</div>
+          <div class="lastreview">
+            <div class="lastreviewtitle">Last review:
+            <!-- <div class="reviewreview"></div> -->
+            <div class="reviewreviewcont">Awesome job!</div>
+            <div class="reviewreviewer">Kyle Wilson</div></div>
+          </div>
+        </div>
+
+        <div class="tags">
+          <div class="tagstitle">
+            <div class="appointmenttype">In - Clinic appointment</div>
+            <div class="appointmentcost">Rs 300</div>
+          </div>
+          <div class="tagscont">
+            <div class="specializations">
+              <div class = "tag" *ngFor = "let x of tags">{{x}}</div>
+            </div>
+            <div class="slotbuttons">
+              <div class = "slotbut">View all slots</div>
+              <div class = "slotbut">View Clinic</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>

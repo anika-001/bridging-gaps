@@ -4,8 +4,13 @@ body{
 }
 .navbar {
     height: 10vh;
-    background-color: black ;
+    background-color: #005059;
     overflow: hidden;
+    position: absolute;
+    width: 100vw;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar-logo{
@@ -22,12 +27,14 @@ body{
     font-size: 2vh;
     display: flex;
     flex-direction: row;
+    
     // padding: 20px 20px;
 }
 
 a:hover{
     background-color: #0e151693;
     border-radius: 25%;
+    // padding: 0 5px;
     justify-content: center;
     font-size: small;
 }
@@ -36,4 +43,15 @@ a:hover{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.navbar-open{
+    width: 40vw;
+    // background-color: bisque;
+    
+}
+.navbar-nav{
+    // background-color: aqua;
+    display: flex;
+    justify-content: space-evenly;
 }

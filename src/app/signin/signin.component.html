@@ -49,7 +49,7 @@
                     </div>
                     <form [formGroup]="formlogin" class="input">
                         <div *ngFor="let x of signindata">
-                            <input placeholder="{{x.placeholder}}" formControlName={{x.formname}} type={{x.type}}
+                            <input placeholder="{{x.placeholder}}" formControlformControlName={{x.formname}} type={{x.type}}
                                 class="ip" *ngIf="!x.error">
                         </div>
                         <a routerLink="/forgotPassword" class="forgot">
@@ -81,7 +81,7 @@
                         <div class="regdiv">
                             <div *ngFor="let x of signupdata" style="height: 20%;">
                                 <div *ngIf="x.type != 'dropdown'">
-                                    <input placeholder="{{x.placeholder}}" formControlName={{x.formname}}
+                                    <input placeholder="{{x.placeholder}}" formControlformControlName={{x.formname}}
                                         type={{x.type}} class="ip" *ngIf=!x.error>
                                 </div>
                                 <div *ngIf="x.type == 'dropdown'">
@@ -112,76 +112,73 @@
 
 </div> -->
 <div class="main">
-    
+
     <div class="loginsignup">
         <div class="imagerect">
 
         </div>
         <div class="card">
-            <div class="authtitle" >
+            <div class="authtitle">
                 Login / SignUP
             </div>
 
-            <div class="slider" [ngClass] = "{
+            <div class="slider" [ngClass]="{
                 'sliderslide': !login
             }">
                 <div class="sliderloginreg">
-                    <div class="inputfield">
-                        <div class="inputlabel"> Email ID</div>
-                        <input  type="text" placeholder="  Emter your Email ID" />
-                    </div>
-                    <div class="inputfield">
-                        <div class="inputlabel"> Password</div>
-                        <input  type="password" placeholder="  Enter Your Password" />
-                    </div>
-                    <div class="signup" (click) = "move()">
-                        <p> Don't have an account?
-                            <button type="button" >Sign UP!</button>
-                    </div>
-                    <br>
-                    <div class="login" >
-                        <button type="button">Login</button>
-                    </div>
-                </div>
-                
-
-                <div class = "sliderloginreg">
-                    <div class="inputfield">
-                        <!-- <div class="inputlabel">Name</div> -->
-                        <input type="text" placeholder="  Enter Your Name" />
-                    </div>
-                    <div class="inputfield">
-                        <!-- <div class="inputlabel">Email ID</div> -->
-                        <input type="text" placeholder="  Enter Your Email ID" />
-                    </div>
-                    <div class="inputfield">
-                        <!-- <div class="inputlabel">Phone Number</div> -->
-                        <input type="text" placeholder="  Enter Your Phone No." />
-                    </div>
-                    <div class="inputfield">
-                        <!-- <div class="inputlabel"> Password</div> -->
-                        <input  type="password" placeholder="  Enter Your Password" />
-                    </div>
-                    <div class="inputfield">
-                        <!-- <div class="inputlabel"> Confirm Password</div> -->
-                        <input  type="password" placeholder="  Confirm Your Password" />
-                    </div>
-                    
-                    <!-- <div class="inputfield">
-                        <p> Password <br>
-                            <input type="password" placeholder="  Enter Your password" />
-                        </p>    
-                    </div> -->
-                    <!-- <br> -->
-                    
-                    <div class="login" (click) = "move()">
-                        <!-- <p> Already have an account? -->
+                    <form [formGroup]="formlogin" (ngSubmit)="submit()">
+                        <div class="inputfield">
+                            <div class="inputlabel"> Email ID</div>
+                            <input type="text" placeholder="  Email ID" />
+                        </div>
+                        <div class="inputfield">
+                            <p> Password <br>
+                                <input type="password" formControlName="password" placeholder="  Enter Your password" />
+                            </p>
+                        </div>
+                        <div class="signup" (click)="move()">
+                            <p> Don't have an account?
+                                <button type="button">Sign UP!</button>
+                        </div>
+                        <br>
+                        <div class="login">
                             <button type="button">Login</button>
-                    </div>
-                    <div class="signup">
-                        <button type="button">SignUP</button><br>
-                    </div>
+                        </div>
+                    </form>
+                </div>
 
+
+                <div class="sliderloginreg">
+                    <form [formGroup]="formreg" (ngSubmit)="submit()">
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Name</div> -->
+                            <input type="text" formControlName="name" placeholder="  Enter Your Name" />
+                        </div>
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Email ID</div> -->
+                            <input type="text" formControlName="email" placeholder="  Enter Email ID" />
+                        </div>
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Email ID</div> -->
+                            <input type="text" formControlName="phone" placeholder="  Enter Phone No." />
+                        </div>
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Email ID</div> -->
+                            <input type="password" formControlName="password" placeholder="  Enter Password" />
+                        </div>
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Email ID</div> -->
+                            <input type="password" formControlName="confirmpassword" placeholder="  Confirm Password" />
+                        </div>
+                        
+                        <div class="login" (click)="move()">
+                            <p> Already have an account?
+                                <button type="button">Login</button>
+                        </div>
+                        <div class="signup">
+                            <button type="button">SignUP</button><br>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
