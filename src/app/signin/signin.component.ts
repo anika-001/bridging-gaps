@@ -4,10 +4,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { logindata, regdata } from '../JSONdata/signin';
 import { AuthService } from '../services/auth.service';
-import { WindowService } from '../services/window.service';
-import { initializeApp } from 'firebase/app';
-import { environment } from 'src/environments/environment';
-import { getAuth, RecaptchaVerifier } from "firebase/auth";
+// import { WindowService } from '../services/window.service';
+// import { initializeApp } from 'firebase/app';
+// import { environment } from 'src/environments/environment';
+// import { getAuth, RecaptchaVerifier } from "firebase/auth";
 // import 'firebase/auth';
 
 
@@ -19,38 +19,38 @@ import { getAuth, RecaptchaVerifier } from "firebase/auth";
 export class SigninComponent implements OnInit {
 errormessage:any;
 
-  constructor(private as: AuthService, private router: Router, private win: WindowService) { }
+  constructor(private as: AuthService, private router: Router) { }
   
   login: boolean = true;
   error: any;
-  windowRef: any;
+  // windowRef: any;
   selectedrole: any;
   signindata: any;
   signupdata: any;
-  phoneno: boolean = false;
-  signindataphoneno: any;
-  signindataemail: any;
-  auth:any;
+  // phoneno: boolean = false;
+  // signindataphoneno: any;
+  // signindataemail: any;
+  // auth:any;
   
-  app = initializeApp(environment.firebaseConfig);
+  // app = initializeApp(environment.firebaseConfig);
   // firebase.initilizeApp(this.config);
   // this.windowRef = this.win.windowRef;
   
   // initializeApp(environment.firebaseConfig)
   
 
-  phone() {
-    this.phoneno = !this.phoneno;
-    if (this.phoneno == true) {
-      this.signindata = this.signindataphoneno;
-      // document.querySelector("#recaptcha-container").style.display = "none";
-    }
+  // phone() {
+  //   this.phoneno = !this.phoneno;
+  //   if (this.phoneno == true) {
+  //     this.signindata = this.signindataphoneno;
+  //     // document.querySelector("#recaptcha-container").style.display = "none";
+  //   }
 
-    else {
-      // this.windowRef.recaptchaVerifier.clear();
-      this.signindata = this.signindataemail;
-    }
-  }
+  //   else {
+  //     // this.windowRef.recaptchaVerifier.clear();
+  //     this.signindata = this.signindataemail;
+  //   }
+  // }
 
 
   move() {
@@ -96,10 +96,10 @@ errormessage:any;
     console.log(this.formreg.value)
     console.log(this.formlogin.value)
     // firebase.initializeApp(this.config);
-    this.auth= getAuth();
-    this.windowRef = this.win.windowRef;
-    this.windowRef.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {}, this.auth);
-    this.windowRef.recaptchaVerifier.render();
+    // this.auth= getAuth();
+    // this.windowRef = this.win.windowRef;
+    // this.windowRef.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {}, this.auth);
+    // this.windowRef.recaptchaVerifier.render();
     
     this.signindata = logindata;
     this.signupdata = regdata;

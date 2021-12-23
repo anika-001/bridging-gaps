@@ -132,16 +132,16 @@
                             <input type="text" placeholder="  Email ID" />
                         </div>
                         <div class="inputfield">
-                            <p> Password <br>
+                            <div class="inputlabel">Password</div>
                                 <input type="password" formControlName="password" placeholder="  Enter Your password" />
-                            </p>
+                            
                         </div>
                         <div class="signup" (click)="move()">
-                            <p> Don't have an account?
+                            Don't have an account?
                                 <button type="button">Sign UP!</button>
                         </div>
                         <br>
-                        <div class="login">
+                        <div class="login" (click) = "submit()">
                             <button type="button">Login</button>
                         </div>
                     </form>
@@ -175,9 +175,8 @@
                             <p> Already have an account?
                                 <button type="button">Login</button>
                         </div>
-                        <div class="inputfield">
-                            <!-- <div class="inputlabel">Email ID</div> -->
-                            <input type="password" formControlName="password" placeholder="  Confirm Password" />
+                        <div class="signup" (click) = "submit()">
+                            <button type="button">SignUP</button><br>
                         </div>
                     </form>
 
