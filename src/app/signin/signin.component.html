@@ -151,28 +151,28 @@
                 <div class="sliderloginreg">
                     <form [formGroup]="formreg" (ngSubmit)="submit()">
                         <div class="inputfield">
-                            <div class="inputlabel">Name</div>
+                            <!-- <div class="inputlabel">Name</div> -->
                             <input type="text" formControlName="name" placeholder="  Enter Your Name" />
                         </div>
                         <div class="inputfield">
-                            <div class="inputlabel">Email ID</div>
+                            <!-- <div class="inputlabel">Email ID</div> -->
                             <input type="text" formControlName="email" placeholder="  Enter Email ID" />
                         </div>
-                        <!-- <div class="inputfield">
-                        <p> Password <br>
-                            <input type="password" placeholder="  Enter Your password" />
-                        </p>    
-                    </div> -->
-                        <!-- <br> -->
-
-                        <div class="login" (click)="move()">
-                            <p> Already have an account?
-                                <button type="button">Login</button>
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Email ID</div> -->
+                            <input type="text" formControlName="phone" placeholder="  Enter Phone No." />
                         </div>
-                        <div class="signup">
-                            <button type="button">SignUP</button><br>
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Email ID</div> -->
+                            <input type="password" formControlName="password" placeholder="  Enter Password" />
+                        </div>
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Email ID</div> -->
+                            <input type="password" formControlName="password" placeholder="  Confirm Password" />
                         </div>
                     </form>
+
+                    
                 </div>
             </div>
         </div>
