@@ -18,6 +18,10 @@ import { WindowService } from './services/window.service';
 import { ConsultationComponent } from './consultation/consultation.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MeddeliveryComponent } from './meddelivery/meddelivery.component';
+import { FamilyMembersComponent } from './family-members/family-members.component';
+import { HistoryComponent } from './history/history.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 @NgModule({
@@ -26,7 +30,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     SigninComponent,
     ConsultationComponent,
-    NavbarComponent
+    NavbarComponent,
+    MeddeliveryComponent,
+    FamilyMembersComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +50,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgbModule,
+    NgxExtendedPdfViewerModule
   ],
   providers: [WindowService],
   

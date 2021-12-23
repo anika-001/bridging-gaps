@@ -1,0 +1,399 @@
+:host{ ::ng-deep{ .sr-only{display:none;}}}
+
+.main {
+  width: 100vw;
+  padding-top: 10vh;
+  height: 100vh;
+  background-color: #005059;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.consult {
+  background-color: #c8e8ea;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.list {
+  // background-color: #0050597a;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  width: 58vw;
+  border-radius: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.doctor
+{
+  height: 17vh;
+  width: 100%;
+  padding-left: 5vw;
+  // background-color: aquamarine;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2vh;
+  // padding-left: 2vw;
+  cursor: pointer;
+  padding-bottom: 2vh;
+  border-bottom: solid thin silver;
+}
+
+.pic
+{
+  height: 15vh;
+  width: 15vh;
+  background-color:white;
+}
+
+.info
+{
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2vw;
+  // background-color: pink;
+ 
+  // margin-left: 30px;
+}
+
+.doctor:hover{
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 2px 2px silver;
+}
+
+
+.reviewre
+{
+  height: 5vh;
+  color: grey;
+  
+}
+
+.profile {
+  height: 85vh;
+  width: 40vw;
+  // border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  // background-color: #0050597a;
+  align-items: center;
+  border-left: solid black;
+}
+
+.profile-card {
+  height: 100%;
+  width: 30vw;
+  // background-color: #44b915ca;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title{
+  height: 10vh;
+  width: 100%;
+  // background-color: burlywood;
+  font-size: 220%;
+  font-weight: 500;
+  // align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // text-align: center;
+}
+
+.introcard{
+  height: 15vh;
+  width: 100%;
+  // background-color: aqua;
+  display: flex;
+  align-items: center;
+  border-bottom: solid thin silver;
+}
+
+.photo {
+  height: 10vh;
+  width: 10vh;
+  background-color: #ffffff;
+  justify-content: center;
+}
+
+.nameandprof{
+  // background-color: pink;
+  width: 15vw;
+  height: 15vh;
+  padding-left: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.name
+{
+  height: 5vh;
+  font-size: 150%;
+  font-weight: 750;
+}
+
+.prof
+{
+  height: 4vh;
+  font-size: 80%;
+  font-style: italic;
+  color: grey;
+}
+
+.r1{
+  height: 5vh;
+  font-size: 150%;
+}
+
+.rating{
+  // background-color: bisque;
+  width: 15vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // font-size: 50%;
+}
+
+.description
+{
+  height: 70vh;
+  width: 100%;
+  // background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+//   align-items: center;
+  border-bottom: solid thin silver;
+}
+
+.desctitle
+{
+  font-size: 150%;
+  width: 100%;
+  // margin-top:20px;
+  font-weight: 500;
+}
+
+.descdesc
+{
+  color:grey;
+  font-size: 100%;
+
+}
+
+.descrow{
+    display: flex;
+    // background-color: palegoldenrod;
+    font-size: 110%;
+}
+
+.descfield{
+    flex-basis: 30%;
+    font-weight: bold;
+}
+
+.descvalue{
+    flex-basis: 70%;
+}
+.review
+{
+  height:15vh;
+  width: 30vw;
+  // background-color: red;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.reviewtitle
+{
+  height: 6vh;
+  font-size: 120%;
+  font-weight: bold;
+  // background-color: pink;
+}
+
+.lastreview
+{
+  height: 15vh;
+  width: 100%;
+  // background-color: bisque; 
+  display: flex;
+  font-size: 80%;
+  flex-direction: column;
+  color: grey;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.reviewreviewcont
+{
+  font-size:2vh;
+  font-weight: 700;
+  color: black;
+}
+
+.reviewreviewer
+{
+  font-size:1.5vh;
+  color: black;
+  font-weight: 600;
+  font-style: italic;
+}
+ngb-rating {
+  color: #9378FF;
+  // font-size: 25px;
+  // margin-left: 35vh;
+}
+
+//rating
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  color: #d3d3d3;
+}
+
+.star1 {
+  position: relative;
+  display: inline-block;
+  font-size: 150%;
+  color: #d3d3d3;
+}
+
+.full {
+  //color: var(--col2vl);
+  //color: var(--col4);
+  color: #9378FF;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  //color: var(--col4);
+  color: #9378FF;
+}
+.review h3
+{
+  font-size:100%;
+}
+
+.review h5
+{
+  font-size:90%;
+  // margin-left: 50vh;
+}
+
+.tags
+{
+ height: 20vh;
+ width: 30vw;
+//  background-color:rgb(83, 44, 167);
+ display: flex;
+ flex-direction: column;
+}
+
+.tagstitle{
+  height: 5vh;
+  width: 100%;
+  // background-color: palevioletred;
+  display: flex;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.appointmenttype{
+  width: 20vw;
+  // background-color: paleturquoise;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appointmentcost{
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagscont{
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // background-color: lightsalmon;
+}
+
+.specializations{
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // background-color: lightsalmon;
+}
+
+.tag{
+  background-color: #9378FF;
+  color: white;
+  height: fit-content;
+  padding: 2px 5px;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.slotbuttons{
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  // background-color: green;
+}
+
+.slotbut{
+  width: fit-content;
+  height: fit-content;
+  padding: 1% 5%;
+  background-color: pink;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
