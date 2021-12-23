@@ -349,7 +349,7 @@
 }
 
 .card{
-    width: 30vw;
+    width: 28vw;
     height: 75vh;
     background: rgba(255, 255, 255, 0);
     border-radius: 20px;
@@ -365,6 +365,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    // margin-left: -20%;
 }
 
 .imagerect{
@@ -378,7 +379,7 @@
 
 .authtitle{
     height: 10vh;
-    width: 30vw;
+    width: 28vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -469,8 +470,8 @@
 }
 
 .slider{
-    background-color: blueviolet;
-    width: 60vw;
+    background-color: cadetblue;
+    width: 56vw;
     display: flex;
     transition: transform 1.5s ease-in-out;
 }
@@ -481,6 +482,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: -3%;
     // justify-content: center;  
 }
 
