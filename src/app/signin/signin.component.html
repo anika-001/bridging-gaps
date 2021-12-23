@@ -168,11 +168,20 @@
                         </div>
                         <div class="inputfield">
                             <!-- <div class="inputlabel">Email ID</div> -->
+                            <input type="password" formControlName="confirmpassword" placeholder="  Confirm Password" />
+                        </div>
+                        
+                        <div class="login" (click)="move()">
+                            <p> Already have an account?
+                                <button type="button">Login</button>
+                        </div>
+                        <div class="inputfield">
+                            <!-- <div class="inputlabel">Email ID</div> -->
                             <input type="password" formControlName="password" placeholder="  Confirm Password" />
                         </div>
                     </form>
 
-                    
+
                 </div>
             </div>
         </div>
