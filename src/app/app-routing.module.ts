@@ -5,10 +5,15 @@ import { FamilyMembersComponent } from './family-members/family-members.componen
 import { HistoryComponent } from './history/history.component';
 import { HomeComponent } from './home/home.component';
 import { MeddeliveryComponent } from './meddelivery/meddelivery.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 import { SigninComponent } from './signin/signin.component';
 
 
 const routes: Routes = [
+  {
+    path: 'schedule',
+    component: ScheduleComponent,
+  },
   {
     path: 'consultation',
     component: ConsultationComponent,

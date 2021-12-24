@@ -22,6 +22,7 @@ import { MeddeliveryComponent } from './meddelivery/meddelivery.component';
 import { FamilyMembersComponent } from './family-members/family-members.component';
 import { HistoryComponent } from './history/history.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     NavbarComponent,
     MeddeliveryComponent,
     FamilyMembersComponent,
-    HistoryComponent
+    HistoryComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
