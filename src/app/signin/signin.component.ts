@@ -75,6 +75,7 @@ errormessage:any;
     }
     else{
       // this.formreg.get("role")?.setValue(this.signupdata[5].value);
+      
       this.as.signup(this.formreg.value).then(res => {
         this.router.navigate(['/home']);
       })
