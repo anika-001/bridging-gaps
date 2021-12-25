@@ -5,7 +5,6 @@
     background-color:#c8e8ea;
     display: flex;
     flex-direction: row;
-   
     // justify-content: space-evenly;
 }
 
@@ -112,9 +111,17 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+.box1
+{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
 .timeslot
 {
-    height:80vh;
+    height:90vh;
     width: 15%;
     background-color:pink;
 }
