@@ -36,10 +36,46 @@
     height: 45vh;
     width: 80%;
     // margin-top:13vh;
-   
     background-color: white;
     border-radius:20px;
     align-items: center;
+    
+}
+
+.align
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.name
+{
+    height:5vh;
+    width:100%;
+    background-color: thistle;
+}
+
+.grid{
+    width:100%;
+}
+
+.five
+{
+   height: 4vh;
+   width: 100%;
+   background-color: lightcoral;
+   margin: 3vh 0vh;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+}
+.seven
+{
+    height: 4vh;
+    width: 10%;
+    background-color: darkseagreen;
+    
 }
 .meet
 {
@@ -66,6 +102,7 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+
 
 .title
 {
@@ -113,18 +150,19 @@
     justify-content: space-evenly;
 }
 
-.box1
-{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
 .timeslot
 {
-    height:90vh;
+    // height:90vh;
     width: 15%;
     background-color:pink;
+}
+
+.timehour
+{
+    height:5vh;
+    width: 100%;
+    background-color: gray;
+    margin: 3vh 0vh;
 }
 
 .cala{
