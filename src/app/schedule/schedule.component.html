@@ -1,14 +1,30 @@
 <p>schedule works!</p>
 <div class="main">
-  
+
   <div class="monthlycal">
-      <div class="calendar">
-          <div class="cal"></div>
-      </div>
-      <div class="meet"></div>
+    <div class="calendar">
+      <div class="cal"></div>
+    </div>
+    <div class="meet"></div>
   </div>
-  
+
   <div class="weeklycal">
-    <!-- <div class="days" ng*For = "let x of [0, 1, 2, 3, 4, 5]"></div> -->
+    <div class="sub">
+      <div class="title">Week</div>
+      <div class="al">
+        <div class="adjust"></div>
+        <div class="daysofweek">
+          <div class="daysname" *ngFor="let x of days">{{x}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="timeslot"></div>
+      <div class="cala">
+        <div class="time" *ngFor="let timeh of time ">
+          <div class="days" *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
