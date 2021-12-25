@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 :root {
     --col1: #005059;
@@ -102,3 +103,7 @@
   
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+.cdk-overlay-container, .cdk-overlay-pane {
+  z-index: 9999 !important;
+}

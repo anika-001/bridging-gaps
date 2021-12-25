@@ -22,6 +22,9 @@ import { MeddeliveryComponent } from './meddelivery/meddelivery.component';
 import { FamilyMembersComponent } from './family-members/family-members.component';
 import { HistoryComponent } from './history/history.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { FormTemplateComponent } from './form-template/form-template.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     NavbarComponent,
     MeddeliveryComponent,
     FamilyMembersComponent,
-    HistoryComponent
+    HistoryComponent,
+    FormTemplateComponent,
+    DynamicFormComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
