@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { logindata, regdata } from '../JSONdata/signin';
 import { AuthService } from '../services/auth.service';
+
+
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import { forbiddenNameValidator } from '../Validators/forbidden-name';
+// import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 // import { WindowService } from '../services/window.service';
 // import { initializeApp } from 'firebase/app';
 // import { environment } from 'src/environments/environment';
@@ -97,6 +103,7 @@ errormessage:any;
     console.log(this.formreg.value)
     console.log(this.formlogin.value)
     // firebase.initializeApp(this.config);
+    
     // this.auth= getAuth();
     // this.windowRef = this.win.windowRef;
     // this.windowRef.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {}, this.auth);

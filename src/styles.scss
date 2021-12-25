@@ -2,6 +2,9 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+body{
+  overflow-x: hidden;
+ }
 :root {
     --col1: #005059;
     // --col4: rgb(178, 154, 231);
@@ -106,4 +109,24 @@
 
 .cdk-overlay-container, .cdk-overlay-pane {
   z-index: 9999 !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

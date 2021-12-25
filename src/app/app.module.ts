@@ -25,6 +25,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { FormTemplateComponent } from './form-template/form-template.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { FormComponent } from './form/form.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FormComponent } from './form/form.component';
     HistoryComponent,
     FormTemplateComponent,
     DynamicFormComponent,
-    FormComponent
+    FormComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

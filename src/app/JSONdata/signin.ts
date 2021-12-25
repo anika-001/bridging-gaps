@@ -1,13 +1,13 @@
 export let logindata = [
     {
-        "placeholder": "Enter Email",
+        "placeholder": "Email",
         "formname": "email",
         "type": "email",
         // "error": false,
         // "errormsg": ""
     },
     {
-        "placeholder": "Enter Password",
+        "placeholder": "Password",
         "formname": "password",
         "type": "password",
         // "error": false,
