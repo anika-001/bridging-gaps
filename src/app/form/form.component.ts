@@ -28,6 +28,7 @@ export class FormComponent implements OnInit {
   formid: number = 0;
   user: any;
   uid:any;
+  title: any;
   ngOnInit(): void {
 
       this.as.getUserState().subscribe(res => {
@@ -47,6 +48,7 @@ export class FormComponent implements OnInit {
 
     let questions: FormBase<string>[] = [];
     if (this.formid == 0) {
+      this.title = "bla1";
       questions = [
         new DropdownField({
           key: 'brave',
@@ -82,6 +84,7 @@ export class FormComponent implements OnInit {
       ];
     }
     else if(this.formid == 1){
+      this.title = "bla1";
       questions = [
         new TextboxField({
           key: 'Name',
@@ -132,9 +135,9 @@ export class FormComponent implements OnInit {
       ]
     }
     else if(this.formid == 2){
+      this.title = "bla2";
       questions = [
         new TextboxField({
-<<<<<<< HEAD
           key: 'Name',
           label: 'Name',
           value: 'Dr. XYZ',
@@ -169,13 +172,6 @@ export class FormComponent implements OnInit {
           required: true,
           order: 5
         }),
-=======
-          key: 'help',
-          label: 'Help',
-          value: 'help symbol',
-          order: 6
-        })
->>>>>>> dbae8862fd4a69ffcef421a30e9d60a24a2aef08
       ]
     }
     return of(questions?.sort((a, b) => a.order - b.order));

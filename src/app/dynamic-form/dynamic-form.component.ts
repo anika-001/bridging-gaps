@@ -21,6 +21,7 @@ export class DynamicFormComponent implements OnInit {
   @Input() questions: FormBase<string>[] | null = [];
   form!: FormGroup;
 
+  @Input() title: String = "Form";
   @Output() newFormEvent = new EventEmitter<formInterface>();
 
   files: any = null;
