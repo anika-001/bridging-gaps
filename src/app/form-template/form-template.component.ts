@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormBase } from './form-base';
 
@@ -18,10 +18,22 @@ export class FormTemplateComponent implements OnInit {
   }
   @Input() question!: FormBase<string>;
   @Input() form!: FormGroup;
+
+  @Output() newFileEvent = new EventEmitter<FileList>();
+
   get isValid() { 
+    
+    return this.form.controls[this.question.key].valid; 
+  }
+
+  emitFiles(event: any){
+    this.newFileEvent.emit(event.target["files"]);
+  }
+
+  addtoform(event: any){
     if (this.question.controlType == "dropdown"){
       this.form.get(this.question.key)?.setValue(this.value);
     }
-    return this.form.controls[this.question.key].valid; }
-
+    console.log(this.form.value);
+  }
 }

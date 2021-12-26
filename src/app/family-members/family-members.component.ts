@@ -17,7 +17,7 @@ export class FamilyMembersComponent implements OnInit {
     'gender': 'Female',
     'dietplan': 'dietplan',
     'helphistory': 'help',
-    // 'currenthelp': 'Ms Anna'
+    'currenthelp': 'Ms Anna'
   }
 
   testArrayKeys: Array<'relation' | 'name' | 'age' | 'medhistory' | 'triggers' | 'dietplan' | 'gender' | 'phone' | 'currenthelp' | 'helphistory'> = ['name', 'age', 'relation', 'gender', 'phone', 'currenthelp', 'medhistory', 'dietplan', 'helphistory', 'triggers'];

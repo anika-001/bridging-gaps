@@ -11,7 +11,7 @@
       </select> -->
 
       <mat-form-field *ngSwitchCase="'dropdown'">
-        <mat-select [(value)]="value" class="ip" style="font-size: 100%; border-bottom: none;">
+        <mat-select [(value)]="value" class="ip" style="font-size: 100%; border-bottom: none;" (selectionChange)="addtoform($event)">
 
             <div *ngFor="let opt of question.options">
                 <mat-option value="{{opt.key}}" class="options">
@@ -20,9 +20,10 @@
         </mat-select>
     </mat-form-field>
 
+    <input *ngSwitchCase="'file'" type="file" id="file" (change)="emitFiles($event)" class = "input">
 
     </div>
 
-    <div class="errorMessage" style="color: red" *ngIf="!isValid">{{question.label}} is required</div>
+    <!-- <div class="errorMessage" style="color: red" *ngIf="!isValid">{{question.label}} is required</div> -->
     
 </div>
