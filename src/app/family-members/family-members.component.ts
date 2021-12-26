@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-family-members',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./family-members.component.scss']
 })
 export class FamilyMembersComponent implements OnInit {
-
+  user:any;
   test: any = {
     'relation': 'grandmama',
     'name': 'Ajji',
@@ -22,9 +24,13 @@ export class FamilyMembersComponent implements OnInit {
 
   testArrayKeys: Array<'relation' | 'name' | 'age' | 'medhistory' | 'triggers' | 'dietplan' | 'gender' | 'phone' | 'currenthelp' | 'helphistory'> = ['name', 'age', 'relation', 'gender', 'phone', 'currenthelp', 'medhistory', 'dietplan', 'helphistory', 'triggers'];
   testArrayFields: Array<String> = ['Name', 'Age', 'Relation', 'Gender', 'Phone Number', 'Help', 'Medical History', 'Diet Plan', 'Help History', 'Reminders']
-  constructor() { }
+  constructor(private as: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    this.as.getUserState().subscribe(res => {
+      if (!res) this.router.navigate(['/signin'])
+      this.user = res;
+    })
   }
 
 }

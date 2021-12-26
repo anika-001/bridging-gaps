@@ -1,21 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  AbstractControl,
-} from '@angular/forms';
+import {  FormControl,  FormGroup,  Validators,  AbstractControl,} from '@angular/forms';
 import { Router } from '@angular/router';
 import { logindata, regdata } from '../JSONdata/signin';
 import { AuthService } from '../services/auth.service';
 
-// import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-// import { WindowService } from '../services/window.service';
-// import { initializeApp } from 'firebase/app';
-// import { environment } from 'src/environments/environment';
-// import { getAuth, RecaptchaVerifier } from "firebase/auth";
-// import 'firebase/auth';
+
 
 @Component({
   selector: 'app-signin',
