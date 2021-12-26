@@ -1,0 +1,27 @@
+section{
+    min-height: 100vh;
+    // width: 100vw;
+}
+.features{
+   background-color: #C8E8EA;
+   .card{
+       background-color: #08808E;
+       color: white;
+   }
+   .btn{
+    background-color: #FE9A84;
+    border-radius: 10px;
+   }
+}
+.consult{
+    background-color: #C8E8EA;
+}
+.download{
+    background-color: #C8E8EA;
+}
+.services{
+    background-color: #08808E;
+}
+.article{
+    background-color: #08808E;
+}

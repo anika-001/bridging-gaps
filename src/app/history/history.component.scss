@@ -174,13 +174,13 @@
 
 .description
 {
-  height: 25vh;
+  height: 70vh;
   width: 100%;
   // background-color: aquamarine;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+//   align-items: center;
   border-bottom: solid thin silver;
 }
 
@@ -196,6 +196,22 @@
 {
   color:grey;
   font-size: 100%;
+
+}
+
+.descrow{
+    display: flex;
+    // background-color: palegoldenrod;
+    font-size: 110%;
+}
+
+.descfield{
+    flex-basis: 30%;
+    font-weight: bold;
+}
+
+.descvalue{
+    flex-basis: 70%;
 }
 .review
 {
