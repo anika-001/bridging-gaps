@@ -27,13 +27,16 @@ export class FormComponent implements OnInit {
 
   formid: number = 0;
   user: any;
+  uid:any;
   ngOnInit(): void {
 
       this.as.getUserState().subscribe(res => {
         if (!res) this.router.navigate(['/signin'])
         this.user = res;
+        console.log(res?.uid);
+        this.uid=res?.uid;
       });
-    
+   
     this.formid = this.route.snapshot.queryParams['id'];
     console.log(this.formid);
     this.questions$ = this.getQuestions();
@@ -134,8 +137,7 @@ export class FormComponent implements OnInit {
   test(form1: formInterface) {
     // this.value += 1;
     console.log(form1.form.value, form1.file);
-    this.db.create(`Test/familymembers`, form1.form.value);
-
+    this.db.create(`familymember/${this.user.uid}/familymembers`, form1.form.value);
   }
 
 }
