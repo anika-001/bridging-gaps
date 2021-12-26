@@ -29,6 +29,7 @@ export class FormComponent implements OnInit {
   user: any;
   uid:any;
   title: any;
+  familymemid: any;
   ngOnInit(): void {
 
       this.as.getUserState().subscribe(res => {
@@ -39,6 +40,7 @@ export class FormComponent implements OnInit {
       });
    
     this.formid = this.route.snapshot.queryParams['id'];
+    this.familymemid = this.route.snapshot.queryParams['fmid'];
     console.log(this.formid);
     this.questions$ = this.getQuestions();
     // this.questions$ = this.getQuestions();
@@ -183,4 +185,23 @@ export class FormComponent implements OnInit {
     this.db.create(`familymembers/${this.user.uid}/familymember`, form1.form.value);
   }
 
+  submit(formdata: formInterface){
+    if(this.formid == 1){
+      this.db.create(`familymembers/${this.user.uid}`, formdata.form.value);
+    }
+    else if(this.formid == 2){
+      
+    }
+    else if(this.formid == 3){
+      //for reference
+
+      // let data = formdata.form.value;
+      // data["dateCreated"] = new Date()
+      // let newdate = data["validTill"].split('/');
+      // data["validTill"] = new Date(Number(newdate[0]), Number(newdate[1]), Number(newdate[2]))
+      // this.db.upload(`DietPlan/${this.user.uid}`, `DietPlan/${this.user.uid}/familymembers/${this.familymemid}`, formdata.file, data);
+    }
+
+
+  }
 }
