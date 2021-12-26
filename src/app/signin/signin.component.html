@@ -116,6 +116,9 @@
     <div class="imagerect"></div>
     <div class="card">
       <div class="authtitle">Login / SignUP</div>
+      <div class="error">
+        <strong>{{error}}</strong>
+    </div>
 
       <div
         class="slider"
@@ -124,7 +127,12 @@
         }"
       >
         <div class="sliderloginreg">
-          <form [formGroup]="formlogin" (ngSubmit)="submit()">
+            
+          <form
+            [formGroup]="formlogin"
+            (ngSubmit)="submit()"
+            class="signupform l"
+          >
             <div *ngFor="let x of signindata" class="inputfield">
               <div class="inputlabel">{{ x.placeholder }}</div>
               <input
@@ -163,36 +171,68 @@
 
             <div class="login" (click)="submit()">
               <br />
-              <button type="button">Login</button>
+              <button type="button" >Login</button>
             </div>
+
+           
           </form>
         </div>
 
+
+
         <div class="sliderloginreg">
-          <form [formGroup]="formreg" (ngSubmit)="submit()">
+          <form [formGroup]="formreg" (ngSubmit)="submit()" class="signupform">
             <div *ngFor="let x of signupdata" class="inputfield">
-              <input
-                placeholder="Enter {{ x.placeholder }}"
-                formControlName="{{ x.formname }}"
-                type="{{ x.type }}"
-              />
-              <div
-                *ngIf="
-                  formlog(x.formname).invalid &&
-                  (formlog(x.formname).dirty || formlog(x.formname).touched)
-                "
-                class="alert alert-danger"
-              >
-                <div *ngIf="formlog(x.formname).errors?.required">
-                  {{ x.formname }} is required.
+              <div *ngIf="x.type != 'dropdown'">
+                <input
+                  placeholder="Enter {{ x.placeholder }}"
+                  formControlName="{{ x.formname }}"
+                  type="{{ x.type }}"
+                />
+                <div
+                  *ngIf="
+                    formregget(x.formname).invalid &&
+                    (formregget(x.formname).dirty ||
+                      formregget(x.formname).touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="formregget(x.formname).errors?.required">
+                    {{ x.formname }} is required.
+                  </div>
+                  <div *ngIf="formregget(x.formname).errors?.pattern">
+                    {{ x.patternerror }}
+                  </div>
                 </div>
-                <div *ngIf="formlog(x.formname).errors?.pattern">
-                  {{ x.patternerror }}
+                <div
+                  *ngIf="
+                    formreg.hasError('notSame') &&
+                    x.formname == 'confirmpassword' &&
+                    !formregget('confirmpassword').errors?.required
+                  "
+                  class="alert alert-danger"
+                >
+                  Passwords don't match
                 </div>
               </div>
-              <div *ngIf="formreg.hasError('notSame') && x.formname == 'confirmpassword' && !formregget('confirmpassword').errors?.required" class="alert alert-danger">
-                Passwords don't match
-            </div>
+              <div *ngIf="x.type == 'dropdown'">
+                <mat-form-field>
+                  <mat-label style="font-size: 100%">{{
+                    x.placeholder
+                  }}</mat-label>
+                  <mat-select
+                    [(value)]="x.value"
+                    class="ip"
+                    style="font-size: 100%; border-bottom: none"
+                  >
+                    <div *ngFor="let y of x.options">
+                      <mat-option value="{{ y.value }}" class="options">
+                        {{ y.placeholder }}</mat-option
+                      >
+                    </div>
+                  </mat-select>
+                </mat-form-field>
+              </div>
             </div>
             <!-- <div class="inputfield"> -->
             <!-- <div class="inputlabel">Name</div> -->
@@ -225,6 +265,7 @@
             <div class="signup" (click)="submit()">
               <button type="button">SignUP</button><br />
             </div>
+            
           </form>
         </div>
       </div>

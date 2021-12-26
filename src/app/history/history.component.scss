@@ -85,10 +85,12 @@
   height: 85vh;
   width: 40vw;
   // border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  // background-color: #0050597a;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // // background-color: #0050597a;
+  // align-items: center;
+  padding-left: 2vw;
   border-left: solid black;
 }
 
@@ -376,6 +378,7 @@ ngb-rating {
   height: fit-content;
   padding: 1% 5%;
   background-color: pink;
+  // background-image: url(../../assets/media/PDFs/23.pdf);
 }
 
 /* width */

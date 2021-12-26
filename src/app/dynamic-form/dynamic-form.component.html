@@ -1,0 +1,20 @@
+<div class="main">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
+
+        <div class="title">Title</div>
+        <div class="content">
+            <div *ngFor="let question of questions" class="form-row">
+                <app-form-template [question]="question" [form]="form"></app-form-template>
+            </div>
+
+            <div class="form-row">
+                <button type="submit" [disabled]="!form.valid">Save</button>
+            </div>
+        </div>
+    </form>
+
+
+    <div *ngIf="payLoad" class="form-row">
+        <strong>Saved the following values</strong><br>{{payLoad}}
+    </div>
+</div>

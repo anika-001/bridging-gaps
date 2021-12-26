@@ -1,17 +1,18 @@
 .main
 {
     height: 100vh;
-    width: 100%;
+    padding-top: 10vh;
+    width: 100vw;
     background-color:#c8e8ea;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
 }
 
 .monthlycal
 {
-    height: 100vh;
-    width: 40%;
+    height: 90vh;
+    width: 30%;
     background-color: bisque;
     display: flex;
     flex-direction: column;
@@ -22,7 +23,7 @@
 
 .calendar
 {
-    height: 60vh;
+    height: 50vh;
     background-color: darkseagreen;
     display: flex;
     align-items: center;
@@ -32,13 +33,49 @@
 
 .cal
 {
-    height: 50vh;
+    height: 45vh;
     width: 80%;
     // margin-top:13vh;
-   
     background-color: white;
     border-radius:20px;
     align-items: center;
+    
+}
+
+.align
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.name
+{
+    height:5vh;
+    width:100%;
+    background-color: thistle;
+}
+
+.grid{
+    width:100%;
+}
+
+.five
+{
+   height: 4vh;
+   width: 100%;
+   background-color: lightcoral;
+   margin: 3vh 0vh;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+}
+.seven
+{
+    height: 4vh;
+    width: 10%;
+    background-color: darkseagreen;
+    
 }
 .meet
 {
@@ -48,16 +85,124 @@
 
 .weeklycal
 {
-    height: 100vh;
-    width: 60%;
+    height: 90vh;
+    width: 70%;
     background-color: burlywood;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow-y: scroll;
 }
 
+.sub
+{
+    height:20vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.title
+{
+    height:10vh;
+    width: 100%;
+    background-color: aqua;
+    
+}
+.al
+{
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-evenly;
+    // padding-left: 15%;
+}
+.adjust
+{
+    width: 15%;
+    background-color: antiquewhite;
+}
+
+.daysofweek
+{
+    width:84%;
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.daysname{
+    height:10vh;
+    width: 100%;
+    background-color: darkgoldenrod;
+    font-size:3vh;
+    font-weight:600;
+    text-align: center;
+}
+
+.box
+{
+    height:80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.timeslot
+{
+    // height:90vh;
+    width: 15%;
+    background-color:pink;
+}
+
+.timehour
+{
+    height:5vh;
+    width: 100%;
+    background-color: gray;
+    margin: 3vh 0vh;
+}
+
+.cala{
+  width: 85%;
+}
 .days
 {
-    height: 1vh;
+    height: 5vh;
+    width: 10%;
     background-color: coral;
+   
 }
+
+.time
+{
+   height: 5vh;
+   width: 100%;
+   background-color: cadetblue;
+   margin: 3vh 0vh;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
