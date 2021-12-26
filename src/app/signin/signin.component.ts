@@ -150,6 +150,7 @@ export class SigninComponent implements OnInit {
     // this.formreg.setValidators(this.checkPasswords);
     
   }
+  
 
   formlog(name: string) {
     return this.formlogin.get(name)!;

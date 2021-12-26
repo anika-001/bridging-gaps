@@ -131,6 +131,45 @@ export class FormComponent implements OnInit {
 
       ]
     }
+    else if(this.formid == 2){
+      questions = [
+        new TextboxField({
+          key: 'Name',
+          label: 'Name',
+          value: 'Dr. XYZ',
+          required: true,
+          order: 1
+        }), 
+        new TextboxField({
+          key: 'Specialization',
+          label: 'Specialization',
+          value: 'General Physician',
+          required: true,
+          order: 2
+        }),
+        new TextboxField({
+          key: 'Description',
+          label: 'Description',
+          value: 'I am a MBBS Doctor',
+          required: true,
+          order: 3
+        }),
+        new TextboxField({
+          key: 'Fees',
+          label: 'Fees',
+          type: 'number',
+          required: true,
+          order: 4
+        }),
+        new TextboxField({
+          key: 'Tags',
+          label: 'Tags (Degrees)',
+          value: 'I am a MBBS Doctor',
+          required: true,
+          order: 5
+        }),
+      ]
+    }
     return of(questions?.sort((a, b) => a.order - b.order));
   }
 
