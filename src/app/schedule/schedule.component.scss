@@ -189,11 +189,10 @@
 .daysname{
     height:8vh;
     width: 100%;
-    font-size:5em;
     font-weight:bold;
-     background-color: darkgoldenrod;
-    font-size:3vh;
-    font-weight:600;
+    //  background-color: darkgoldenrod;
+     font-size:0.06em;
+    font-weight:700;
     text-align: center;
 }
 
@@ -219,7 +218,7 @@
     font-weight:500;
     height:10vh;
     width: 100%;
-    background-color: gray;
+    // background-color: gray;
     margin: 3vh 0vh;
     text-align: center;
     display: flex;
@@ -270,7 +269,7 @@
 {
    height: 10vh;
    width: 100%;
-   background-color: cadetblue;
+//    background-color: cadetblue;
    margin: 3vh 0vh;
    display: flex;
    flex-direction: row;
