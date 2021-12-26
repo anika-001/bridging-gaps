@@ -28,6 +28,7 @@ export class FormComponent implements OnInit {
   formid: number = 0;
 
   ngOnInit(): void {
+
     this.formid = this.route.snapshot.queryParams['id'];
     console.log(this.formid);
     this.questions$ = this.getQuestions();
@@ -37,7 +38,7 @@ export class FormComponent implements OnInit {
   getQuestions() {
 
     let questions: FormBase<string>[] = [];
-    if (this.formid == 1) {
+    if (this.formid == 0) {
       questions = [
         new DropdownField({
           key: 'brave',
@@ -72,13 +73,16 @@ export class FormComponent implements OnInit {
         })
       ];
     }
+    else if(this.formid == 1){
+
+    }
     return of(questions?.sort((a, b) => a.order - b.order));
   }
 
   test(form1: formInterface) {
     // this.value += 1;
     console.log(form1.form.value, form1.file);
-    this.db.create("Test", form1.form.value);
+    this.db.create(`Test/familymembers`, form1.form.value);
 
   }
 
