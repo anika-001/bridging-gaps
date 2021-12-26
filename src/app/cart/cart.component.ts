@@ -41,16 +41,17 @@ export class CartComponent implements OnInit {
 
   }
   RAZORPAY_OPTIONS = {
-    "key": "rzp_test_YK8zTwgKh5jXsx",
+    "key": "rzp_test_FDaOlFcAsJX6Ij",
+    "secret":"LxCYNAlsId4K5behRTulAds5",
     "amount": "10000",
-    "name": "Ovaryact",
+    "name": "Bridging Gaps",
     "order_id": "",
     "description": "",
-    "image": "https://firebasestorage.googleapis.com/v0/b/ovaryact-883da.appspot.com/o/logo.png?alt=media&token=94c41630-000a-4467-9a29-4138f02eb2da",
+    "image": "../../assets/media/images/Logo.png",
     "prefill": {
-      "name": "Test Name",
-      "email": "Test email",
-      "contact": "Test number",
+      "name": "Bridging Gaps",
+      "email": " ieeebridginggaps@gmail.com",
+      "contact": "93847563535",
       "method": ""
     },
     "handler": {},
