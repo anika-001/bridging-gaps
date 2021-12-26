@@ -342,15 +342,15 @@
     min-height: 100vh;
     max-width: 100vw;
     max-height: 100vh;
-    background-color: #005059;
+    background-color: #c8e8ea;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .card{
-    width: 28vw;
-    height: 75vh;
+    width: 30vw;
+    height: 66vh;
     background: rgba(255, 255, 255, 0);
     border-radius: 20px;
     border-color: #005059;
@@ -359,13 +359,10 @@
 }
 
 .loginsignup{
-    background-color: #c8e8ea;
-    height: 120vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    // margin-left: -20%;
 }
 
 .imagerect{
@@ -389,7 +386,7 @@
 }
 
 .inputfield {
-    padding: 6%;
+    padding: 2% 0;
     font-weight: normal;
 }
 
@@ -472,7 +469,7 @@
 
 .slider{
     background-color: cadetblue;
-    width: 56vw;
+    width: 60vw;
     display: flex;
     transition: transform 1.5s ease-in-out;
 }
@@ -481,9 +478,11 @@
     background-color: cadetblue;
     width: 30vw;  
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: -3%;
+    flex-direction: row;
+    justify-content: center;
+    // border: solid black;
+    // align-items: center;
+    // margin-left: -3%;
     // justify-content: center;  
 }
 
@@ -491,3 +490,28 @@
     transform: translateX(-50%);
 }
 
+.signupform{
+    // background-color: pink;
+    max-height: 60vh;
+    // background-color: pink;
+    width: 30vw;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+}
+
+.l{
+    overflow-y: hidden;
+}
+
+.alert{
+    width: 20vw;
+    font-size: 80%;
+    padding: 0;
+}
+
+.error{
+    color: rgb(121, 35, 35);
+}

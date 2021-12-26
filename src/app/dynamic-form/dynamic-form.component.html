@@ -4,7 +4,7 @@
         <div class="title">Title</div>
         <div class="content">
             <div *ngFor="let question of questions" class="form-row">
-                <app-form-template [question]="question" [form]="form"></app-form-template>
+                <app-form-template [question]="question" [form]="form" (newFileEvent)=fileEvent($event)></app-form-template>
             </div>
 
             <div class="form-row">

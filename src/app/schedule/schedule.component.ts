@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-schedule',
@@ -11,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class ScheduleComponent implements OnInit {
   
 
-  constructor() { }
+ 
    leapyear(){
     if(this.curryear % 4== 0 ){
       return true; 
@@ -85,12 +87,18 @@ export class ScheduleComponent implements OnInit {
   month: number =0;
   curryear:number =2021;
   offset:number =4;
+  constructor(private as: AuthService, private router: Router) {}
+  user:any;
   time: Array<number> = [];
   hour: Array<string> = [];
   days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
   names = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
   timehour = ["AM", "PM",]
   ngOnInit(): void {
+    this.as.getUserState().subscribe(res => {
+      if (!res) this.router.navigate(['/signin'])
+      this.user = res;
+    });
     for (let i = 0; i <48; i++)
      {
        this.hour.push( ((i+6)%24).toString() + ":30 - " +((i+7)%24) .toString() + ":00"  );
