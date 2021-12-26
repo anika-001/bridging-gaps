@@ -20,6 +20,7 @@ export class DatabaseopService {
         (ress: any) => {
           ref.getDownloadURL().subscribe((res: any) => {
             console.log(res);
+            data["link"]=res;
             this.db.collection(dbpath).add(data).then(e => {
               // 
               console.log(e)
