@@ -26,6 +26,7 @@ import { FormTemplateComponent } from './form-template/form-template.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { FormComponent } from './form/form.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     FormTemplateComponent,
     DynamicFormComponent,
     FormComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
