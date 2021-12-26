@@ -86,7 +86,7 @@ export class SigninComponent implements OnInit {
       }
     }
     // else {
-    //   // this.formreg.get("role")?.setValue(this.signupdata[5].value);
+    //   this.formreg.get("role")?.setValue(this.signupdata[5].value);
     //   let data = this.formreg.value;
     //   data['role'] = this.signupdata[5].value;
     //   this.as.signup(data).then((res) => {});
@@ -150,6 +150,7 @@ export class SigninComponent implements OnInit {
     // this.formreg.setValidators(this.checkPasswords);
     
   }
+  
 
   formlog(name: string) {
     return this.formlogin.get(name)!;
