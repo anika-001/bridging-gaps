@@ -129,7 +129,7 @@
     width: 10%;
     // background-color: #C8E8EA;
     align-items: center;
-    
+    cursor: pointer;
 }
 .mark{
    border-radius : 50%;
@@ -194,11 +194,11 @@
     justify-content: space-evenly;
 }
 .daysname{
-    height:8vh;
+    height:5vh;
     width: 100%;
     font-weight:bold;
     //  background-color: darkgoldenrod;
-     font-size:0.06em;
+     font-size:0.03em;
     font-weight:700;
     text-align: center;
 }
@@ -221,12 +221,12 @@
 
 .timehour
 {   
-    font-size:3.5vh;
+    font-size:120%;
     font-weight:500;
-    height:10vh;
+    height:5vh;
     width: 100%;
     // background-color: gray;
-    margin: 3vh 0vh;
+    // margin: 3vh 0vh;
     text-align: center;
     display: flex;
     align-items: center;
@@ -236,13 +236,19 @@
 
 .cala{
   width: 85%;
+//   background-color: white;
 }
 .days
 {
-    height: 10vh;
-    width: 10%;
-    background-color: coral;
+    height: 5vh;
+    width: 100%;
+    // background-color: coral;
     font-size:10vh;
+    border-bottom: solid thin silver;
+    border-right: solid thin silver;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
    
 }
 // .adjust3
@@ -251,36 +257,39 @@
 //     flex-direction: column;
 //     justify-content: center;
 // }
+
+.avunav{
+    height:3vh;
+    width: 3vh;
+    border-radius: 50%; 
+}
  .available
- {
-    height:5vh;    
-    background-color: darkslateblue;
-    
+ {   
+    background-color: green;
 }
 
-.available button{
-    font-size:18px;
-    text-align:center;
-}
+// .available button{
+//     font-size:18px;
+//     text-align:center;
+// }
 .unavailable
 {
-    height:5vh; 
-    background-color: lightpink;
-    
+    background-color: rgb(175, 0, 0);   
 }
-.unavailable button{
-    font-size:18px;
-    text-align:center;
-}
+// .unavailable button{
+//     font-size:18px;
+//     text-align:center;
+// }
 .time
 {
-   height: 10vh;
+   height: 5vh;
    width: 100%;
 //    background-color: cadetblue;
-   margin: 3vh 0vh;
+//    margin: 3vh 0vh;
    display: flex;
    flex-direction: row;
    justify-content: space-evenly;
+   align-items: center;
 }
 
 /* width */
