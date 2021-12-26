@@ -85,7 +85,7 @@ export class FormComponent implements OnInit {
       questions = [
         new TextboxField({
           key: 'Name',
-          label: 'name',
+          label: 'Name',
           value: 'name',
           required: true,
           order: 1
@@ -134,6 +134,7 @@ export class FormComponent implements OnInit {
     else if(this.formid == 2){
       questions = [
         new TextboxField({
+<<<<<<< HEAD
           key: 'Name',
           label: 'Name',
           value: 'Dr. XYZ',
@@ -168,6 +169,13 @@ export class FormComponent implements OnInit {
           required: true,
           order: 5
         }),
+=======
+          key: 'help',
+          label: 'Help',
+          value: 'help symbol',
+          order: 6
+        })
+>>>>>>> dbae8862fd4a69ffcef421a30e9d60a24a2aef08
       ]
     }
     return of(questions?.sort((a, b) => a.order - b.order));
@@ -176,7 +184,7 @@ export class FormComponent implements OnInit {
   test(form1: formInterface) {
     // this.value += 1;
     console.log(form1.form.value, form1.file);
-    this.db.create(`familymember/${this.user.uid}/familymembers`, form1.form.value);
+    this.db.create(`familymembers/${this.user.uid}/familymember`, form1.form.value);
   }
 
 }
