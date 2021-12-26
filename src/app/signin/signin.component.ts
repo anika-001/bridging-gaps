@@ -70,8 +70,9 @@ export class SigninComponent implements OnInit {
       }
     } else {
       if (!this.formreg.invalid) {
-        this.as
-          .signup(this.formreg.value)
+        let data = this.formreg.value;
+          data['role'] = this.signupdata[5].value;
+          this.as.signup(data)
           .then((res) => {
             this.login = true;
           })
