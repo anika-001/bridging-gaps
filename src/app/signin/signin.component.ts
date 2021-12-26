@@ -84,12 +84,12 @@ export class SigninComponent implements OnInit {
         this.error = 'Please fill all fields correctly.';
       }
     }
-    // else {
-    //   // this.formreg.get("role")?.setValue(this.signupdata[5].value);
-    //   let data = this.formreg.value;
-    //   data['role'] = this.signupdata[5].value;
-    //   this.as.signup(data).then((res) => {});
-    // }
+    else {
+      this.formreg.get("role")?.setValue(this.signupdata[5].value);
+      let data = this.formreg.value;
+      data['role'] = this.signupdata[5].value;
+      this.as.signup(data).then((res) => {});
+    }
   }
 
   // isdisabled(){
