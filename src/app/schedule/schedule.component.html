@@ -2,14 +2,24 @@
 
   <div class="monthlycal">
     <div class="calendar">
-      <div class="cal"></div>
+      <div class="cal">
+        <div class="align">
+        <div class="name" *ngFor="let days of names">{{days}}</div></div>
+        <div class="grid">
+          <div class="five" *ngFor="let five of [0, 1, 2, 3, 4] ">
+            <div class="seven" *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]"></div>
+          </div>
+        </div>
+        
+      </div>
+
     </div>
     <div class="meet"></div>
   </div>
 
   <div class="weeklycal">
     <div class="sub">
-      <div class="title">Week</div>
+      <div class="title">Schedule</div>
       <div class="al">
         <div class="adjust"></div>
         <div class="daysofweek">
@@ -18,7 +28,10 @@
       </div>
     </div>
     <div class="box">
-      <div class="timeslot"></div>
+
+      <div class="timeslot">
+        <div class="timehour" *ngFor="let hours of hour">{{hours}}</div>
+      </div>
       <div class="cala">
         <div class="time" *ngFor="let timeh of time ">
           <div class="days" *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]"></div>
