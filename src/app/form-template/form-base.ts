@@ -7,6 +7,7 @@ export class FormBase<T> {
     controlType: string;
     type: string;
     options: {key: string, value: string}[];
+    files: FileList | null;
   
     constructor(options: {
         value?: T;
@@ -17,6 +18,7 @@ export class FormBase<T> {
         controlType?: string;
         type?: string;
         options?: {key: string, value: string}[];
+        files?: FileList | null;
       } = {}) {
       this.value = options.value;
       this.key = options.key || '';
@@ -26,5 +28,6 @@ export class FormBase<T> {
       this.controlType = options.controlType || '';
       this.type = options.type || '';
       this.options = options.options || [];
+      this.files = options.files || null;
     }
   }
