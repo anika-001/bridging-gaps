@@ -112,26 +112,42 @@
 
 </div> -->
 <div class="main">
+  <div class="loginsignup">
+    <div class="imagerect"></div>
+    <div class="card">
+      <div class="authtitle">Login / SignUP</div>
 
-    <div class="loginsignup">
-        <div class="imagerect">
-
-        </div>
-        <div class="card">
-            <div class="authtitle">
-                Login / SignUP
+      <div
+        class="slider"
+        [ngClass]="{
+          sliderslide: !login
+        }"
+      >
+        <div class="sliderloginreg">
+          <form [formGroup]="formlogin" (ngSubmit)="submit()">
+            <div *ngFor="let x of signindata" class="inputfield">
+              <div class="inputlabel">{{ x.placeholder }}</div>
+              <input
+                placeholder="Enter {{ x.placeholder }}"
+                formControlName="{{ x.formname }}"
+                type="{{ x.type }}"
+              />
+              <div
+                *ngIf="
+                  formlog(x.formname).invalid &&
+                  (formlog(x.formname).dirty || formlog(x.formname).touched)
+                "
+                class="alert alert-danger"
+              >
+                <div *ngIf="formlog(x.formname).errors?.required">
+                  {{ x.formname }} is required.
+                </div>
+                <div *ngIf="formlog(x.formname).errors?.pattern">
+                  {{ x.patternerror }}
+                </div>
+              </div>
             </div>
-
-            <div class="slider" [ngClass]="{
-                'sliderslide': !login
-            }">
-                <div class="sliderloginreg">
-                    <form [formGroup]="formlogin" (ngSubmit)="submit()">
-                        <div *ngFor="let x of signindata" class="inputfield">
-                            <div class="inputlabel"> {{x.placeholder}}</div>
-                            <input placeholder="Enter {{x.placeholder}}" formControlName={{x.formname}} type={{x.type}}>
-                        </div>
-                        <!-- <div class="inputfield">
+            <!-- <div class="inputfield">
                             <div class="inputlabel"> Email ID</div>
                             <input type="text" formControlName="email" placeholder="  Email ID" />
                         </div>
@@ -140,56 +156,78 @@
                                 <input type="password" formControlName="password" placeholder="  Enter Your password" />
                             
                         </div> -->
-                        <div class="signup" (click)="move()">
-                            <strong>Don't have an account?</strong>
-                                <button type="button">Sign UP!</button>
-                        </div>
-                       
-                        <div class="login" (click) = "submit()"> <br>
-                            <button type="button">Login</button>
-                        </div>
-                    </form>
-                </div>
-
-
-                <div class="sliderloginreg">
-                    <form [formGroup]="formreg" (ngSubmit)="submit()" >
-                        <div *ngFor="let x of signupdata" class="inputfield">
-                            <input placeholder="Enter {{x.placeholder}}" formControlName={{x.formname}} type={{x.type}}>
-                        </div>
-                        <!-- <div class="inputfield"> -->
-                            <!-- <div class="inputlabel">Name</div> -->
-                            <!-- <input type="text" formControlName="name" placeholder="  Enter Your Name" />
-                        </div>
-                        <div class="inputfield"> -->
-                            <!-- <div class="inputlabel">Email ID</div> -->
-                            <!-- <input type="text" formControlName="email" placeholder="  Enter Email ID" />
-                        </div>
-                        <div class="inputfield"> -->
-                            <!-- <div class="inputlabel">Email ID</div> -->
-                            <!-- <input type="text" formControlName="phone" placeholder="  Enter Phone No." />
-                        </div>
-                        <div class="inputfield"> -->
-                            <!-- <div class="inputlabel">Email ID</div> -->
-                            <!-- <input type="password" formControlName="password" placeholder="  Enter Password" />
-                        </div>
-                        <div class="inputfield"> -->
-                            <!-- <div class="inputlabel">Email ID</div> -->
-                            <!-- <input type="password" formControlName="confirmpassword" placeholder="  Confirm Password" />
-                        </div> -->
-                        
-                        <div class="login" (click)="move()">
-                            <p> Already have an account?
-                                <button type="button">Login</button>
-                        </div>
-                        <div class="signup" (click) = "submit()">
-                            <button type="button">SignUP</button><br>
-                        </div>
-                    </form>
-
-
-                </div>
+            <div class="signup" (click)="move()">
+              <strong>Don't have an account?</strong>
+              <button type="button">Sign UP!</button>
             </div>
+
+            <div class="login" (click)="submit()">
+              <br />
+              <button type="button">Login</button>
+            </div>
+          </form>
         </div>
+
+        <div class="sliderloginreg">
+          <form [formGroup]="formreg" (ngSubmit)="submit()">
+            <div *ngFor="let x of signupdata" class="inputfield">
+              <input
+                placeholder="Enter {{ x.placeholder }}"
+                formControlName="{{ x.formname }}"
+                type="{{ x.type }}"
+              />
+              <div
+                *ngIf="
+                  formlog(x.formname).invalid &&
+                  (formlog(x.formname).dirty || formlog(x.formname).touched)
+                "
+                class="alert alert-danger"
+              >
+                <div *ngIf="formlog(x.formname).errors?.required">
+                  {{ x.formname }} is required.
+                </div>
+                <div *ngIf="formlog(x.formname).errors?.pattern">
+                  {{ x.patternerror }}
+                </div>
+              </div>
+              <div *ngIf="formreg.hasError('notSame') && x.formname == 'confirmpassword' && !formregget('confirmpassword').errors?.required" class="alert alert-danger">
+                Passwords don't match
+            </div>
+            </div>
+            <!-- <div class="inputfield"> -->
+            <!-- <div class="inputlabel">Name</div> -->
+            <!-- <input type="text" formControlName="name" placeholder="  Enter Your Name" />
+                        </div>
+                        <div class="inputfield"> -->
+            <!-- <div class="inputlabel">Email ID</div> -->
+            <!-- <input type="text" formControlName="email" placeholder="  Enter Email ID" />
+                        </div>
+                        <div class="inputfield"> -->
+            <!-- <div class="inputlabel">Email ID</div> -->
+            <!-- <input type="text" formControlName="phone" placeholder="  Enter Phone No." />
+                        </div>
+                        <div class="inputfield"> -->
+            <!-- <div class="inputlabel">Email ID</div> -->
+            <!-- <input type="password" formControlName="password" placeholder="  Enter Password" />
+                        </div>
+                        <div class="inputfield"> -->
+            <!-- <div class="inputlabel">Email ID</div> -->
+            <!-- <input type="password" formControlName="confirmpassword" placeholder="  Confirm Password" />
+                        </div> -->
+
+            <div class="login" (click)="move()">
+              <p>
+                Already have an account?
+                <button type="button">Login</button>
+              </p>
+            </div>
+
+            <div class="signup" (click)="submit()">
+              <button type="button">SignUP</button><br />
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
