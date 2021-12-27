@@ -9,7 +9,7 @@ import { DatabaseopService } from '../services/databaseop.service';
   styleUrls: ['./family-members.component.scss']
 })
 export class FamilyMembersComponent implements OnInit {
-  user:any;
+  user: any;
   members: any;
   currentfamilymember: any = 0;
 
@@ -28,7 +28,7 @@ export class FamilyMembersComponent implements OnInit {
 
   testArrayKeys: Array<'relation' | 'name' | 'age' | 'medhistory' | 'triggers' | 'dietplan' | 'gender' | 'phone' | 'currenthelp' | 'helphistory'> = ['name', 'age', 'relation', 'gender', 'phone', 'currenthelp', 'medhistory', 'dietplan', 'helphistory', 'triggers'];
   testArrayFields: Array<String> = ['Name', 'Age', 'Relation', 'Gender', 'Phone Number', 'Help', 'Medical History', 'Diet Plan', 'Help History', 'Reminders']
-  constructor(private as: AuthService, private router: Router, private db: DatabaseopService) {}
+  constructor(private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
   ngOnInit(): void {
     this.as.getUserState().subscribe(res => {
