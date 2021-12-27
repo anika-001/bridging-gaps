@@ -52,10 +52,11 @@
         <div class="time" *ngFor="let timeh of time ">
           <div class="days" *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
             <!-- <div class="adjust3"> -->
-              <div class="avunav available">
+              <!-- {{getavailability(timeh, day)}} -->
+              <div class="avunav available" (click) = "availability(timeh, day, 'free')">
                 <!-- <button>Available</button> -->
               </div>
-              <div class="avunav unavailable">
+              <div class="avunav unavailable" (click) = "availability(timeh, day, 'busy')">
                 <!-- <button>Unavailable</button> -->
               </div>
             <!-- </div> -->
