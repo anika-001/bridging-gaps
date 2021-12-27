@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartComponent } from './cart/cart.component';
 import { ConsultationComponent } from './consultation/consultation.component';
 import { FamilyMembersComponent } from './family-members/family-members.component';
 import { FormComponent } from './form/form.component';
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'form',
     component: FormComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 ];
 

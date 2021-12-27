@@ -1,29 +1,41 @@
+<ng-template #t let-fill="fill">
+    <span class="star1" [class.full]="fill === 100">
+        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+    </span>
+</ng-template>
+
 <div [formGroup]="form">
     <label [attr.for]="question.key">{{question.label}}</label>
 
     <div [ngSwitch]="question.controlType">
 
         <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type"
-            class="input">
+            class="input" placeholder="{{question.value}}">
+
+
+        <textarea *ngSwitchCase="'textarea'" [formControlName]="question.key" [id]="question.key" class="input" placeholder="{{question.value}}"></textarea>
 
         <!-- <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key" class = "dropdown-input">
         <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
       </select> -->
 
-      <mat-form-field *ngSwitchCase="'dropdown'">
-        <mat-select [(value)]="value" class="ip" style="font-size: 100%; border-bottom: none;" (selectionChange)="addtoform($event)">
+        <ngb-rating *ngSwitchCase="'rating'" [max]="5" [(rate)]="currentRating" [readonly]="false" (rateChange) = "addtoform($event)"></ngb-rating>
 
-            <div *ngFor="let opt of question.options">
-                <mat-option value="{{opt.key}}" class="options">
-                    {{opt.value}}</mat-option>
-            </div>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field *ngSwitchCase="'dropdown'">
+            <mat-select [(value)]="value" class="ip" style="font-size: 100%; border-bottom: none;"
+                (selectionChange)="addtoform($event)">
 
-    <input *ngSwitchCase="'file'" type="file" id="file" (change)="emitFiles($event)" class = "input">
+                <div *ngFor="let opt of question.options">
+                    <mat-option value="{{opt.key}}" class="options">
+                        {{opt.value}}</mat-option>
+                </div>
+            </mat-select>
+        </mat-form-field>
+
+        <input *ngSwitchCase="'file'" type="file" id="file" (change)="emitFiles($event)" class="input">
 
     </div>
 
     <!-- <div class="errorMessage" style="color: red" *ngIf="!isValid">{{question.label}} is required</div> -->
-    
+
 </div>

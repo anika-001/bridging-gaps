@@ -21,3 +21,5 @@ input:-webkit-autofill:active
     background-color: rgb(230, 230, 230);
  -webkit-box-shadow: 0 0 0 30px rgb(230, 230, 230) inset !important;
 }
+
+:host{ ::ng-deep{ .sr-only{display:none;}}}

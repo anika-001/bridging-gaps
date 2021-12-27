@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import {AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -25,6 +26,7 @@ import { FormTemplateComponent } from './form-template/form-template.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { FormComponent } from './form/form.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     FormTemplateComponent,
     DynamicFormComponent,
     FormComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
     AngularFireModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
     MatSelectModule,
     MatGridListModule,
     BrowserAnimationsModule,
