@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { weekdays, months as mm } from '../JSONdata/schedule';
+import { DatabaseopService } from '../services/databaseop.service';
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
@@ -23,7 +24,7 @@ export class ScheduleComponent implements OnInit {
   hour: Array<string> = [];
   days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
-  constructor(private as: AuthService, private router: Router) { }
+  constructor(private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
 
   //Function to check if the selected day is the current day we are viewing to mark the selected day
@@ -139,6 +140,9 @@ export class ScheduleComponent implements OnInit {
   }
 
 
+  availability(){
+    
+  }
 
   ngOnInit(): void {
     this.as.getUserState().subscribe(res => {

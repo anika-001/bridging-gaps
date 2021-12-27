@@ -12,6 +12,7 @@ export class FormTemplateComponent implements OnInit {
   constructor() { }
 
   value: any = null;
+  currentRating: number = 0;
 
   ngOnInit(): void {
     console.log(this.question.options)
@@ -34,6 +35,10 @@ export class FormTemplateComponent implements OnInit {
     if (this.question.controlType == "dropdown"){
       this.form.get(this.question.key)?.setValue(this.value);
     }
-    console.log(this.form.value);
+
+    if (this.question.controlType == "rating"){
+      this.form.get(this.question.key)?.setValue(this.currentRating);
+    }
+    console.log(this.form.value, this.currentRating);
   }
 }

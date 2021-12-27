@@ -130,3 +130,38 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+//Rating
+
+:host{ ::ng-deep{ .sr-only{display:none;}}}
+
+ngb-rating {
+  color: #9378FF;
+}
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  color: #d3d3d3;
+}
+
+.star1 {
+  position: relative;
+  display: inline-block;
+  font-size: 150%;
+  color: #d3d3d3;
+}
+
+.full {
+  //color: var(--col2vl);
+  //color: var(--col4);
+  color: #9378FF;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  //color: var(--col4);
+  color: #9378FF;
+}
