@@ -384,6 +384,8 @@ export class FormComponent implements OnInit {
   }
 
   getdocprofile(){
-    this.db.readDoc(`Doctors/${this.uid}`);
+    this.db.readDoc(`Doctors/${this.uid}`).snapshotChanges().subscribe(res => {
+      this.doctorprofile = res;
+    });
   }
 }
