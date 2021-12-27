@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { MeddeliveryComponent } from './meddelivery/meddelivery.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { SigninComponent } from './signin/signin.component';
-
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
   {

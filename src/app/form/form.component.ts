@@ -134,7 +134,6 @@ export class FormComponent implements OnInit {
     else if(this.formid == 2){
       questions = [
         new TextboxField({
-<<<<<<< HEAD
           key: 'Name',
           label: 'Name',
           value: 'Dr. XYZ',
@@ -169,13 +168,6 @@ export class FormComponent implements OnInit {
           required: true,
           order: 5
         }),
-=======
-          key: 'help',
-          label: 'Help',
-          value: 'help symbol',
-          order: 6
-        })
->>>>>>> dbae8862fd4a69ffcef421a30e9d60a24a2aef08
       ]
     }
     return of(questions?.sort((a, b) => a.order - b.order));
