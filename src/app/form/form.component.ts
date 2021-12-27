@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
     this.familymemid = this.route.snapshot.queryParams['fmid'];
 
     this.questions$ = this.getQuestions();
-    
+
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
@@ -373,7 +373,8 @@ export class FormComponent implements OnInit {
       this.db.create(`familymembers/${this.user.uid}/familymember`, formdata.form.value);
     }
     else if(this.formid == 2){
-      
+      let data = formdata.form.value;
+      this.db.createdoc(`Doctors/${this.user.uid}`, data);
     }
     else if(this.formid == 3){
        let data = formdata.form.value;
@@ -385,7 +386,9 @@ export class FormComponent implements OnInit {
     }
     else if(this.formid==5){
       let data = formdata.form.value;
-      this.db.upload(`DietPlanDetails/${this.user.uid}/${this.familymemid}`, `DietPlanDetails/${this.user.uid}/DietPlanDetails/${this.familymemid}/DietPlanDetails`, formdata.file, data);
+      this.db.upload(`DietPlanDetails/${this.user.uid}/${this.familymemid}`, `DietPlanDetails/${this.user.uid}/DietPlanDetails/${this.familymemid}/DietPlanDetails`, formdata.file, data).then(res => {
+        this.router.navigate(['/history'], { queryParams: { id: 2, famid: this.familymemid } });
+      });
     }
     else if(this.formid==6){
       let data = formdata.form.value;

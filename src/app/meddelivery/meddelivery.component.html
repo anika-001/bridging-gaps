@@ -9,7 +9,8 @@
         <div class="list">
             <div class="doctor" *ngFor="let x of links ;let i = index"(click)="currentlinkclick(i)">
                 <div class="pic">
-
+                    <img class="image"
+                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
                 </div>
                 <div class="info">
                     <div class="name">{{x.payload.doc.data().Name }}</div>
@@ -23,7 +24,10 @@
             <div class="profile-card">
                 <div class="title">Application details</div>
                 <div class="introcard">
-                    <div class="photo"></div>
+                    <div class="photo">
+                        <img class="image"
+                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
+                    </div>
                     <div class="nameandprof">
                         <div class="name"> {{links[currentlinks].payload.doc.data().Name}}</div>
                         <a href="{{links[currentlinks].payload.doc.data().Link}}"class="prof">Visit link</a>

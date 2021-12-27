@@ -23,9 +23,9 @@
         </div>
 
         <div class="profile">
-            <button (click) = "test()">Add</button>
+            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "test()">Add a diet</div></div>
             <ngx-extended-pdf-viewer [src]="dietplan[currentfamindex].payload.doc.data().link"
-                [useBrowserLocale]="true" height="85vh"></ngx-extended-pdf-viewer>
+                [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
 
             <!-- <div class="profile-card">
                 <button>Add a member</button>
