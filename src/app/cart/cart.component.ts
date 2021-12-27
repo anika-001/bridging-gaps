@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   
   razorpayResponse: any;
   showModal = false;
-    items: any;
+  items: any;
   total: number = 0;
   subtotal: number = 100;
   shipping: number = 100;
@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
 
     this.as.getUserState().subscribe(user => {
       if(user == null) this.router.navigate(['/signin']);
-      this.getcart(user)
+      // this.getcart(user)
       ;
       this.as.getprofile(this.user.uid).subscribe((profile:any)=>{
         this.RAZORPAY_OPTIONS.prefill.email = this.user.email;
