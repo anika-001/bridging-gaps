@@ -36,12 +36,12 @@
                 <div class="description">
                     <!-- <div class="descdesc"> -->
                     <div *ngFor="let x of testArrayKeys; let i = index" >
-                        <div class="descrow" *ngIf = "test.hasOwnProperty(x)" >
+                        <div class="descrow" *ngIf = "members[currentfamilymember].payload.doc.data().hasOwnProperty(x)" >
                             <div class="descfield">
                                 {{testArrayFields[i]}}:
                             </div>
                             <div class="descvalue">
-                                <div *ngIf="!(i > 5)">{{test[x]}}</div>
+                                <div *ngIf="!(i > 5)">{{members[currentfamilymember].payload.doc.data()[x]}}</div>
                                 <div *ngIf="i > 5"><a Href="#">View</a></div>
                             </div>
                         </div>
