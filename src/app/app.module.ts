@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WindowService } from './services/window.service';
 import { ConsultationComponent } from './consultation/consultation.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,7 +21,10 @@ import { MeddeliveryComponent } from './meddelivery/meddelivery.component';
 import { FamilyMembersComponent } from './family-members/family-members.component';
 import { HistoryComponent } from './history/history.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { DoctorsProfileComponent } from './doctors-profile/doctors-profile.component';
+import { FormTemplateComponent } from './form-template/form-template.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { FormComponent } from './form/form.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 @NgModule({
@@ -35,7 +37,10 @@ import { DoctorsProfileComponent } from './doctors-profile/doctors-profile.compo
     MeddeliveryComponent,
     FamilyMembersComponent,
     HistoryComponent,
-    DoctorsProfileComponent
+    FormTemplateComponent,
+    DynamicFormComponent,
+    FormComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,7 @@ import { DoctorsProfileComponent } from './doctors-profile/doctors-profile.compo
     NgbModule,
     NgxExtendedPdfViewerModule
   ],
-  providers: [WindowService],
+  providers: [],
   
   bootstrap: [AppComponent]
 

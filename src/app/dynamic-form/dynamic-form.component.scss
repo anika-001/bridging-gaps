@@ -1,0 +1,39 @@
+.main{
+    height: 100vh;
+    padding-top: 10vh;
+    width: 100vw;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    background-color: aquamarine;
+    width: 40vw;
+}
+
+
+.title{
+    height: 5vh;
+    width: 100%;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    // height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-row{
+    width: 60%;
+}

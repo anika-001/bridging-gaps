@@ -1,13 +1,14 @@
 export let logindata = [
     {
-        "placeholder": "Enter Email",
+        "placeholder": "Email",
         "formname": "email",
         "type": "email",
+        "patternerror": "Email is invalid"
         // "error": false,
         // "errormsg": ""
     },
     {
-        "placeholder": "Enter Password",
+        "placeholder": "Password",
         "formname": "password",
         "type": "password",
         // "error": false,
@@ -29,6 +30,7 @@ export let regdata = [
         "placeholder": "Enter Email",
         "formname": "email",
         "type": "email",
+        "patternerror": "Email is invalid"
         // "error": false,
         // "errormsg": ""
     },
@@ -36,7 +38,8 @@ export let regdata = [
     {
         "placeholder": "Enter Phone Number",
         "formname": "phone",
-        "type": "number",
+        "type": "text",
+        "patternerror": "Phone is invalid. Please provide a 10 digit phone number."
         // "error": false,
         // "errormsg": ""
     },
@@ -45,6 +48,7 @@ export let regdata = [
         "placeholder": "Enter Password",
         "formname": "password",
         "type": "password",
+        "patternerror": "Password should contain [a-z],[A-Z],[0-9],a special character"
         // "error": false,
         // "errormsg": ""
     },
@@ -53,28 +57,29 @@ export let regdata = [
         "placeholder": "Confirm Password",
         "formname": "confirmpassword",
         "type": "password",
+        "patternerror": "Passwords don't match!"
         // "error": false,
         // "errormsg": ""
     },
-    // {
-    //     "placeholder": "Select Role",
-    //     "value": null,
-    //     "type": "dropdown",
-    //     "error": false,
-    //     "errormsg": "",
-    //     "options": [{
-    //         "value": "NGO",
-    //         "placeholder": "NGO"
-    //     },
-    //     {
-    //         "value": "Gynac",
-    //         "placeholder": "Therapist"
-    //     },
-    //     {
-    //         "value": "user",
-    //         "placeholder": "User"
-    //     }]
+    {
+        "placeholder": "Select Role",
+        "value": null,
+        "type": "dropdown",
+        // "error": false,
+        // "errormsg": "",
+        "options": [{
+            "value": "1",
+            "placeholder": "Family Member"
+        },
+        {
+            "value": "2",
+            "placeholder": "Doctor"
+        },
+        {
+            "value": "3",
+            "placeholder": "Care Taker"
+        }]
         
 
-    // }
+    }
 ]
