@@ -10,6 +10,8 @@ import { FileField } from '../form-template/form-file';
 import { ActivatedRoute } from '@angular/router';
 import { DatabaseopService } from '../services/databaseop.service';
 import { AuthService } from '../services/auth.service';
+import { RatingField } from '../form-template/form-rating';
+import { TextAreaField } from '../form-template/form-textarea';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -82,7 +84,19 @@ export class FormComponent implements OnInit {
           label: 'File',
           value: 'file',
           order: 4
-        })
+        }),
+        new RatingField({
+          key: 'rating',
+          label: 'rating',
+          value: '0',
+          order: 5
+        }),
+        new TextAreaField({
+          key: 'emailAddress',
+          label: 'Email',
+          type: 'email',
+          order: 6
+        }),
       ];
     }
     else if(this.formid == 1){
