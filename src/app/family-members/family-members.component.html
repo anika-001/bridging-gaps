@@ -36,16 +36,24 @@
                 <div class="description">
                     <!-- <div class="descdesc"> -->
                     <div *ngFor="let x of testArrayKeys; let i = index" >
-                        <div class="descrow" *ngIf = "test.hasOwnProperty(x)" >
+                        <div class="descrow" *ngIf = "!(i > 5) && members[currentfamilymember].payload.doc.data().hasOwnProperty(x)" >
                             <div class="descfield">
                                 {{testArrayFields[i]}}:
                             </div>
                             <div class="descvalue">
-                                <div *ngIf="!(i > 5)">{{test[x]}}</div>
-                                <div class = "anchor" *ngIf="i == 5"><a Href="#">View</a></div>
-                                <div class = "anchor" *ngIf="i == 6" (click) = "diet()">View</div>
-                                <div class = "anchor" *ngIf="i == 7"><a Href="#">View</a></div>
+                                <div *ngIf="!(i > 5)">{{members[currentfamilymember].payload.doc.data()[x]}}</div>
+                            </div>
+                        </div>
+
+                        <div class="descrow" *ngIf = "i > 5">
+                            <div class="descfield">
+                                {{testArrayFields[i]}}:
+                            </div>
+                            <div class="descvalue">
+                                <div class = "anchor" *ngIf="i == 6"><a Href="#">View</a></div>
+                                <div class = "anchor" *ngIf="i == 7" (click) = "diet()">View</div>
                                 <div class = "anchor" *ngIf="i == 8"><a Href="#">View</a></div>
+                                <div class = "anchor" *ngIf="i == 9"><a Href="#">View</a></div>
                             </div>
                         </div>
                     </div>
