@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   
   razorpayResponse: any;
   showModal = false;
-    items: any;
+  items: any;
   total: number = 0;
   subtotal: number = 100;
   shipping: number = 100;
