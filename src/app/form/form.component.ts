@@ -146,7 +146,7 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'help',
           label: 'Help',
-          value: 'Enter Help symbol',
+          value: 'Enter Care takers name',
           order: 6
         })
 

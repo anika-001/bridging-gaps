@@ -131,22 +131,19 @@
           <form
             [formGroup]="formlogin"
             (ngSubmit)="submit()"
-            class="signupform l"
-          >
+            class="signupform l">
             <div *ngFor="let x of signindata" class="inputfield">
               <div class="inputlabel">{{ x.placeholder }}</div>
               <input
                 placeholder="Enter {{ x.placeholder }}"
                 formControlName="{{ x.formname }}"
-                type="{{ x.type }}"
-              />
+                type="{{ x.type }}"/>
               <div
                 *ngIf="
                   formlog(x.formname).invalid &&
                   (formlog(x.formname).dirty || formlog(x.formname).touched)
                 "
-                class="alert alert-danger"
-              >
+                class="alert alert-danger">
                 <div *ngIf="formlog(x.formname).errors?.required">
                   {{ x.formname }} is required.
                 </div>

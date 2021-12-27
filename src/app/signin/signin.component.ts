@@ -14,6 +14,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class SigninComponent implements OnInit {
   errormessage: any;
+  // user: any;
+  // role: any = null;
 
   constructor(private as: AuthService, private router: Router) {}
 
@@ -23,29 +25,7 @@ export class SigninComponent implements OnInit {
   selectedrole: any;
   signindata: any;
   signupdata: any;
-  // phoneno: boolean = false;
-  // signindataphoneno: any;
-  // signindataemail: any;
-  // auth:any;
-
-  // app = initializeApp(environment.firebaseConfig);
-  // firebase.initilizeApp(this.config);
-  // this.windowRef = this.win.windowRef;
-
-  // initializeApp(environment.firebaseConfig)
-
-  // phone() {
-  //   this.phoneno = !this.phoneno;
-  //   if (this.phoneno == true) {
-  //     this.signindata = this.signindataphoneno;
-  //     // document.querySelector("#recaptcha-container").style.display = "none";
-  //   }
-
-  //   else {
-  //     // this.windowRef.recaptchaVerifier.clear();
-  //     this.signindata = this.signindataemail;
-  //   }
-  // }
+ 
 
   move() {
     this.login = !this.login;
@@ -85,28 +65,10 @@ export class SigninComponent implements OnInit {
         this.error = 'Please fill all fields correctly.';
       }
     }
-    // else {
-    //   this.formreg.get("role")?.setValue(this.signupdata[5].value);
-    //   let data = this.formreg.value;
-    //   data['role'] = this.signupdata[5].value;
-    //   this.as.signup(data).then((res) => {});
-    // }
+    
   }
 
-  // isdisabled(){
-  //   if(this.login){
-  //     if (this.formlogin.get('email')!.invalid) {
-  //       return true;
-  //     }
-  //   }
-
-  //   else{
-  //     if(this.formreg.invalid){
-  //       return true;
-  //     }
-  //   }
-  // }
-
+  
   formlogin = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -148,6 +110,15 @@ export class SigninComponent implements OnInit {
     this.signindata = logindata;
     this.signupdata = regdata;
     // this.formreg.setValidators(this.checkPasswords);
+    // this.as.getUserState().subscribe(res => {
+    //   if (res) {
+    //     this.as.logout();
+    //   }
+    //   // this.user = res;
+    //   // this.as.getprofile(this.user.uid).subscribe((res: any) => {
+    //   //   this.role = res.payload.data().role;
+    //   // })
+    // })
     
   }
   
@@ -158,14 +129,6 @@ export class SigninComponent implements OnInit {
   formregget(name: string) {
     return this.formreg.get(name)!;
   }
-
-  // get emaillog() { return this.formlogin.get('email')!; }
-  // get phonelog() { return this.formreg.get('phone')!; }
-  // get emailreg() { return this.formreg.get('email')!; }
-  // get password() { return this.formreg.get('password')!; }
-  // get passwordlogin() { return this.formlogin.get('password')!; }
-  // get confirmp() { return this.formreg.get('confirmpassword')!; }
-  // get getname() {  }
 
   checkPasswords(group: AbstractControl) {
     // here we have the 'passwords' group
