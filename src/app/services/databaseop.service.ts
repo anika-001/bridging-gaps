@@ -34,7 +34,14 @@ export class DatabaseopService {
 
         });
     })
+  }
 
+  readCollection(path: any){
+    return this.db.collection(path);
+  }
+
+  readDoc(path: any){
+    return this.db.doc(path);
   }
 
 
