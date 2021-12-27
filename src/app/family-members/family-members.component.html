@@ -7,7 +7,7 @@
 <div class="main">
     <div class="consult">
         <div class="list">
-            <div class="doctor" *ngFor="let x of members">
+            <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i,x.payload.doc.id)">
                 <div class="pic">
 
                 </div>
@@ -25,8 +25,8 @@
                 <div class="introcard">
                     <div class="photo"></div>
                     <div class="nameandprof">
-                        <div class="name">Kyle Wilson</div>
-                        <div class="prof">83 Years</div>
+                        <div class="name">{{members[currentfamilymember].payload.doc.data().FamilyMemberName}}</div>
+                        <div class="prof">{{members[currentfamilymember].payload.doc.data().FamilyMemberAge}}</div>
                     </div>
                     <div class = "rating">
                         <button>edit</button>

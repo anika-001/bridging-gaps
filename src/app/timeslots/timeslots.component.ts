@@ -3,7 +3,9 @@ import { ExternalLibraryService } from '../utils';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 declare let Razorpay: any;
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-timeslots',
   templateUrl: './timeslots.component.html',
@@ -11,7 +13,7 @@ declare let Razorpay: any;
 })
 export class TimeslotsComponent implements OnInit {
   info = ["Time", "Day", "Date", "Book slots"];
-  constructor( private as: AuthService,private router: Router,private db: AngularFirestore, private zone: NgZone,private razorpayService: ExternalLibraryService) { }
+  constructor( private http:HttpClient,private as: AuthService,private router: Router,private db: AngularFirestore, private zone: NgZone,private razorpayService: ExternalLibraryService) { }
   response: any;
   razorpayResponse: any;
   showModal = false;
@@ -75,5 +77,17 @@ export class TimeslotsComponent implements OnInit {
       this.router.navigateByUrl("/orders");
     });
 
+  }
+  postid:any;
+  mypostreq(){
+    
+    const body = {
+      emailD: "bridginggaps@gmail.com",
+      emailP: "vaishnavisdesai@gmail.com",
+      time: Date.now()
+  };
+    this.http.post<any>('https://hooks.zapier.com/hooks/catch/11517211/b1m66ci/', body).subscribe(data => {
+        this.postid = data.id;
+    });
   }
 }
