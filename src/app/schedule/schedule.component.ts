@@ -96,7 +96,7 @@ export class ScheduleComponent implements OnInit {
       this.currentweek[1] += this.currentyear + "";
     }
 
-    console.log(this.currentweek[0], this.currentweek[1]);  
+    // console.log(this.currentweek[0], this.currentweek[1]);  
   }
 
   //gets current day
@@ -115,6 +115,8 @@ export class ScheduleComponent implements OnInit {
     this.currentmonth = this.month;
     this.currentweek = [];
     this.getcurrentweek();
+    this.resetcurrent();
+    console.log(this.currentschedule)
     this.getavailability();
   }
 
@@ -143,13 +145,46 @@ export class ScheduleComponent implements OnInit {
 
 
   availability(timeslot: number, day: number, avail: string){
+
     let week = this.currentweek[0] + " - " + this.currentweek[1];
-    this.db.createdoc(`Availability/${this.user.uid}/Weeks/${week}`, {'day': day, 'timeslot': timeslot, 'availability': avail});
+    this.db.createdoc(`Availability/${this.user.uid}/Weeks/${week}/days/day_${day}_time_${timeslot}`, {'day': day, 'timeslot': timeslot, 'availability': avail});
   }
 
 
+  getday(day: number){
+    let month = Number(this.currentweek[0].split(" ")[1]);
+    let year = Number(this.currentweek[0].split(" ")[2]);
+    let dday = (Number(this.currentweek[0].split(" ")[0]) + day) % this.dayscheck(month);
+    if(dday == 0) dday = this.dayscheck(month);
+    if(dday < Number(this.currentweek[0].split(" ")[0])){month += 1}
+    if(month == 12){year += 1}
+    // console.log(dday, month, year);
+    month = ((month) + 12) % 12;
+    return [dday, month, year]
+  }
+
+  isbeforedate(day: number){
+    // let WD: any = weekdays;
+    // let dday = (day +  Number(this.currentweek[0].split(" ")[0])) % this.dayscheck(this.month);
+    let m: any = mm;
+    // if(dday == 0) dday = this.dayscheck(this.month);
+    let date = (new Date()).toString().split(" ");
+    let dday = this.getday(day);
+    // console.log(dday, "Hii");
+    // console.log((new Date(this.currentyear, this.currentmonth, dday)), (new Date(Number(date[2]), m[date[1]], Number(date[0]))))
+    if((new Date(dday[2], dday[1], dday[0])).getTime() < (new Date(Number(date[3]), m[date[1]], Number(date[2]))).getTime()){return true;}
+    // if((new Date(dday[2], dday[1], dday[0])).getTime() < (new Date(2021, 11, 28)).getTime()){return true;}
+    else{return false;}
+
+  }
+
+  //get current week
+  getweek(){
+    return this.currentweek[0].split(" ")[0] +  " " + this.year[Number(this.currentweek[0].split(" ")[1])] +  " " + this.currentweek[0].split(" ")[2] + " - " + this.currentweek[1].split(" ")[0] +  " " + this.year[Number(this.currentweek[1].split(" ")[1])] + " " + this.currentweek[1].split(" ")[2];
+  }
+
   checkavailability(day: any, timeslot: number){
-    console.log(this.currentschedule[day][timeslot])
+    // console.log(this.currentschedule[day][timeslot], "jjjjjjjjj");
     // if(this.currentschedule.includes(day) && this.currentschedule[day].includes(timeslot)){
       return this.currentschedule[day][timeslot];
     // }
@@ -157,11 +192,15 @@ export class ScheduleComponent implements OnInit {
       // return null;
     // }
   }
+
   getavailability(){
     let week = this.currentweek[0] + " - " + this.currentweek[1];
-    this.db.readDoc(`Availability/${this.user.uid}/Weeks/${week}`).snapshotChanges().subscribe((res:any) => {
+    this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days`).snapshotChanges().subscribe((res:any) => {
       if(res){
-        this.currentschedule[res.payload.data().day][res.payload.data().timeslot] = res.payload.data().availability;
+        for(let r of res){
+          this.currentschedule[r.payload.doc.data().day][r.payload.doc.data().timeslot] = r.payload.doc.data().availability;
+        }
+        // console.log(this.currentschedule)
       }
 
     })
@@ -176,6 +215,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   resetcurrent(){
+    this.currentschedule = [];
     for(let i = 0; i < 7; i++){
       for(let j = 0; j < 48; j++){
         if(j == 0){
@@ -190,7 +230,7 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetcurrent();
-    console.log(this.currentschedule);
+    // console.log(this.currentschedule);
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
@@ -201,7 +241,7 @@ export class ScheduleComponent implements OnInit {
 
     let d = new Date();
     let darr = d.toString().split(" ");
-    console.log(darr)
+    // console.log(darr)
     let m: any = mm;
     this.month = m[darr[1]];
 
