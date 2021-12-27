@@ -10,11 +10,17 @@ import { MeddeliveryComponent } from './meddelivery/meddelivery.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { SigninComponent } from './signin/signin.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TimeslotsComponent } from './timeslots/timeslots.component';
+
 
 const routes: Routes = [
   {
     path: 'schedule',
     component: ScheduleComponent,
+  },
+  {
+    path: 'slots',
+    component: TimeslotsComponent,
   },
   {
     path: 'consultation',
