@@ -7,7 +7,7 @@
 <div class="main">
     <div class="consult">
         <div class="list">
-            <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i,x.payload.doc.id)">
+            <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i, x.payload.doc.id)">
                 <div class="pic">
 
                 </div>
@@ -42,7 +42,10 @@
                             </div>
                             <div class="descvalue">
                                 <div *ngIf="!(i > 5)">{{test[x]}}</div>
-                                <div *ngIf="i > 5"><a Href="#">View</a></div>
+                                <div class = "anchor" *ngIf="i == 5"><a Href="#">View</a></div>
+                                <div class = "anchor" *ngIf="i == 6" (click) = "diet()">View</div>
+                                <div class = "anchor" *ngIf="i == 7"><a Href="#">View</a></div>
+                                <div class = "anchor" *ngIf="i == 8"><a Href="#">View</a></div>
                             </div>
                         </div>
                     </div>
