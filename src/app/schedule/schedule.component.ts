@@ -24,7 +24,7 @@ mydataapi:any;
   time: Array<number> = [];
   hour: Array<string> = [];
   days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-  currentschedule: any = [];
+  currentschedule: Array<Array<any>> = [];
 
   constructor(private http:HttpClient,private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
@@ -59,7 +59,6 @@ mydataapi:any;
 
   //Get week
   getcurrentweek(){
-    // this.currentday = 28;
     let temp1 = ((this.currentday - this.getcurrentday()) + this.dayscheck((this.month - 1 + 12) % 12)) % this.dayscheck((this.month - 1 + 12) % 12);
     if(this.currentday - this.getcurrentday() == 0){
       temp1 = this.dayscheck((this.month - 1 + 12) % 12);
@@ -96,8 +95,6 @@ mydataapi:any;
       this.currentweek[1] += this.month + " ";
       this.currentweek[1] += this.currentyear + "";
     }
-
-    console.log(this.currentweek[0], this.currentweek[1]);  
   }
 
   //gets current day
@@ -116,6 +113,9 @@ mydataapi:any;
     this.currentmonth = this.month;
     this.currentweek = [];
     this.getcurrentweek();
+    this.resetcurrent();
+    console.log(this.currentschedule)
+    this.getavailability();
   }
 
   //Function for left and right arrows of the calender
@@ -142,57 +142,84 @@ mydataapi:any;
   }
 
 
+  // Pin availability and store on database
   availability(timeslot: number, day: number, avail: string){
+
     let week = this.currentweek[0] + " - " + this.currentweek[1];
-    this.db.createdoc(`Availability/${this.user.uid}/Weeks/${week}`, {'day': day, 'timeslot': timeslot, 'availability': avail});
+    this.db.createdoc(`Availability/${this.user.uid}/Weeks/${week}/days/day_${day}_time_${timeslot}`, {'day': day, 'timeslot': timeslot, 'availability': avail});
   }
 
-  getavailability(timeslot: number, day: number){
+
+  // Get the current selected day
+  getday(day: number){
+    let month = Number(this.currentweek[0].split(" ")[1]);
+    let year = Number(this.currentweek[0].split(" ")[2]);
+    let dday = (Number(this.currentweek[0].split(" ")[0]) + day) % this.dayscheck(month);
+    if(dday == 0) dday = this.dayscheck(month);
+    if(dday < Number(this.currentweek[0].split(" ")[0])){month += 1}
+    if(month == 12){year += 1}
+    month = ((month) + 12) % 12;
+    return [dday, month, year]
+  }
+
+  //Check if the selected day is before today
+  isbeforedate(day: number){
+    let m: any = mm;
+    let date = (new Date()).toString().split(" ");
+    let dday = this.getday(day);
+    if((new Date(dday[2], dday[1], dday[0])).getTime() < (new Date(Number(date[3]), m[date[1]], Number(date[2]))).getTime()){return true;}
+    else{return false;}
+
+  }
+
+  //get current week
+  getweek(){
+    return this.currentweek[0].split(" ")[0] +  " " + this.year[Number(this.currentweek[0].split(" ")[1])] +  " " + this.currentweek[0].split(" ")[2] + " - " + this.currentweek[1].split(" ")[0] +  " " + this.year[Number(this.currentweek[1].split(" ")[1])] + " " + this.currentweek[1].split(" ")[2];
+  }
+
+  //Check availability
+  checkavailability(day: any, timeslot: number){
+      return this.currentschedule[day][timeslot];
+  }
+
+  //Get availability from database
+  getavailability(){
     let week = this.currentweek[0] + " - " + this.currentweek[1];
-    this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days`).snapshotChanges().subscribe(res => {
+    this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days`).snapshotChanges().subscribe((res:any) => {
       if(res){
         for(let r of res){
-          this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days/${r.payload.doc.id}/time`).snapshotChanges().subscribe(res => {
-            // this.currentschedule["r.payload.doc.id"] = 
-          })
-          
+          this.currentschedule[r.payload.doc.data().day][r.payload.doc.data().timeslot] = r.payload.doc.data().availability;
         }
-        
-        
       }
     })
-    // this.db.readDoc(`Availability/${this.user.uid}/Weeks/${week}/days/${day}/time/${timeslot}`).snapshotChanges().subscribe((res:any) => {
-    //   if(res && res.payload.data().availability){
-    //     return res.payload.data().availability; 
-    //   }
-    //   else{
-    //     return "none";
-    //   }
-    // })
   }
-postid:any;
-  mypostreq(){
-    
-    const body = {
-      emailD: "bridginggaps@gmail.com",
-      emailP: "vaishnavisdesai@gmail.com",
-      time: Date.now()
-  };
-    this.http.post<any>('https://hooks.zapier.com/hooks/catch/11517211/b1m66ci/', body).subscribe(data => {
-        this.postid = data.id;
-    });
+
+  resetcurrent(){
+    this.currentschedule = [];
+    for(let i = 0; i < 7; i++){
+      for(let j = 0; j < 48; j++){
+        if(j == 0){
+          this.currentschedule.push([0]);
+        }
+        else{
+          this.currentschedule[i].push(0);
+        }
+      }
+    }
   }
+
   ngOnInit(): void {
+    this.resetcurrent();
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
+      this.getavailability();
     });
 
     
 
     let d = new Date();
     let darr = d.toString().split(" ");
-    console.log(darr)
     let m: any = mm;
     this.month = m[darr[1]];
 

@@ -2,6 +2,7 @@ export class FormBase<T> {
     value: T|undefined;
     key: string;
     label: string;
+    placeholder: string;
     required: boolean;
     order: number;
     controlType: string;
@@ -19,6 +20,7 @@ export class FormBase<T> {
         type?: string;
         options?: {key: string, value: string}[];
         files?: FileList | null;
+        placeholder?: string;
       } = {}) {
       this.value = options.value;
       this.key = options.key || '';
@@ -29,5 +31,6 @@ export class FormBase<T> {
       this.type = options.type || '';
       this.options = options.options || [];
       this.files = options.files || null;
+      this.placeholder = options.placeholder || '';
     }
   }

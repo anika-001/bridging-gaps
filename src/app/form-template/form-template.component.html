@@ -10,7 +10,7 @@
     <div [ngSwitch]="question.controlType">
 
         <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type"
-            class="input" placeholder="{{question.value}}">
+            class="input" placeholder="{{question.placeholder}}">
 
 
         <textarea *ngSwitchCase="'textarea'" [formControlName]="question.key" [id]="question.key" class="input" placeholder="{{question.value}}"></textarea>

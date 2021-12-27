@@ -34,17 +34,20 @@ export class FormComponent implements OnInit {
   familymemid: any;
   ngOnInit(): void {
 
-      this.as.getUserState().subscribe(res => {
-        if (!res) this.router.navigate(['/signin'])
-        this.user = res;
-        console.log(res?.uid);
-        this.uid=res?.uid;
-      });
-   
+    this.as.getUserState().subscribe(res => {
+      if (!res) this.router.navigate(['/signin'])
+      this.user = res;
+      this.uid=res?.uid;
+    });
     this.formid = this.route.snapshot.queryParams['id'];
     this.familymemid = this.route.snapshot.queryParams['fmid'];
-    console.log(this.formid);
-    this.questions$ = this.getQuestions();
+
+    if(this.formid != 2){
+      this.questions$ = this.getQuestions();
+    }
+    else{
+
+    }
     // this.questions$ = this.getQuestions();
   }
 
@@ -105,21 +108,21 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'FamilyMemberName',
           label: 'Name of patient\'s family member',
-          value: 'Enter Family member\'s Name',
+          placeholder: 'Enter Family member\'s Name',
           required: true,
           order: 1
         }),
         new TextboxField({
           key: 'FamilyMemberAge',
           label: 'Family Member Age',
-          value: 'Enter age of family member',
+          placeholder: 'Enter age of family member',
           required: true,
           order: 2
         }),
         new TextboxField({
           key: 'Relation',
           label: 'Relation of Family Member',
-          value: 'Enter Family Member\'s Relation',
+          placeholder: 'Enter Family Member\'s Relation',
           required: true,
           order: 3
         }),
@@ -138,7 +141,7 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'FamilyMemberPhoneNumber',
           label: 'Family Member Phone Number',
-          value: 'Enter family member\'s number',
+          placeholder: 'Enter family member\'s number',
           type: 'number',
           required: true,
           order: 5
@@ -146,7 +149,7 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'help',
           label: 'Help',
-          value: 'Enter Care takers name',
+          placeholder: 'Enter Care takers name',
           order: 6
         })
 
@@ -158,21 +161,21 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'DoctorName',
           label: 'Doctor Name',
-          value: 'Enter Doctor\'s Name',
+          placeholder: 'Enter Doctor\'s Name',
           required: true,
           order: 1
         }), 
         new TextboxField({
           key: 'DoctorSpecialization',
           label: 'Enter Doctor\'s Specialization',
-          value: 'Enter Doctor\'s Specialiazation',
+          placeholder: 'Enter Doctor\'s Specialiazation',
           required: true,
           order: 2
         }),
         new TextboxField({
           key: 'DoctorDescription',
           label: 'Enter Doctor\'s Description',
-          value: 'Enter Doctor\'s Description/Introduction further',
+          placeholder: 'Enter Doctor\'s Description/Introduction further',
           required: true,
           order: 3
         }),
@@ -180,14 +183,14 @@ export class FormComponent implements OnInit {
           key: 'DoctorFees',
           label: 'Fees Charged by Doctor',
           type: 'number',
-          value:"Enter doctor\'s fees",
+          placeholder:"Enter doctor\'s fees",
           required: true,
           order: 4
         }),
         new TextboxField({
           key: 'Tags',
           label: 'Tags (Degrees)',
-          value: 'Enter any tag\'s here',
+          placeholder: 'Enter any tag\'s here',
           required: true,
           order: 5
         }),
@@ -206,7 +209,7 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'DoctorIncharge',
           label: 'Name of Doctor',
-          value: 'Name of Doctor Incharge',
+          placeholder: 'Name of Doctor Incharge',
           required: true,
           order: 2
         }),
@@ -225,7 +228,7 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'HelperName',
           label: 'Enter Helper Name',
-          value: 'Enter Helper Name',
+          placeholder: 'Enter Helper Name',
           required: true,
           order: 1
         }), 
@@ -239,7 +242,7 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'HelperOrganisation',
           label: 'Organisation Name',
-          value: 'Enter Organisation Name',
+          placeholder: 'Enter Organisation Name',
           required: true,
           order: 3
         }),
@@ -257,7 +260,7 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'Age',
           label: 'Age',
-          value: 'Age',
+          placeholder: 'Age',
           required: true,
           order: 5
         }),
@@ -290,7 +293,7 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'DoctorInCharge',
           label: 'Doctor In Charge',
-          value: 'Name of the Doctor',
+          placeholder: 'Name of the Doctor',
           required: true,
           order: 3
         }),
@@ -309,14 +312,14 @@ export class FormComponent implements OnInit {
         new TextboxField({
           key: 'DoctorName',
           label: 'Enter Doctor Name',
-          value: 'Enter doctor\'s name',
+          placeholder: 'Enter doctor\'s name',
           required: true,
           order: 1
         }), 
         new TextboxField({
           key: 'PatientName',
           label: 'Enter Patient Name',
-          value: 'Enter name of the patient',
+          placeholder: 'Enter name of the patient',
           required: true,
           order: 2
         }), 
@@ -324,14 +327,14 @@ export class FormComponent implements OnInit {
           key: 'PatientPhoneNumber',
           label: 'Patient Phone Number',
           type: 'number',
-          value: 'Enter patient\'s phone number',
+          placeholder: 'Enter patient\'s phone number',
           required: true,
           order: 3
         }),
         new TextboxField({
           key: 'FamilyId',
           label: 'Family Id',
-          value: 'Select patient\'s family id ',
+          placeholder: 'Select patient\'s family id ',
           required: true,
           order: 4
         }),
@@ -362,15 +365,7 @@ export class FormComponent implements OnInit {
     }
     else if(this.formid == 3){
        let data = formdata.form.value;
-      //  data['familyid']=this.familymemid;
        this.db.upload(`Medicalreport/${this.user.uid}/${this.familymemid}`, `MedicalReport/${this.user.uid}/MedicalReport/${this.familymemid}/medicalreports`, formdata.file, data);
-      //for reference
-
-      // let data = formdata.form.value;
-      // data["dateCreated"] = new Date()
-      // let newdate = data["validTill"].split('/');
-      // data["validTill"] = new Date(Number(newdate[0]), Number(newdate[1]), Number(newdate[2]))
-      // this.db.upload(`DietPlan/${this.user.uid}`, `DietPlan/${this.user.uid}/familymembers/${this.familymemid}`, formdata.file, data);
     }
     else if(this.formid==4){
       let data = formdata.form.value;
@@ -384,5 +379,9 @@ export class FormComponent implements OnInit {
       let data = formdata.form.value;
       this.db.upload(`DoctorPatientDetails/${this.user.uid}/${this.familymemid}`, `DoctorPatientDetails/${this.user.uid}/DoctorPatientDetails/${this.familymemid}/DoctorPatientDetails`, formdata.file, data);
     }
+  }
+
+  getdocprofile(){
+    this.db.readDoc(`Doctors`);
   }
 }

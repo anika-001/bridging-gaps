@@ -27,6 +27,7 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { FormComponent } from './form/form.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { CartComponent } from './cart/cart.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
 import { LabtestComponent } from './labtest/labtest.component';
@@ -48,7 +49,9 @@ import { LabtestComponent } from './labtest/labtest.component';
     ScheduleComponent,
     CartComponent,
     TimeslotsComponent,
-    LabtestComponent
+    LabtestComponent,
+    ReviewsComponent,
+    TimeslotsComponent
   ],
   imports: [
     BrowserModule,
