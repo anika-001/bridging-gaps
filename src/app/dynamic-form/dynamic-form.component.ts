@@ -35,6 +35,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.form.invalid) return;
     this.payLoad = JSON.stringify(this.form.getRawValue());
     let response: formInterface = {'form': this.form, 'file': null};
     if(this.files != null){

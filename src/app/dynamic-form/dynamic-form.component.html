@@ -1,5 +1,5 @@
 <div class="main">
-    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
+    <form [formGroup]="form" class="form">
 
         <div class="title">{{title}}</div>
         <div class="content">
@@ -8,13 +8,13 @@
             </div>
 
             <div class="form-row">
-                <button type="submit" [disabled]="!form.valid">Save</button>
+                <div class="btn6" (click) = "onSubmit()">Save</div>
             </div>
         </div>
     </form>
 
 
-    <div *ngIf="payLoad" class="form-row">
+    <!-- <div *ngIf="payLoad" class="form-row">
         <strong>Saved the following values</strong><br>{{payLoad}}
-    </div>
+    </div> -->
 </div>
