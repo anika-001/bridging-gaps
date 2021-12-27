@@ -51,7 +51,7 @@ export class FamilyMembersComponent implements OnInit {
   }
 
   diet() {
-    this.router.navigate(['/history'], { queryParams: { id: 5, famid: this.currentfamilymemberid }});
+    this.router.navigate(['/history'], { queryParams: { id: 2, famid: this.currentfamilymemberid }});
   }
 
   help() {
