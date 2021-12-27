@@ -31,6 +31,11 @@ export let navbardoctor = [
         // "role":"user",
         "name":"Schedule",
         "link":"/schedule",
+    },
+    {
+        // "role":"user",
+        "name":"Profile",
+        "link":"/form",
     }
 ]
 

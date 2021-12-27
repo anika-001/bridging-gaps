@@ -37,7 +37,7 @@
     <div class="sub">
       <div class="title">Schedule</div>
       <div class="al">
-        <div class="adjust"> WEEK</div>
+        <div class="adjust">{{getweek()}}</div>
         <div class="daysofweek">
           <div class="daysname" *ngFor="let x of days">{{x}}</div>
         </div>
@@ -49,16 +49,22 @@
         <div class="timehour" *ngFor="let hours of hour">{{hours}}</div>
       </div>
       <div class="cala">
-        <div class="time" *ngFor="let timeh of time ">
-          <div class="days" *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
+        <div class="time" *ngFor="let timeh of time; let i = index ">
+          <div style = "width: 100%;" *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
             <!-- <div class="adjust3"> -->
               <!-- {{getavailability(timeh, day)}} -->
-              <div class="avunav available" (click) = "availability(timeh, day, 'free')">
-                <!-- <button>Available</button> -->
+              <div class="days" [ngClass] = "{
+                'av': checkavailability(day, i) == 'free',
+                'unav': checkavailability(day, i) == 'busy'
+              }">
+                <div class="avunav available" *ngIf = "!isbeforedate(day)" (click) = "availability(i, day, 'free')">
+                  <!-- <button>Available</button> -->
+                </div>
+                <div class="avunav unavailable" *ngIf = "!isbeforedate(day)" (click) = "availability(i, day, 'busy')">
+                  <!-- <button>Unavailable</button> -->
+                </div>
               </div>
-              <div class="avunav unavailable" (click) = "availability(timeh, day, 'busy')">
-                <!-- <button>Unavailable</button> -->
-              </div>
+              
             <!-- </div> -->
           </div>
         </div>
