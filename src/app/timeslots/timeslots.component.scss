@@ -6,8 +6,9 @@
   height: 100vh;
   background-color: #c8e8ea;
   display: flex;
-// flex-direction: column;
+flex-direction: column;
   justify-content: center;
+  padding-left: 55vh;
 }
 
 .cont
@@ -17,10 +18,34 @@
   // background-color: burlywood; 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
+.adjust3
+{
+  height:4vh;
+  width: 50%;
+  // background-color:palevioletred;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.doc{
+  height:3em;
+  width:80%;
+  // background-color: cadetblue;
+  font-size:3vh;
+  font-weight: 700;
+  margin-left: 6vh;
+}
+.price
+{
+  font-size:3vh;
+  font-weight: 700;
+  width:20%;
+}
 .adjust1
 {
   // background-color: aqua;
