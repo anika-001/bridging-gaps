@@ -13,7 +13,7 @@
 {
     height: 90vh;
     width: 30%;
-    background-color: bisque;
+    // background-color: bisque;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,7 +24,7 @@
 .calendar
 {
     height: 50vh;
-    background-color: darkseagreen;
+    background-color: #C8E8EA;
     display: flex;
     align-items: center;
     // padding-left: 10%;
@@ -33,7 +33,7 @@
 
 .cal
 {
-    height: 45vh;
+    height: 48vh;
     width: 80%;
     // margin-top:13vh;
     background-color: white;
@@ -42,29 +42,82 @@
     
 }
 
+// .adjust1
+// {
+//     width: 100%;
+//     display: flex;
+//     flex-direction:row;
+// }
+.month
+{
+    height:5vh ;
+    width: 100%;
+    // background-color: lightsalmon;
+    display: flex;
+    flex-direction:row;
+}
+
+.year
+{
+    width: 100%;
+    // background-color:lavender;
+    padding-left: 2vh;
+    font-size:120%;
+    font-weight: bold;
+}
+.arrow
+{
+    // height:5vh;
+    // width:15%;
+    // background-color: darkcyan;
+    // margin-left: 25vh;
+    cursor: pointer;
+    display: flex;
+    // flex-direction: row;
+    
+}
+.arrow1
+{
+    font-size:2em;
+    margin-top:-2vh;
+    // align-items: center;
+    // background-color: aqua;
+}
+.arrow2
+{
+    font-size:2em;
+    margin-top:-2vh;
+    // align-items: center;
+    // background-color: rgb(112, 3, 3);
+}
 .align
 {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
 }
 .name
 {
+  
     height:5vh;
     width:100%;
-    background-color: thistle;
+    // background-color: thistle;
+    font-weight: 700;
+    
 }
 
 .grid{
     width:100%;
+    font-size: 100%;
+    font-weight: 600;
 }
 
 .five
 {
-   height: 4vh;
+   height: 3vh;
    width: 100%;
-   background-color: lightcoral;
+//    background-color: #C8E8EA;
    margin: 3vh 0vh;
    display: flex;
    flex-direction: row;
@@ -72,22 +125,29 @@
 }
 .seven
 {
-    height: 4vh;
+    height: 3vh;
     width: 10%;
-    background-color: darkseagreen;
-    
+    // background-color: #C8E8EA;
+    align-items: center;
+    cursor: pointer;
+}
+.mark{
+   border-radius : 50%;
+   height :4vh;
+   width : 4vh;
+   background-color: lightcoral;
 }
 .meet
 {
     height: 40vh;
-    background-color: lightcoral;
+    // background-color: lightcoral;
 }
 
 .weeklycal
 {
     height: 90vh;
     width: 70%;
-    background-color: burlywood;
+    // background-color: burlywood;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -108,7 +168,7 @@
 {
     height:10vh;
     width: 100%;
-    background-color: aqua;
+    // background-color: aqua;
     
 }
 .al
@@ -121,23 +181,25 @@
 .adjust
 {
     width: 15%;
-    background-color: antiquewhite;
+    // background-color: antiquewhite;
 }
 
 .daysofweek
 {
     width:84%;
     display: flex;
-    
+    font-size:80vh;
     flex-direction: row;
+    
     justify-content: space-evenly;
 }
 .daysname{
-    height:10vh;
+    height:5vh;
     width: 100%;
-    background-color: darkgoldenrod;
-    font-size:3vh;
-    font-weight:600;
+    font-weight:bold;
+    //  background-color: darkgoldenrod;
+     font-size:0.03em;
+    font-weight:700;
     text-align: center;
 }
 
@@ -147,44 +209,87 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .timeslot
 {
-    // height:90vh;
+    height:90vh;
     width: 15%;
-    background-color:pink;
+    // background-color:pink;
 }
 
 .timehour
-{
+{   
+    font-size:120%;
+    font-weight:500;
     height:5vh;
     width: 100%;
-    background-color: gray;
-    margin: 3vh 0vh;
+    // background-color: gray;
+    // margin: 3vh 0vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .cala{
   width: 85%;
+//   background-color: white;
 }
 .days
 {
     height: 5vh;
-    width: 10%;
-    background-color: coral;
+    width: 100%;
+    // background-color: coral;
+    font-size:10vh;
+    border-bottom: solid thin silver;
+    border-right: solid thin silver;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
    
 }
+// .adjust3
+// {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+// }
 
+.avunav{
+    height:3vh;
+    width: 3vh;
+    border-radius: 50%; 
+}
+ .available
+ {   
+    background-color: green;
+}
+
+// .available button{
+//     font-size:18px;
+//     text-align:center;
+// }
+.unavailable
+{
+    background-color: rgb(175, 0, 0);   
+}
+// .unavailable button{
+//     font-size:18px;
+//     text-align:center;
+// }
 .time
 {
    height: 5vh;
    width: 100%;
-   background-color: cadetblue;
-   margin: 3vh 0vh;
+//    background-color: cadetblue;
+//    margin: 3vh 0vh;
    display: flex;
    flex-direction: row;
    justify-content: space-evenly;
+   align-items: center;
 }
 
 /* width */

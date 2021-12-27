@@ -21,6 +21,7 @@ export class DynamicFormComponent implements OnInit {
   @Input() questions: FormBase<string>[] | null = [];
   form!: FormGroup;
 
+  @Input() title: String = "Form";
   @Output() newFormEvent = new EventEmitter<formInterface>();
 
   files: any = null;
@@ -39,8 +40,9 @@ export class DynamicFormComponent implements OnInit {
     if(this.files != null){
       response.file = this.files 
     }
-    this.form.reset();
+    // this.form.reset();
     this.newFormEvent.emit(response);
+    this.form.reset();
   }
 
   fileEvent(file: any){

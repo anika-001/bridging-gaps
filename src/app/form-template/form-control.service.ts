@@ -14,7 +14,7 @@ export class FormControlService {
 
     questions.forEach(question => {
       if (question.controlType != 'file'){
-        group[question.key] = question.required ? new FormControl(question.value || '', Validators.required)
+        group[question.key] = question.required ? new FormControl('', Validators.required)
                                               : new FormControl(question.value || '');
       };
     });
