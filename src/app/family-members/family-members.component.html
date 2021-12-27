@@ -5,6 +5,35 @@
 </ng-template>
 
 <div class="main">
+<<<<<<< HEAD
+    <div class="consult">
+        <div class="list">
+            <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i,x.payload.doc.id)">
+                <div class="pic">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912">
+                </div>
+                <div class="info">
+                    <div class="name">{{x.payload.doc.data().FamilyMemberName}}</div>
+                    <div class="reviewre">{{x.payload.doc.data().Relation}} - {{x.payload.doc.data().FamilyMemberAge}}</div>
+                    <div class="rating r1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-card">
+                <button (click)= 'fam()'>Add a member</button>
+                <div class="title">Profile</div>
+                <div class="introcard">
+                    <div class="photo"></div>
+                    <div class="nameandprof">
+                        <div class="name">{{members[currentfamilymember].payload.doc.data().FamilyMemberName}}</div>
+                        <div class="prof">{{members[currentfamilymember].payload.doc.data().FamilyMemberAge}}</div>
+                    </div>
+                    <div class = "rating">
+                        <button>edit</button>
+                    </div>
+                </div>
+=======
   <div class="consult">
       <div class="list">
           <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i, x.payload.doc.id)">
@@ -32,6 +61,7 @@
                       <button>edit</button>
                   </div>
               </div>
+>>>>>>> fe63be21d3bdb49f29c14780877e75e146e0498a
 
               <div class="description">
                   <!-- <div class="descdesc"> -->
