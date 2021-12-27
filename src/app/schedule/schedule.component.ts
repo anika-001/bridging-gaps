@@ -23,7 +23,7 @@ export class ScheduleComponent implements OnInit {
   time: Array<number> = [];
   hour: Array<string> = [];
   days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-  currentschedule: any = [];
+  currentschedule: Array<Array<any>> = [];
 
   constructor(private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
@@ -115,6 +115,7 @@ export class ScheduleComponent implements OnInit {
     this.currentmonth = this.month;
     this.currentweek = [];
     this.getcurrentweek();
+    this.getavailability();
   }
 
   //Function for left and right arrows of the calender
@@ -146,19 +147,23 @@ export class ScheduleComponent implements OnInit {
     this.db.createdoc(`Availability/${this.user.uid}/Weeks/${week}`, {'day': day, 'timeslot': timeslot, 'availability': avail});
   }
 
-  getavailability(timeslot: number, day: number){
+
+  checkavailability(day: any, timeslot: number){
+    console.log(this.currentschedule[day][timeslot])
+    // if(this.currentschedule.includes(day) && this.currentschedule[day].includes(timeslot)){
+      return this.currentschedule[day][timeslot];
+    // }
+    // else{
+      // return null;
+    // }
+  }
+  getavailability(){
     let week = this.currentweek[0] + " - " + this.currentweek[1];
-    this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days`).snapshotChanges().subscribe(res => {
+    this.db.readDoc(`Availability/${this.user.uid}/Weeks/${week}`).snapshotChanges().subscribe((res:any) => {
       if(res){
-        for(let r of res){
-          this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days/${r.payload.doc.id}/time`).snapshotChanges().subscribe(res => {
-            // this.currentschedule["r.payload.doc.id"] = 
-          })
-          
-        }
-        
-        
+        this.currentschedule[res.payload.data().day][res.payload.data().timeslot] = res.payload.data().availability;
       }
+
     })
     // this.db.readDoc(`Availability/${this.user.uid}/Weeks/${week}/days/${day}/time/${timeslot}`).snapshotChanges().subscribe((res:any) => {
     //   if(res && res.payload.data().availability){
@@ -170,10 +175,26 @@ export class ScheduleComponent implements OnInit {
     // })
   }
 
+  resetcurrent(){
+    for(let i = 0; i < 7; i++){
+      for(let j = 0; j < 48; j++){
+        if(j == 0){
+          this.currentschedule.push([0]);
+        }
+        else{
+          this.currentschedule[i].push(0);
+        }
+      }
+    }
+  }
+
   ngOnInit(): void {
+    this.resetcurrent();
+    console.log(this.currentschedule);
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
+      this.getavailability();
     });
 
     
