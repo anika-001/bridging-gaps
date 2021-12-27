@@ -2,27 +2,26 @@
     <div class="navbar-logo" href="#">
         <div class="logo"></div>
     </div>
-    
-    <div class="open navbar-open" id="navbarinfo">
-        <ul class="navbar-nav ">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Find Doctor</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Lab Test</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Payment</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">My Cart</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login/Signup</a>
-            </li>
-        </ul>
+    <div *ngIf= "role == 1" class="nav">
+        <div class="open navbar-open" id="navbarinfo">        
+            <ul class="navbar-nav ">
+                <li *ngFor="let x of navdata" class="nav-item">
+                    <a class="nav-link" routerLink= "{{ x.link}}" >{{x. name}}</a>
+                </li>            
+            </ul>
+        </div>
     </div>
+
+    <div *ngIf= "role == 2" class="nav">
+        <div class="open navbar-open" id="navbarinfo">        
+            <ul class="navbar-nav ">
+                <li *ngFor="let x of navdoc" class="nav-item">
+                    <a class="nav-link" routerLink= "{{ x.link}}" >{{x. name}}</a>
+                </li>            
+            </ul>
+        </div>        
+    </div>
+
+    <button (click)="logout()">LogOut </button>
+
 </div>

@@ -13,6 +13,10 @@ export class DatabaseopService {
     return this.db.collection(address).add(value);
   }
 
+  createdoc(address: string, value: any) {
+    return this.db.doc(address).set(value);
+  }
+
   upload(path: any, dbpath: any, file: any, data: any) {
     return new Promise((resolve, reject) => {
       const ref = this.storage.ref(path);

@@ -28,6 +28,8 @@ import { FormComponent } from './form/form.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TimeslotsComponent } from './timeslots/timeslots.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     DynamicFormComponent,
     FormComponent,
     ScheduleComponent,
-    CartComponent
+    CartComponent,
+    TimeslotsComponent
   ],
   imports: [
     BrowserModule,

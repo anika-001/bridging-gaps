@@ -24,6 +24,7 @@ mydataapi:any;
   time: Array<number> = [];
   hour: Array<string> = [];
   days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  currentschedule: any = [];
 
   constructor(private http:HttpClient,private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
@@ -141,8 +142,33 @@ mydataapi:any;
   }
 
 
-  availability(){
-    
+  availability(timeslot: number, day: number, avail: string){
+    let week = this.currentweek[0] + " - " + this.currentweek[1];
+    this.db.createdoc(`Availability/${this.user.uid}/Weeks/${week}`, {'day': day, 'timeslot': timeslot, 'availability': avail});
+  }
+
+  getavailability(timeslot: number, day: number){
+    let week = this.currentweek[0] + " - " + this.currentweek[1];
+    this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days`).snapshotChanges().subscribe(res => {
+      if(res){
+        for(let r of res){
+          this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days/${r.payload.doc.id}/time`).snapshotChanges().subscribe(res => {
+            // this.currentschedule["r.payload.doc.id"] = 
+          })
+          
+        }
+        
+        
+      }
+    })
+    // this.db.readDoc(`Availability/${this.user.uid}/Weeks/${week}/days/${day}/time/${timeslot}`).snapshotChanges().subscribe((res:any) => {
+    //   if(res && res.payload.data().availability){
+    //     return res.payload.data().availability; 
+    //   }
+    //   else{
+    //     return "none";
+    //   }
+    // })
   }
 postid:any;
   mypostreq(){
