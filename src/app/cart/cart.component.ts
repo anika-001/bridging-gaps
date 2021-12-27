@@ -41,7 +41,8 @@ export class CartComponent implements OnInit {
 
   }
   RAZORPAY_OPTIONS = {
-
+    "key": "rzp_test_FDaOlFcAsJX6Ij",
+    "secret":"LxCYNAlsId4K5behRTulAds5",
     "amount": "10000",
     "name": "Bridging Gaps",
     "order_id": "",

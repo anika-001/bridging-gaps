@@ -355,7 +355,7 @@ export class FormComponent implements OnInit {
 
   submit(formdata: formInterface){
     if(this.formid == 1){
-      this.db.create(`familymembers/${this.user.uid}`, formdata.form.value);
+      this.db.create(`familymembers/${this.user.uid}/familymember`, formdata.form.value);
     }
     else if(this.formid == 2){
       
