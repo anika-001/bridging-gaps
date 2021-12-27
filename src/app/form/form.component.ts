@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
 
   questions$: Observable<FormBase<any>[]>;
 
-  constructor(private as: AuthService,private route: ActivatedRoute, private db: DatabaseopService,private router: Router) {
+  constructor(private as: AuthService, private route: ActivatedRoute, private db: DatabaseopService,private router: Router) {
     this.questions$ = this.getQuestions();
   }
 
@@ -32,6 +32,8 @@ export class FormComponent implements OnInit {
   uid:any;
   title: any;
   familymemid: any;
+  doctorprofile: any;
+
   ngOnInit(): void {
 
     this.as.getUserState().subscribe(res => {
@@ -382,6 +384,6 @@ export class FormComponent implements OnInit {
   }
 
   getdocprofile(){
-    this.db.readDoc(`Doctors`);
+    this.db.readDoc(`Doctors/${this.uid}`);
   }
 }
