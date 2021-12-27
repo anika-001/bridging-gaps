@@ -26,8 +26,9 @@ export class HistoryComponent implements OnInit {
     });
   }
 
+
   test(){
-    this.router.navigate(['/form'], { queryParams: { id: 5, femid: this.famid } });
+    this.router.navigate(['/form'], { queryParams: { id: 5, fmid: this.famid } });
   }
 
 }
