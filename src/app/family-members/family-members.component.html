@@ -1,10 +1,11 @@
 <ng-template #t let-fill="fill">
-    <span class="star1" [class.full]="fill === 100">
-        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
-    </span>
+  <span class="star1" [class.full]="fill === 100">
+      <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+  </span>
 </ng-template>
 
 <div class="main">
+<<<<<<< HEAD
     <div class="consult">
         <div class="list">
             <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i,x.payload.doc.id)">
@@ -32,23 +33,63 @@
                         <button>edit</button>
                     </div>
                 </div>
+=======
+  <div class="consult">
+      <div class="list">
+          <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i, x.payload.doc.id)">
+              <div class="pic">
 
-                <div class="description">
-                    <!-- <div class="descdesc"> -->
-                    <div *ngFor="let x of testArrayKeys; let i = index" >
-                        <div class="descrow" *ngIf = "test.hasOwnProperty(x)" >
-                            <div class="descfield">
-                                {{testArrayFields[i]}}:
-                            </div>
-                            <div class="descvalue">
-                                <div *ngIf="!(i > 5)">{{test[x]}}</div>
-                                <div *ngIf="i > 5"><a Href="#">View</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- </div> -->
-                </div>
-            </div>
-        </div>
-    </div>
+              </div>
+              <div class="info">
+                  <div class="name">{{x.payload.doc.data().FamilyMemberName}}</div>
+                  <div class="reviewre">{{x.payload.doc.data().Relation}} - {{x.payload.doc.data().FamilyMemberAge}}</div>
+                  <div class="rating r1"></div>
+              </div>
+          </div>
+      </div>
+      <div class="profile">
+          <div class="profile-card">
+              <button (click)= 'fam()'>Add a member</button>
+              <div class="title">Profile</div>
+              <div class="introcard">
+                  <div class="photo"></div>
+                  <div class="nameandprof">
+                      <div class="name">{{members[currentfamilymember].payload.doc.data().FamilyMemberName}}</div>
+                      <div class="prof">{{members[currentfamilymember].payload.doc.data().FamilyMemberAge}}</div>
+                  </div>
+                  <div class = "rating">
+                      <button>edit</button>
+                  </div>
+              </div>
+>>>>>>> fe63be21d3bdb49f29c14780877e75e146e0498a
+
+              <div class="description">
+                  <!-- <div class="descdesc"> -->
+                  <div *ngFor="let x of testArrayKeys; let i = index" >
+                      <div class="descrow" *ngIf = "!(i > 5) && members[currentfamilymember].payload.doc.data().hasOwnProperty(x)" >
+                          <div class="descfield">
+                              {{testArrayFields[i]}}:
+                          </div>
+                          <div class="descvalue">
+                              <div *ngIf="!(i > 5)">{{members[currentfamilymember].payload.doc.data()[x]}}</div>
+                          </div>
+                      </div>
+
+                      <div class="descrow" *ngIf = "i > 5">
+                          <div class="descfield">
+                              {{testArrayFields[i]}}:
+                          </div>
+                          <div class="descvalue">
+                              <div class = "anchor" *ngIf="i == 6"><a Href="#">View</a></div>
+                              <div class = "anchor" *ngIf="i == 7" (click) = "diet()">View</div>
+                              <div class = "anchor" *ngIf="i == 8"><a Href="#">View</a></div>
+                              <div class = "anchor" *ngIf="i == 9"><a Href="#">View</a></div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- </div> -->
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

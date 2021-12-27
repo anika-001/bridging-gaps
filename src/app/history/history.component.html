@@ -7,13 +7,13 @@
 <div class="main">
     <div class="consult">
         <div class="list">
-            <div class="doctor" *ngFor="let x of [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9, 10]">
+            <div class="doctor" *ngFor="let x of dietplan">
                 <div class="pic">
 
                 </div>
                 <div class="info">
-                    <div class="name">kylie wilson</div>
-                    <div class="reviewre">Grandmama - 83 years</div>
+                    <div class="name">{{x.payload.doc.data().DoctorInCharge}}</div>
+                    <div class="reviewre">{{x.payload.doc.data().DietPlanBeginDate}} - {{x.payload.doc.data().dietPlanEndDate}}</div>
                     <div class="rating r1">
 
                     </div>
@@ -22,6 +22,7 @@
         </div>
 
         <div class="profile">
+            <button (click) = "test()">Add</button>
             <ngx-extended-pdf-viewer [src]="'https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/23.pdf?alt=media&token=5c122c42-6cb2-420b-9f1b-30e62494b98c'"
                 [useBrowserLocale]="true" height="85vh"></ngx-extended-pdf-viewer>
 

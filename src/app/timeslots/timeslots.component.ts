@@ -23,7 +23,7 @@ export class TimeslotsComponent implements OnInit {
   shipping: number = 100;
   user:any;
   ngOnInit(): void {
-    
+    this.mypostreq();
     this.as.getUserState().subscribe(user => {
       if(user == null) this.router.navigate(['/signin']);
       // this.getcart(user)
@@ -80,11 +80,14 @@ export class TimeslotsComponent implements OnInit {
   }
   postid:any;
   mypostreq(){
-    
+    console.log("in post req");
     const body = {
-      emailD: "bridginggaps@gmail.com",
-      emailP: "vaishnavisdesai@gmail.com",
-      time: Date.now()
+      "email1": "aanchalkviit@gmail.com",
+      "email2": "anikatibrewala@gmail.com",
+      "time": Math.floor(Date.now()/1000),
+      "patientID": "1",
+      "doctorID": "2",
+       "userID": "1"
   };
     this.http.post<any>('https://hooks.zapier.com/hooks/catch/11517211/b1m66ci/', body).subscribe(data => {
         this.postid = data.id;

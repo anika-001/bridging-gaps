@@ -410,30 +410,31 @@
     justify-content: center;
 }
 
-.signup button
-{
-    font-size: 88%;
-    text-align: center;
-    justify-content: center;
-    border-radius: 10px;
-    width: fit-content;
-    padding: 1% 2%;
-    background-color: rgba(255, 255, 255, 0.822);
-    margin-left: 2%;
-    cursor: pointer;
-    box-shadow: 2px 2px 2px black;
-}
+// .signup button
+// {
+//     font-size: 88%;
+//     text-align: center;
+//     justify-content: center;
+//     border-radius: 10px;
+//     width: fit-content;
+//     padding: 1% 2%;
+//     background-color: rgba(255, 255, 255, 0.822);
+//     margin-left: 2%;
+//     cursor: pointer;
+//     box-shadow: 2px 2px 2px black;
+// }
 
 .signup {
     // margin-left: 6%;
     padding: 2%;
     text-align: center;
+    cursor: pointer;
 }
 
-.signup button:hover{
-    background-color: rgba(255, 255, 255);
-    box-shadow: none;
-}
+// .signup button:hover{
+//     background-color: rgba(255, 255, 255);
+//     box-shadow: none;
+// }
 
 .login
 {
@@ -443,29 +444,30 @@
     flex-direction: row;
     justify-content: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.login button{
-    font-size: 88%;
-    text-align: center;
-    justify-content: center;
-    border-radius: 8px;
-    width: fit-content;
-    padding: 1% 2%;
-    background-color: rgba(255, 255, 255, 0.822);
-    margin-left: 2%;
-    cursor: pointer;
-    box-shadow: 2px 2px 2px black;
-}
+// .login button{
+//     font-size: 88%;
+//     text-align: center;
+//     justify-content: center;
+//     border-radius: 8px;
+//     width: fit-content;
+//     padding: 1% 2%;
+//     background-color: rgba(255, 255, 255, 0.822);
+//     margin-left: 2%;
+//     cursor: pointer;
+//     box-shadow: 2px 2px 2px black;
+// }
 
 .login p{
     padding: 2%;
 }
 
-.login button:hover{
-    background-color: rgba(255, 255, 255);
-    box-shadow: none;
-}
+// .login button:hover{
+//     background-color: rgba(255, 255, 255);
+//     box-shadow: none;
+// }
 
 .slider{
     background-color: cadetblue;
