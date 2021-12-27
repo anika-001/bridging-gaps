@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { weekdays, months as mm } from '../JSONdata/schedule';
 import { DatabaseopService } from '../services/databaseop.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
@@ -10,7 +11,7 @@ import { DatabaseopService } from '../services/databaseop.service';
 })
 
 export class ScheduleComponent implements OnInit {
-
+mydataapi:any;
   year = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   month: number = 0;
   curryear: number = 0;
@@ -25,7 +26,7 @@ export class ScheduleComponent implements OnInit {
   days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
   currentschedule: Array<Array<any>> = [];
 
-  constructor(private as: AuthService, private router: Router, private db: DatabaseopService) { }
+  constructor(private http:HttpClient,private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
 
   //Function to check if the selected day is the current day we are viewing to mark the selected day
@@ -58,7 +59,6 @@ export class ScheduleComponent implements OnInit {
 
   //Get week
   getcurrentweek(){
-    // this.currentday = 28;
     let temp1 = ((this.currentday - this.getcurrentday()) + this.dayscheck((this.month - 1 + 12) % 12)) % this.dayscheck((this.month - 1 + 12) % 12);
     if(this.currentday - this.getcurrentday() == 0){
       temp1 = this.dayscheck((this.month - 1 + 12) % 12);
@@ -95,8 +95,6 @@ export class ScheduleComponent implements OnInit {
       this.currentweek[1] += this.month + " ";
       this.currentweek[1] += this.currentyear + "";
     }
-
-    // console.log(this.currentweek[0], this.currentweek[1]);  
   }
 
   //gets current day
@@ -144,6 +142,7 @@ export class ScheduleComponent implements OnInit {
   }
 
 
+  // Pin availability and store on database
   availability(timeslot: number, day: number, avail: string){
 
     let week = this.currentweek[0] + " - " + this.currentweek[1];
@@ -151,6 +150,7 @@ export class ScheduleComponent implements OnInit {
   }
 
 
+  // Get the current selected day
   getday(day: number){
     let month = Number(this.currentweek[0].split(" ")[1]);
     let year = Number(this.currentweek[0].split(" ")[2]);
@@ -158,22 +158,16 @@ export class ScheduleComponent implements OnInit {
     if(dday == 0) dday = this.dayscheck(month);
     if(dday < Number(this.currentweek[0].split(" ")[0])){month += 1}
     if(month == 12){year += 1}
-    // console.log(dday, month, year);
     month = ((month) + 12) % 12;
     return [dday, month, year]
   }
 
+  //Check if the selected day is before today
   isbeforedate(day: number){
-    // let WD: any = weekdays;
-    // let dday = (day +  Number(this.currentweek[0].split(" ")[0])) % this.dayscheck(this.month);
     let m: any = mm;
-    // if(dday == 0) dday = this.dayscheck(this.month);
     let date = (new Date()).toString().split(" ");
     let dday = this.getday(day);
-    // console.log(dday, "Hii");
-    // console.log((new Date(this.currentyear, this.currentmonth, dday)), (new Date(Number(date[2]), m[date[1]], Number(date[0]))))
     if((new Date(dday[2], dday[1], dday[0])).getTime() < (new Date(Number(date[3]), m[date[1]], Number(date[2]))).getTime()){return true;}
-    // if((new Date(dday[2], dday[1], dday[0])).getTime() < (new Date(2021, 11, 28)).getTime()){return true;}
     else{return false;}
 
   }
@@ -183,16 +177,12 @@ export class ScheduleComponent implements OnInit {
     return this.currentweek[0].split(" ")[0] +  " " + this.year[Number(this.currentweek[0].split(" ")[1])] +  " " + this.currentweek[0].split(" ")[2] + " - " + this.currentweek[1].split(" ")[0] +  " " + this.year[Number(this.currentweek[1].split(" ")[1])] + " " + this.currentweek[1].split(" ")[2];
   }
 
+  //Check availability
   checkavailability(day: any, timeslot: number){
-    // console.log(this.currentschedule[day][timeslot], "jjjjjjjjj");
-    // if(this.currentschedule.includes(day) && this.currentschedule[day].includes(timeslot)){
       return this.currentschedule[day][timeslot];
-    // }
-    // else{
-      // return null;
-    // }
   }
 
+  //Get availability from database
   getavailability(){
     let week = this.currentweek[0] + " - " + this.currentweek[1];
     this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days`).snapshotChanges().subscribe((res:any) => {
@@ -200,18 +190,8 @@ export class ScheduleComponent implements OnInit {
         for(let r of res){
           this.currentschedule[r.payload.doc.data().day][r.payload.doc.data().timeslot] = r.payload.doc.data().availability;
         }
-        // console.log(this.currentschedule)
       }
-
     })
-    // this.db.readDoc(`Availability/${this.user.uid}/Weeks/${week}/days/${day}/time/${timeslot}`).snapshotChanges().subscribe((res:any) => {
-    //   if(res && res.payload.data().availability){
-    //     return res.payload.data().availability; 
-    //   }
-    //   else{
-    //     return "none";
-    //   }
-    // })
   }
 
   resetcurrent(){
@@ -230,7 +210,6 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetcurrent();
-    // console.log(this.currentschedule);
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
@@ -241,7 +220,6 @@ export class ScheduleComponent implements OnInit {
 
     let d = new Date();
     let darr = d.toString().split(" ");
-    // console.log(darr)
     let m: any = mm;
     this.month = m[darr[1]];
 

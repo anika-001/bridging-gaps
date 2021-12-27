@@ -12,7 +12,7 @@ export class FamilyMembersComponent implements OnInit {
   user:any;
   members: any;
   currentfamilymember: any = 0;
-
+currentfamilymemberid:any;
   test: any = {
     'relation': 'grandmama',
     'name': 'Ajji',
@@ -37,9 +37,15 @@ export class FamilyMembersComponent implements OnInit {
       this.getfamilymembers();
     })
   }
-
+  
   fam() {
     this.router.navigate(['/form'], { queryParams: { id: 1 } });
+  }
+  familymemberclick(familymember:any,currentfammemberid:any){
+   this.currentfamilymember=familymember;
+   this.currentfamilymemberid=currentfammemberid;
+   console.log(this.currentfamilymember);
+
   }
   // diet() {
   //   this.router.navigate(['/form'], { queryParams: { id: 5, fmid: this.currentfamilymember } });
@@ -47,6 +53,7 @@ export class FamilyMembersComponent implements OnInit {
   getfamilymembers() {
     this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
       this.members = res;
+
 
     })
   }

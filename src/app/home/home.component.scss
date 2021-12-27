@@ -1,27 +1,199 @@
-section{
-    min-height: 100vh;
-    // width: 100vw;
+// section{
+//     min-height: 100vh;
+//     // width: 100vw;
+// }
+// .features{
+//    background-color: #C8E8EA;
+//    .card{
+//        background-color: #08808E;
+//        color: white;
+//    }
+//    .btn{
+//     background-color: #FE9A84;
+//     border-radius: 10px;
+//    }
+// }
+.main{
+    padding-top: 10vh;
 }
-.features{
-   background-color: #C8E8EA;
-   .card{
-       background-color: #08808E;
-       color: white;
-   }
-   .btn{
-    background-color: #FE9A84;
-    border-radius: 10px;
-   }
+.appointment {
+    height: 50vh;
+    width: 100vw;
+    background-color: #c8e8ea;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-.consult{
-    background-color: #C8E8EA;
+.past{
+    height:50vh;
+    width: 35vw;
+    background-color: #c8e8ea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.download{
-    background-color: #C8E8EA;
+.oldt{
+      height: 10vh;
+      width:35vw;
+      background-color: #c8e8ea;
+      font-size: 25px;
+      text-align: center;
+      bottom:5px;
+
 }
-.services{
-    background-color: #08808E;
+.oldb{
+    height:40vh;
+    width: 35vw;
+    background-color: #c8e8ea;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
 }
-.article{
-    background-color: #08808E;
+.content{
+      height: 38vh;
+      width: 10vw;
+      margin: 1vw;
+      text-align: center;
+      background-color: ghostwhite;
+}
+.between{
+    height:40vh;
+    width: 10vw;
+    background-color: #c8e8ea;
+}
+.upcoming{
+    height:50vh;
+    width: 35vw;
+    background-color: #c8e8ea;
+}
+.family{
+    height: 75vh;
+    width: 100vw;
+    background-color:#c8e8ea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.above{
+    height: 10vh;
+    width:100vw;
+    background-color: #c8e8ea;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+}
+.below{
+    height:65vh;
+    width:100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.members{
+    height:60vh;
+    width:20vw;
+    background-color: #3c9096;
+    align-items: center;
+    margin: 10px;
+    // padding: 10px;
+    justify-content: center;
+}
+.pic{
+    height:30vh;
+    width: 20vw;
+    background-color: #3c9096;
+    justify-content: center;
+    background-image: url("../../assets/images/family.png");
+    background-size: 280px 200px;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+.info{
+    height:30vh;
+    width:20vw;
+    background-color: #3c9096;
+    justify-content: center;
+    text-align: left;
+    font-size: 130%;
+}
+.medication{
+    height: 60vh;
+    width: 100vw;
+    background-color:#c8e8ea ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.top{
+    height:5vh;
+    width:100vw;
+    background-color: #c8e8ea;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: 600;
+}
+.show{
+    height: 5vh;
+    width: 20vw;
+    background-color: #c8e8ea;
+    margin-left:80vw;
+    font-size: 12px;
+    color: rgb(98, 0, 255);
+}
+.bottom{
+    height:55vh;
+    width:100vw;
+    background-color: rgb(215, 229, 230);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.medicine{
+    height:50vh;
+    width:20vw;
+    background-color: #3c9096;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.test{
+    height: 60vh;
+    width: 100vw;
+    background-color: #c8e8ea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    height:50vh;
+    width:20vw;
+    background-color: #3c9096(34, 32, 29);
+    justify-content: center;
+    margin: 10px;
+    // padding: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.types{
+    height: 25vh;
+    width: 20vw;
+    background-color: lightyellow;
+    justify-content: center;
+}
+.details{
+    height: 25vh;
+    width:20vw;
+    background-color: lightseagreen;
+    justify-content: center;
 }

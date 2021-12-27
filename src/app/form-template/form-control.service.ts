@@ -9,13 +9,13 @@ export class FormControlService {
 
   constructor() { }
 
-  toFormGroup(questions: FormBase<string>[] ) {
+  toFormGroup(questions: FormBase<string>[]) {
     const group: any = {};
 
     questions.forEach(question => {
-      if (question.controlType != 'file'){
-        group[question.key] = question.required ? new FormControl('', Validators.required)
-                                              : new FormControl('');
+      if (question.controlType != 'file') {
+        group[question.key] = question.required ? new FormControl(question.value || '', Validators.required)
+          : new FormControl(question.value || '');
       };
     });
     return new FormGroup(group);
