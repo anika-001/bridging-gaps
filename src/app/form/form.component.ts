@@ -36,20 +36,25 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.formid = this.route.snapshot.queryParams['id'];
+    this.familymemid = this.route.snapshot.queryParams['fmid'];
+
+    this.questions$ = this.getQuestions();
+    
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
       this.uid=res?.uid;
+      // if(this.formid != 2){
+      //   this.questions$ = this.getQuestions();
+      // }
+      // else{
+      //   this.getdocprofile().snapshotChanges().subscribe((res: any) => {
+      //     if(res){this.doctorprofile = res;}
+      //     this.questions$ = this.getQuestions();
+      //   });
+      // }
     });
-    this.formid = this.route.snapshot.queryParams['id'];
-    this.familymemid = this.route.snapshot.queryParams['fmid'];
-
-    if(this.formid != 2){
-      this.questions$ = this.getQuestions();
-    }
-    else{
-
-    }
     // this.questions$ = this.getQuestions();
   }
 
@@ -164,6 +169,7 @@ export class FormComponent implements OnInit {
           key: 'DoctorName',
           label: 'Doctor Name',
           placeholder: 'Enter Doctor\'s Name',
+          // value: this.doctorprofile.payload.doc.data().DoctorName,
           required: true,
           order: 1
         }), 
@@ -171,6 +177,7 @@ export class FormComponent implements OnInit {
           key: 'DoctorSpecialization',
           label: 'Enter Doctor\'s Specialization',
           placeholder: 'Enter Doctor\'s Specialiazation',
+          // value: this.doctorprofile.payload.doc.data().DoctorSpecialization,
           required: true,
           order: 2
         }),
@@ -178,6 +185,7 @@ export class FormComponent implements OnInit {
           key: 'DoctorDescription',
           label: 'Enter Doctor\'s Description',
           placeholder: 'Enter Doctor\'s Description/Introduction further',
+          // value: this.doctorprofile.payload.doc.data().DoctorDescription,
           required: true,
           order: 3
         }),
@@ -186,6 +194,7 @@ export class FormComponent implements OnInit {
           label: 'Fees Charged by Doctor',
           type: 'number',
           placeholder:"Enter doctor\'s fees",
+          // value: this.doctorprofile.payload.doc.data().DoctorFees,
           required: true,
           order: 4
         }),
@@ -193,6 +202,7 @@ export class FormComponent implements OnInit {
           key: 'Tags',
           label: 'Tags (Degrees)',
           placeholder: 'Enter any tag\'s here',
+          // value: this.doctorprofile.payload.doc.data().Tags,
           required: true,
           order: 5
         }),
@@ -304,7 +314,7 @@ export class FormComponent implements OnInit {
           label: 'Any supporting Diet Plan Reports',
           type:'file',
           required: true,
-          order: 5
+          order: 4
         }),
       ]
     }
@@ -384,8 +394,6 @@ export class FormComponent implements OnInit {
   }
 
   getdocprofile(){
-    this.db.readDoc(`Doctors/${this.uid}`).snapshotChanges().subscribe(res => {
-      this.doctorprofile = res;
-    });
+    return this.db.readDoc(`Doctors/${this.uid}`);
   }
 }
