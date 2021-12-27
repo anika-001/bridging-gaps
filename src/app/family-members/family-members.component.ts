@@ -12,7 +12,7 @@ export class FamilyMembersComponent implements OnInit {
   user: any;
   members: any;
   currentfamilymember: any = 0;
-currentfamilymemberid:any;
+  currentfamilymemberid:any;
   test: any = {
     'relation': 'grandmama',
     'name': 'Ajji',

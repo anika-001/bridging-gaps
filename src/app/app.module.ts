@@ -29,6 +29,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
+import { LabtestComponent } from './labtest/labtest.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { TimeslotsComponent } from './timeslots/timeslots.component';
     FormComponent,
     ScheduleComponent,
     CartComponent,
-    TimeslotsComponent
+    TimeslotsComponent,
+    LabtestComponent
   ],
   imports: [
     BrowserModule,

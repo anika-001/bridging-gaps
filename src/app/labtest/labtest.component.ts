@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { DatabaseopService } from '../services/databaseop.service';
-
 @Component({
-  selector: 'app-meddelivery',
-  templateUrl: './meddelivery.component.html',
-  styleUrls: ['./meddelivery.component.scss']
+  selector: 'app-labtest',
+  templateUrl: './labtest.component.html',
+  styleUrls: ['./labtest.component.scss']
 })
-
-export class MeddeliveryComponent implements OnInit {
+export class LabtestComponent implements OnInit {
   links: any;
   user:any;
   currentlinks:any=0;
@@ -43,4 +41,5 @@ export class MeddeliveryComponent implements OnInit {
     })
     console.log(this.links);
   }
+
 }
