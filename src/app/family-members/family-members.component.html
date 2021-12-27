@@ -7,28 +7,26 @@
 <div class="main">
     <div class="consult">
         <div class="list">
-            <div class="doctor" *ngFor="let x of [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9, 10]">
+            <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i,x.payload.doc.id)">
                 <div class="pic">
 
                 </div>
                 <div class="info">
-                    <div class="name">kylie wilson</div>
-                    <div class="reviewre">Grandmama - 83 years</div>
-                    <div class="rating r1">
-
-                    </div>
+                    <div class="name">{{x.payload.doc.data().FamilyMemberName}}</div>
+                    <div class="reviewre">{{x.payload.doc.data().Relation}} - {{x.payload.doc.data().FamilyMemberAge}}</div>
+                    <div class="rating r1"></div>
                 </div>
             </div>
         </div>
         <div class="profile">
             <div class="profile-card">
-                <button>Add a member</button>
+                <button (click)= 'fam()'>Add a member</button>
                 <div class="title">Profile</div>
                 <div class="introcard">
                     <div class="photo"></div>
                     <div class="nameandprof">
-                        <div class="name">Kyle Wilson</div>
-                        <div class="prof">83 Years</div>
+                        <div class="name">{{members[currentfamilymember].payload.doc.data().FamilyMemberName}}</div>
+                        <div class="prof">{{members[currentfamilymember].payload.doc.data().FamilyMemberAge}}</div>
                     </div>
                     <div class = "rating">
                         <button>edit</button>
@@ -37,7 +35,7 @@
 
                 <div class="description">
                     <!-- <div class="descdesc"> -->
-                    <div *ngFor="let x of testArrayKeys; let i = index">
+                    <div *ngFor="let x of testArrayKeys; let i = index" >
                         <div class="descrow" *ngIf = "test.hasOwnProperty(x)" >
                             <div class="descfield">
                                 {{testArrayFields[i]}}:

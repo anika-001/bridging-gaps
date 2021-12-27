@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { weekdays, months as mm } from '../JSONdata/schedule';
 import { DatabaseopService } from '../services/databaseop.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
@@ -10,7 +11,7 @@ import { DatabaseopService } from '../services/databaseop.service';
 })
 
 export class ScheduleComponent implements OnInit {
-
+mydataapi:any;
   year = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   month: number = 0;
   curryear: number = 0;
@@ -23,8 +24,9 @@ export class ScheduleComponent implements OnInit {
   time: Array<number> = [];
   hour: Array<string> = [];
   days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  currentschedule: any = [];
 
-  constructor(private as: AuthService, private router: Router, private db: DatabaseopService) { }
+  constructor(private http:HttpClient,private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
 
   //Function to check if the selected day is the current day we are viewing to mark the selected day
@@ -140,10 +142,46 @@ export class ScheduleComponent implements OnInit {
   }
 
 
-  availability(){
-    
+  availability(timeslot: number, day: number, avail: string){
+    let week = this.currentweek[0] + " - " + this.currentweek[1];
+    this.db.createdoc(`Availability/${this.user.uid}/Weeks/${week}`, {'day': day, 'timeslot': timeslot, 'availability': avail});
   }
 
+  getavailability(timeslot: number, day: number){
+    let week = this.currentweek[0] + " - " + this.currentweek[1];
+    this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days`).snapshotChanges().subscribe(res => {
+      if(res){
+        for(let r of res){
+          this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days/${r.payload.doc.id}/time`).snapshotChanges().subscribe(res => {
+            // this.currentschedule["r.payload.doc.id"] = 
+          })
+          
+        }
+        
+        
+      }
+    })
+    // this.db.readDoc(`Availability/${this.user.uid}/Weeks/${week}/days/${day}/time/${timeslot}`).snapshotChanges().subscribe((res:any) => {
+    //   if(res && res.payload.data().availability){
+    //     return res.payload.data().availability; 
+    //   }
+    //   else{
+    //     return "none";
+    //   }
+    // })
+  }
+postid:any;
+  mypostreq(){
+    
+    const body = {
+      emailD: "bridginggaps@gmail.com",
+      emailP: "vaishnavisdesai@gmail.com",
+      time: Date.now()
+  };
+    this.http.post<any>('https://hooks.zapier.com/hooks/catch/11517211/b1m66ci/', body).subscribe(data => {
+        this.postid = data.id;
+    });
+  }
   ngOnInit(): void {
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])

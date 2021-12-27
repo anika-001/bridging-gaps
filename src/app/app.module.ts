@@ -27,7 +27,12 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { FormComponent } from './form/form.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { CartComponent } from './cart/cart.component';
+<<<<<<< HEAD
 import { ReviewsComponent } from './reviews/reviews.component';
+=======
+import { HttpClientModule } from '@angular/common/http';
+import { TimeslotsComponent } from './timeslots/timeslots.component';
+>>>>>>> 59d6808d9c3936eb5e87b61f131c4b82b2050056
 
 
 @NgModule({
@@ -45,7 +50,11 @@ import { ReviewsComponent } from './reviews/reviews.component';
     FormComponent,
     ScheduleComponent,
     CartComponent,
+<<<<<<< HEAD
     ReviewsComponent
+=======
+    TimeslotsComponent
+>>>>>>> 59d6808d9c3936eb5e87b61f131c4b82b2050056
   ],
   imports: [
     BrowserModule,
@@ -63,7 +72,8 @@ import { ReviewsComponent } from './reviews/reviews.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgbModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    HttpClientModule
   ],
   providers: [],
   

@@ -1,20 +1,20 @@
 import {Component, OnInit ,NgZone, ChangeDetectorRef } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ExternalLibraryService } from '../utils';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { ExternalLibraryService } from '../utils';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 declare let Razorpay: any;
-
+import { HttpClient } from '@angular/common/http';
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: 'app-timeslots',
+  templateUrl: './timeslots.component.html',
+  styleUrls: ['./timeslots.component.scss']
 })
-export class CartComponent implements OnInit {
-
-  constructor(private as: AuthService, private router: Router, private db: AngularFirestore, private zone: NgZone,private cd: ChangeDetectorRef,  private razorpayService: ExternalLibraryService) { }
+export class TimeslotsComponent implements OnInit {
+  info = ["Time", "Day", "Date", "Book slots"];
+  constructor( private http:HttpClient,private as: AuthService,private router: Router,private db: AngularFirestore, private zone: NgZone,private razorpayService: ExternalLibraryService) { }
   response: any;
-  
   razorpayResponse: any;
   showModal = false;
   items: any;
@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   shipping: number = 100;
   user:any;
   ngOnInit(): void {
-
+    
     this.as.getUserState().subscribe(user => {
       if(user == null) this.router.navigate(['/signin']);
       // this.getcart(user)
@@ -38,7 +38,6 @@ export class CartComponent implements OnInit {
     this.razorpayService
       .lazyLoadLibrary('https://checkout.razorpay.com/v1/checkout.js')
       .subscribe();
-
   }
   RAZORPAY_OPTIONS = {
     "key": "rzp_test_FDaOlFcAsJX6Ij",
@@ -60,7 +59,6 @@ export class CartComponent implements OnInit {
       "color": "#3c8d93"
     }
   };
-
   public proceed() {
     this.RAZORPAY_OPTIONS.amount = ((this.total + 100)*100) + '';
     this.RAZORPAY_OPTIONS['handler'] = this.razorPaySuccessHandler.bind(this);
@@ -80,24 +78,16 @@ export class CartComponent implements OnInit {
     });
 
   }
-
-
-  getcart(usercred:any){
-    this.db.collection("Cart").doc(usercred.uid).collection("items").snapshotChanges().subscribe(res => {
-      this.items = res;
-      for(let x of this.items){
-        this.db.collection("Products").doc(x.payload.doc.data().productid).snapshotChanges().subscribe((res: any) => {
-          x["quantity"] = x.payload.doc.data().quantity;
-          x["img"] = res.payload.data().img;
-          x["namee"] = res.payload.data().name;
-          x["soldby"] = res.payload.data().soldby;
-          x["price"] = res.payload.data().price;
-          this.total += x["price"]
-          this.subtotal += this.total;
-        })
-      }
-      console.log(this.items)
-    })
+  postid:any;
+  mypostreq(){
+    
+    const body = {
+      emailD: "bridginggaps@gmail.com",
+      emailP: "vaishnavisdesai@gmail.com",
+      time: Date.now()
+  };
+    this.http.post<any>('https://hooks.zapier.com/hooks/catch/11517211/b1m66ci/', body).subscribe(data => {
+        this.postid = data.id;
+    });
   }
-
 }
