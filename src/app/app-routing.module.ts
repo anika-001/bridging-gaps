@@ -16,10 +16,6 @@ import { TimeslotsComponent } from './timeslots/timeslots.component';
 import { LabtestComponent } from './labtest/labtest.component';
 import { HelperComponent } from './helper/helper.component';
 import { FooterComponent } from './footer/footer.component';
-<<<<<<< HEAD
-// import { ReminderslotComponent } from './reminderslot/reminderslot.component';
-=======
->>>>>>> 611c844294d70aa33d02724a8766501a97756a22
 import { ReminderslotComponent } from './reminderslot/reminderslot.component';
 
 
