@@ -163,7 +163,7 @@ export class FormComponent implements OnInit {
       ]
     }
     else if(this.formid == 2){
-      this.title = "Doctor Details";
+      this.title = "Doctor Profile";
       questions = [
         new TextboxField({
           key: 'DoctorName',
@@ -319,7 +319,7 @@ export class FormComponent implements OnInit {
       ]
     }
     else if(this.formid == 6){
-      this.title = "Doctor Patient Details";
+      this.title = "Upload report - Doctor";
       questions = [
         new TextboxField({
           key: 'DoctorName',
@@ -344,9 +344,9 @@ export class FormComponent implements OnInit {
           order: 3
         }),
         new TextboxField({
-          key: 'FamilyId',
-          label: 'Family Id',
-          placeholder: 'Select patient\'s family id ',
+          key: 'Familyemailid',
+          label: 'PatientEmailID',
+          placeholder: 'Enter patient\'s email id ',
           required: true,
           order: 4
         }),
