@@ -198,6 +198,16 @@
   color:grey;
   font-size: 100%;
 }
+.strip
+{
+  height: 6vh;
+  width: 30vw;
+  // font-size: 120%;
+  // font-weight: bold;
+  background-color:#c8e8ea;
+  display: flex;
+  flex-direction: row;
+}
 .review
 {
   height:15vh;
@@ -211,9 +221,10 @@
 .reviewtitle
 {
   height: 6vh;
+  width: 20vw;
   font-size: 120%;
   font-weight: bold;
-  // background-color: pink;
+//   background-color: pink;
 }
 
 .lastreview
