@@ -39,24 +39,22 @@ export class HistoryComponent implements OnInit {
   }
 
 
-  test() {
+  gotoadddiet() {
     this.router.navigate(['/form'], { queryParams: { id: 5, fmid: this.famid } });
   }
 
   getdietplan() {
     this.db.readCollection(`DietPlanDetails/${this.user.uid}/DietPlanDetails/${this.famid}/DietPlanDetails`).snapshotChanges().subscribe(res => {
       this.dietplan = res;
-      console.log(this.dietplan);
+      // console.log(this.dietplan);
     })
   }
 
-  dietplanclick(currentfamindex: any, currentfamid: any) {
+  click(currentfamindex: any, currentfamid: any) {
     this.currentfamindex = currentfamindex;
     this.currentfamid = currentfamid;
-    // this.type = type;
-    // this.currentfamilymemberid = currentfammemberid;
-    //  console.log(this.currentfamilymember);
-
   }
+
+
 
 }

@@ -378,11 +378,15 @@ export class FormComponent implements OnInit {
     }
     else if(this.formid == 3){
        let data = formdata.form.value;
-       this.db.upload(`Medicalreport/${this.user.uid}/${this.familymemid}`, `MedicalReport/${this.user.uid}/MedicalReport/${this.familymemid}/medicalreports`, formdata.file, data);
+       this.db.upload(`Medicalreport/${this.user.uid}/${this.familymemid}`, `MedicalReport/${this.user.uid}/MedicalReport/${this.familymemid}/medicalreports`, formdata.file, data).then(res => {
+        this.router.navigate(['/history'], { queryParams: { id: 1, famid: this.familymemid } });
+      });
     }
     else if(this.formid==4){
       let data = formdata.form.value;
-      this.db.upload(`HelperDetails/${this.user.uid}/${this.familymemid}`, `HelperDetails/${this.user.uid}/HelperDetails/${this.familymemid}/helperdetails`, formdata.file, data);
+      this.db.upload(`HelperDetails/${this.user.uid}/${this.familymemid}`, `HelperDetails/${this.user.uid}/HelperDetails/${this.familymemid}/helperdetails`, formdata.file, data).then(res => {
+        this.router.navigate(['/history'], { queryParams: { id: 3, famid: this.familymemid } });
+      });
     }
     else if(this.formid==5){
       let data = formdata.form.value;
