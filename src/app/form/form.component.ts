@@ -477,6 +477,7 @@ export class FormComponent implements OnInit {
     }
     else if(this.formid == 2){
       let data = formdata.form.value;
+      data["Rating"] = 0;
       this.db.createdoc(`Doctors/${this.user.uid}`, data);
     }
     else if(this.formid == 3){
