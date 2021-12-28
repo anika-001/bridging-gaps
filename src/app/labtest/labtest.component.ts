@@ -19,11 +19,11 @@ export class LabtestComponent implements OnInit {
   tags = ["tag1", "absuhue", "t", "jjjjjjjjjjjjjjjj"];
 
   ngOnInit(): void {
-    this.medicallinks();
+    this.lablink();
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
-  
+      
     });
 
   }
@@ -34,7 +34,7 @@ export class LabtestComponent implements OnInit {
    console.log(this.currentlabs);
   }
   
-  medicallinks(){
+  lablink(){
     this.db.readCollection(`labtest`).snapshotChanges().subscribe(res => {
       this.links = res;
       console.log(this.links[0].payload.doc.data());
