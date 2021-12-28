@@ -17,6 +17,14 @@
         
     </section> -->
 
+    <div>
+        <a href="http://wa.me/+14155238886?text=join%20larger-nuts" style="text-decoration:none">
+        <button type="button"  class="btn btn-outline-success wsspbtn">Click here to chat with us on Whatsapp! For messaging consent, kindly send the initial message.</button>
+        </a>
+   <div class="div wsspbtn">Alternatively copy this link by clicking here, and message on whatsapp to continue further!
+        <button (click)="copyMessage('http://wa.me/+14155238886?text=join%20larger-nuts')" value="click to copy" class="btn btn-outline-success" style="margin-left: 1vw;">Click here</button>
+    </div>
+</div>
     <div class="appointment">
 
         <div class="past">
@@ -41,6 +49,7 @@
 
     <div class="family">
         <div class="above"> MY FAMILY</div>
+        <div class="show" routerLink="/family"> SHOW ALL &rarr;</div>
         <div class="below">
             <div class="members" *ngFor="let x of [0, 1, 2, 3] ">
                 <div class="pic">
@@ -81,7 +90,7 @@
     </div>
 
     <div class="medication">
-        <div class="top"> <div>MEDICATION</div>
+        <div class="top"> <div class="top1">MEDICATION</div>
             <div class="show" routerLink="/meddelivery"> SHOW ALL &rarr;</div>
         </div>
         <div class="bottom">
@@ -113,7 +122,7 @@
     </div>
 
     <div class="test">
-        <div class="top"> <div>LABTESTS</div>
+        <div class="top"> <div class="top1" >LABTESTS</div>
             <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
         </div>
         <div class="bottom">
