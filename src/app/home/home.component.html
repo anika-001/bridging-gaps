@@ -17,6 +17,14 @@
         
     </section> -->
 
+    <div>
+        <a href="http://wa.me/+14155238886?text=join%20larger-nuts" style="text-decoration:none">
+        <button type="button"  class="btn btn-outline-success wsspbtn">Click here to chat with us on Whatsapp! For messaging consent, kindly send the initial message.</button>
+        </a>
+   <div class="div wsspbtn">Alternatively copy this link by clicking here, and message on whatsapp to continue further!
+        <button (click)="copyMessage('http://wa.me/+14155238886?text=join%20larger-nuts')" value="click to copy" class="btn btn-outline-success" style="margin-left: 1vw;">Click here</button>
+    </div>
+</div>
     <div class="appointment">
 
         <div class="past">
@@ -41,6 +49,7 @@
 
     <div class="family">
         <div class="above"> MY FAMILY</div>
+        <div class="show" routerLink="/family"> SHOW ALL &rarr;</div>
         <div class="below">
             <div class="members" *ngFor="let x of [0, 1, 2, 3] ">
                 <div class="pic">
@@ -81,7 +90,7 @@
     </div>
 
     <div class="medication">
-        <div class="top"> <div>MEDICATION</div>
+        <div class="top"> <div class="top1">MEDICATION</div>
             <div class="show" routerLink="/meddelivery"> SHOW ALL &rarr;</div>
         </div>
         <div class="bottom">
@@ -113,13 +122,21 @@
     </div>
 
     <div class="test">
-        <div class="top"> LABTESTS
-            <div class ="show"> SHOW ALL &rarr;</div> 
+        <div class="top"> <div class="top1" >LABTESTS</div>
+            <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
         </div>
         <div class="bottom">
             <div class="card" *ngFor="let x of [0, 1, 2, 3] ">
-                <div class="types"></div>
-                <div class="details"></div>
+                <div class="logo">
+                    <img class="image" 
+                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FLab%20Test%2FLabTest.png?alt=media&token=1c9f8e98-b5bf-4f6f-a12c-dbb2dde0e973" >
+                </div>
+                <div class="details">
+                    <div>Name: {{labtest[x].payload.doc.data().Name}}</div>
+                    <ngb-rating [max]="5" [(rate)]="labtest[x].payload.doc.data().Rating" [readonly]="true" [starTemplate]="t">
+                    </ngb-rating>
+                    <a href = "{{labtest[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
+                </div>
             </div>
             <!-- <div class="card">
             <div class="types"></div>

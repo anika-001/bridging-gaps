@@ -26,13 +26,7 @@
                 </div>
                 <div class="title">Profile</div>
                 <div class="introcard">
-<<<<<<< HEAD
                     <div class="photo"><img class = "image" src="{{getimage(currentfamilymember)}}"></div>
-=======
-                    <div class="photo"><img class="image"
-                            src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912">
-                    </div>
->>>>>>> a1b3f37505823fc0f90b9c3ef001e9a9c32a6572
                     <div class="nameandprof">
                         <div class="name">{{members[currentfamilymember].payload.doc.data().FamilyMemberName}}</div>
                         <div class="prof">{{members[currentfamilymember].payload.doc.data().FamilyMemberAge}} Years
@@ -56,21 +50,22 @@
                             </div>
                         </div>
 
-                        <div class="descrow" *ngIf="i > 5">
-                            <div class="descfield">
-                                {{testArrayFields[i]}}:
-                            </div>
-                            <div class="descvalue">
-                                <div class="anchor" *ngIf="i == 6"><a Href="#">View</a></div>
-                                <div class="anchor" *ngIf="i == 7" (click)="diet()">View</div>
-                                <div class="anchor" *ngIf="i == 8"><a Href="#">View</a></div>
-                                <div class="anchor" *ngIf="i == 9"><a Href="#">View</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- </div> -->
-                </div>
-            </div>
-        </div>
-    </div>
+                      <div class="descrow" *ngIf = "i > 5">
+                          <div class="descfield">
+                              {{testArrayFields[i]}}:
+                          </div>
+                          <div class="descvalue">
+                              <!-- <div class = "anchor" *ngIf="i == 5" ">View</div> -->
+                              <div class = "anchor" *ngIf="i == 6" (click) = "medicalhis()">View</div>
+                              <div class = "anchor" *ngIf="i == 7" (click) = "diet()">View</div>
+                              <div class = "anchor" *ngIf="i == 8" (click) = "help()">View</div>
+                              <div class = "anchor" *ngIf="i == 9"><a Href="#">View</a></div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- </div> -->
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
