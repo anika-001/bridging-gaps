@@ -26,7 +26,7 @@ export class FormComponent implements OnInit {
   }
 
   value: number = 0;
-
+  docid: number = 0;
   formid: number = 0;
   user: any;
   uid:any;
@@ -357,6 +357,95 @@ export class FormComponent implements OnInit {
           required: true,
           order: 5
         }),
+        
+      ]
+    }
+    else if(this.formid == 7){
+      this.title = "Helper Profile";
+      questions = [
+        new TextboxField({
+          key: 'HelperName',
+          label: 'Helper Name',
+          placeholder: 'Enter helper\'s Name',
+          // value: this.doctorprofile.payload.doc.data().DoctorName,
+          required: true,
+          order: 1
+        }), 
+        new TextboxField({
+          key: 'HelperOrganisation',
+          label: 'Enter Helper\'s Organisation',
+          placeholder: 'Enter Helper\'s organisation',
+          // value: this.doctorprofile.payload.doc.data().DoctorSpecialization,
+          required: true,
+          order: 2
+        }),
+        new TextboxField({
+          key: 'HelperDescription',
+          label: 'Enter helper\'s Description',
+          placeholder: 'Enter Helper\'s Description/Introduction further',
+          // value: this.doctorprofile.payload.doc.data().DoctorDescription,
+          required: true,
+          order: 3
+        }),
+        new TextboxField({
+          key: 'HelperPhoneNumber',
+          label: 'Helper Phone Number',
+          type: 'number',
+          placeholder:"Enter helper\'s phone number",
+          // value: this.doctorprofile.payload.doc.data().DoctorFees,
+          required: true,
+          order: 4
+        }),
+        new TextboxField({
+          key: 'HelperAge',
+          label: 'Helper Age',
+          type: 'number',
+          placeholder:"Enter helper\'s age",
+          // value: this.doctorprofile.payload.doc.data().DoctorFees,
+          required: true,
+          order: 5
+        }),
+        new DropdownField({
+          key: 'Gender',
+          label: 'Gender',
+          options: [
+            {key: 'Female',  value: 'Female'},
+            {key: 'Male',  value: 'Male'},
+            {key: 'Other',   value: 'Other'}
+          ],
+          required: true,
+          order: 6
+        }),
+        new TextboxField({
+          key: 'HelperLocation',
+          label: 'Enter Helper\'s Location',
+          placeholder: 'Enter Helper\'s location',
+          // value: this.doctorprofile.payload.doc.data().DoctorDescription,
+          required: true,
+          order: 7
+        }),
+      ]
+    }
+    else if(this.formid == 8){
+      this.title = "Reviews";
+      questions = [
+        new TextboxField({
+          key: 'ReviewRating',
+          label: 'Review Rating',
+          placeholder: 'Enter Review Rating out of 10',
+          type:'number',
+          // value: this.doctorprofile.payload.doc.data().DoctorName,
+          required: true,
+          order: 1
+        }), 
+        new TextboxField({
+          key: 'ReviewComment',
+          label: 'Review Comment',
+          placeholder: 'Enter your Review',
+          // value: this.doctorprofile.payload.doc.data().DoctorSpecialization,
+          required: true,
+          order: 2
+        }),
       ]
     }
     return of(questions?.sort((a, b) => a.order - b.order));
@@ -397,6 +486,14 @@ export class FormComponent implements OnInit {
     else if(this.formid==6){
       let data = formdata.form.value;
       this.db.upload(`DoctorPatientDetails/${this.user.uid}/${this.familymemid}`, `DoctorPatientDetails/${this.user.uid}/DoctorPatientDetails/${this.familymemid}/DoctorPatientDetails`, formdata.file, data);
+    }
+    else if(this.formid == 7){
+      this.db.create(`Caretakers/`, formdata.form.value);
+    }
+    else if(this.formid == 8){
+      let data = formdata.form.value;
+      data["uid"]= this.user.uid;
+      this.db.create(`Reviews/${this.docid}/comments`, data);
     }
   }
 
