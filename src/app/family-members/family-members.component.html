@@ -50,9 +50,10 @@
                               {{testArrayFields[i]}}:
                           </div>
                           <div class="descvalue">
-                              <div class = "anchor" *ngIf="i == 6"><a Href="#">View</a></div>
+                              <!-- <div class = "anchor" *ngIf="i == 5" ">View</div> -->
+                              <div class = "anchor" *ngIf="i == 6" (click) = "medicalhis()">View</div>
                               <div class = "anchor" *ngIf="i == 7" (click) = "diet()">View</div>
-                              <div class = "anchor" *ngIf="i == 8"><a Href="#">View</a></div>
+                              <div class = "anchor" *ngIf="i == 8" (click) = "help()">View</div>
                               <div class = "anchor" *ngIf="i == 9"><a Href="#">View</a></div>
                           </div>
                       </div>

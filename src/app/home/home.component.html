@@ -113,13 +113,21 @@
     </div>
 
     <div class="test">
-        <div class="top"> LABTESTS
-            <div class ="show"> SHOW ALL &rarr;</div> 
+        <div class="top"> <div>LABTESTS</div>
+            <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
         </div>
         <div class="bottom">
             <div class="card" *ngFor="let x of [0, 1, 2, 3] ">
-                <div class="types"></div>
-                <div class="details"></div>
+                <div class="logo">
+                    <img class="image" 
+                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FLab%20Test%2FLabTest.png?alt=media&token=1c9f8e98-b5bf-4f6f-a12c-dbb2dde0e973" >
+                </div>
+                <div class="details">
+                    <div>Name: {{labtest[x].payload.doc.data().Name}}</div>
+                    <ngb-rating [max]="5" [(rate)]="labtest[x].payload.doc.data().Rating" [readonly]="true" [starTemplate]="t">
+                    </ngb-rating>
+                    <a href = "{{labtest[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
+                </div>
             </div>
             <!-- <div class="card">
             <div class="types"></div>

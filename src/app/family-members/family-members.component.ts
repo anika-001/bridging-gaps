@@ -13,6 +13,8 @@ export class FamilyMembersComponent implements OnInit {
   members: any;
   currentfamilymember: any = 0;
   currentfamilymemberid: any;
+  // currenthelper: any = 0;
+  // currenthelperid: any = 0;
 
   test: any = {
     // 'relation': this.members[currentfamilymember].payload.doc.data().Relation,
@@ -55,10 +57,29 @@ export class FamilyMembersComponent implements OnInit {
   }
 
   help() {
+    this.router.navigate(['/history'], { queryParams: { id: 3, famid: this.currentfamilymemberid }});
+  }
+
+  medicalhis() {
+    this.router.navigate(['/history'], { queryParams: { id: 1, famid: this.currentfamilymemberid }});
 
   }
 
   getfamilymembers() {
+    this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
+      this.members = res; 
+      this.currentfamilymemberid = res[0].payload.doc.id;
+    })
+  }
+
+  gethelper() {
+    this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
+      this.members = res; 
+      this.currentfamilymemberid = res[0].payload.doc.id;
+    })
+  }
+
+  getmedrep() {
     this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
       this.members = res; 
       this.currentfamilymemberid = res[0].payload.doc.id;

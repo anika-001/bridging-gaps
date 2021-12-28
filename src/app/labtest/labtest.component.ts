@@ -23,7 +23,7 @@ export class LabtestComponent implements OnInit {
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
-      this.medicallinks();
+      this.lablink();
     });
 
   }
@@ -34,8 +34,8 @@ export class LabtestComponent implements OnInit {
    console.log(this.currentlinks);
   }
   
-  medicallinks(){
-    this.db.readCollection(`MedApplications`).snapshotChanges().subscribe(res => {
+  lablink(){
+    this.db.readCollection(`labtest`).snapshotChanges().subscribe(res => {
       this.links = res;
      
     })
