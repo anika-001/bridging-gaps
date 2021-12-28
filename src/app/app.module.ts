@@ -36,6 +36,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ReminderslotComponent } from './reminderslot/reminderslot.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { ReminderslotComponent } from './reminderslot/reminderslot.component';
     TimeslotsComponent,
     HelperComponent,
     FooterComponent,
-  ReminderslotComponent,
+    ReminderslotComponent
+
   ],
   imports: [
     BrowserModule,

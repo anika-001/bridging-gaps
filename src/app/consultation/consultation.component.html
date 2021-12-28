@@ -17,7 +17,7 @@
           <div class="rating r1">
             <ngb-rating
               [max]="5"
-              [(rate)]="currentRating"
+              [(rate)]="x.payload.doc.data().Rating"
               [readonly]="true"
             ></ngb-rating>
           </div>
@@ -38,7 +38,7 @@
           <div class="rating">
             <ngb-rating
               [max]="5"
-              [(rate)]="currentRating"
+              [(rate)]="doctors[currentdoctorindex].payload.doc.data().Rating"
               [readonly]="true"
               [starTemplate]="t"
             ></ngb-rating>

@@ -24,7 +24,7 @@ export class HelperComponent implements OnInit {
       this.user = res;
       this.gethelper();
       this.as.getprofile(this.user.uid).subscribe((res: any) => {
-        if (res.payload.data().role != 3) { this.router.navigate(['/signin']); }
+        if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
       })
     })
 

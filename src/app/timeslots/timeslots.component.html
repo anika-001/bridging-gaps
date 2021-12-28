@@ -1,27 +1,30 @@
 <div class="main">
     <div class="adjust3">
-        <div class="doc">Doctor: Kylie Wilson</div>
-        <div class="price">Price:100</div>
+        <div class="doc">Doctor: {{doctor.payload.data().DoctorName}}</div>
+        <div class="price">Price: {{doctor.payload.data().DoctorFees}}</div>
     </div>
     <div class="adjust3 arrow">
-        <div>Week: Wkjbjkbjbjbkb</div>
-        <div class="a">&larr;</div>
-        <div class="a">&rarr;</div>
-    </div> 
+        <div>Week: {{getweekparsed()}}</div>
+        <div class="a" (click) = "move('b')">&larr;</div>
+        <div class="a" (click) = "move('f')">&rarr;</div>
+    </div>
     <div class="cont">
         <div class="adjust1">
-         
+
             <div class="slottitle" *ngFor="let info of info">{{info}}</div>
         </div>
         <div class="adjust">
-            <div class="row1" *ngFor="let rows of [0, 1, 2, 3, 4, 5 , 6 , 7 , 8 , 9 ]">
-                <div class="column1">time</div>
-                <div class="column1">day</div>
-                <div class="column1">date</div>
-                <div class="column1">
-                    <div class="btn6" (click) = "proceed()">Book</div>
+            <div *ngFor="let rows of slots">
+                <div class="row1" *ngIf = "!islesserthannow(rows.payload.doc.data().day, rows.payload.doc.data().timeslot) && rows.payload.doc.data().availability == 'free'">
+                    <div class="column1">{{hour[rows.payload.doc.data().timeslot]}}</div>
+                    <div class="column1">{{days[getday(rows.payload.doc.data().day)[3]]}}</div>
+                    <div class="column1">{{getday(rows.payload.doc.data().day)[0]}}
+                        {{months[getday(rows.payload.doc.data().day)[1]]}} {{getday(rows.payload.doc.data().day)[2]}}
+                    </div>
+                    <div class="column1">
+                        <div class="btn6" (click)="proceed()">Book</div>
+                    </div>
                 </div>
-                
             </div>
         </div>
 
