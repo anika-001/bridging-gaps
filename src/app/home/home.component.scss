@@ -13,13 +13,16 @@
 //     border-radius: 10px;
 //    }
 // }
+
+:host{ ::ng-deep{ .sr-only{display:none;}}}
 .main{
     padding-top: 10vh;
+    background-color: #c8e8ea;
 }
 .appointment {
     height: 50vh;
     width: 100vw;
-    background-color: #c8e8ea;
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -105,18 +108,21 @@
     height:30vh;
     width: 20vw;
     background-color: #3c9096;
-    justify-content: center;
-    background-image: url("../../assets/images/family.png");
-    background-size: 280px 200px;
-    background-repeat: no-repeat;
-    align-items: center;
+    // justify-content: center;
+    // background-image: url("../../assets/images/family.png");
+    // background-size: 280px 200px;
+    // background-repeat: no-repeat;
+    // align-items: center;
 }
 .info{
     height:30vh;
     width:20vw;
     background-color: #3c9096;
-    justify-content: center;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2%;
+    // text-align: left;
     font-size: 130%;
 }
 .medication{
@@ -134,8 +140,10 @@
     background-color: #c8e8ea;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     font-size: 20px;
     font-weight: 600;
+    padding: 0 2%;
 }
 .show{
     height: 5vh;
@@ -144,11 +152,12 @@
     margin-left:80vw;
     font-size: 12px;
     color: rgb(98, 0, 255);
+    cursor: pointer;
 }
 .bottom{
     height:55vh;
     width:100vw;
-    background-color: rgb(215, 229, 230);
+    // background-color: rgb(215, 229, 230);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -194,6 +203,25 @@
 .details{
     height: 25vh;
     width:20vw;
+    font-size: 150%;
     background-color: lightseagreen;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2%;
 }
+
+.image{
+    width: 100%;
+    height: 100%;
+}
+
+.full {
+    //color: var(--col2vl);
+    //color: var(--col4);
+    color: #e7d74b;
+  }
+  .half {
+    //color: var(--col4);
+    color: #e7d74b;
+  }

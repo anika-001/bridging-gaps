@@ -7,12 +7,12 @@
 <div class="main">
   <div class="consult">
     <div class="list">
-      <div class="doctor" *ngFor = "let x of [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9, 10]">
+      <div class="doctor" *ngFor = "let x of doctors; let i = index" (click) = "doctorclick(x.payload.doc.id, i)">
         <div class="pic">
-         <img src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FDoctor%2Fimage-removebg-preview.png?alt=media&token=8f306bf2-ec36-46aa-ae92-e99017871148">
+         <img class = "image" src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FDoctor%2Fimage-removebg-preview.png?alt=media&token=8f306bf2-ec36-46aa-ae92-e99017871148">
         </div>
         <div class="info">
-          <div class="name">kylie wilson</div>
+          <div class="name">{{x.payload.doc.data().DoctorName}}</div>
           <div class = "reviewre">Awesome Job!</div>
           <div class="rating r1">
             <ngb-rating
@@ -28,10 +28,12 @@
       <div class="profile-card">
         <div class="title">Profile</div>
         <div class="introcard">
-          <div class="photo"></div>
+          <div class="photo">
+            <img class = "image" src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FDoctor%2Fimage-removebg-preview.png?alt=media&token=8f306bf2-ec36-46aa-ae92-e99017871148">
+          </div>
           <div class="nameandprof">
-            <div class="name">Kyle Wilson</div>
-            <div class="prof">pyshiatrist</div>
+            <div class="name">{{doctors[currentdoctorindex].payload.doc.data().DoctorName}}</div>
+            <div class="prof">{{doctors[currentdoctorindex].payload.doc.data().DoctorSpecialization}}</div>
           </div>
           <div class="rating">
             <ngb-rating
@@ -59,11 +61,7 @@
         <div class="description">
           <div class="desctitle">Description</div>
           <div class="descdesc">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam
-            excepturi modi sequi, sapiente molestiae voluptatum ipsa? Corrupti
-            nihil aperiam possimus vitae accusantium odio expedita, optio nisi
-            minus ipsum inventore aliquid molestias laborum doloribus veniam est
-            quibusdam sit, blanditiis alias nam! Adipisci aspernatur quas
+            {{doctors[currentdoctorindex].payload.doc.data().DoctorDescription}}
           </div>
         </div>
 
@@ -80,15 +78,14 @@
         <div class="tags">
           <div class="tagstitle">
             <div class="appointmenttype">In - Clinic appointment</div>
-            <div class="appointmentcost">Rs 300</div>
+            <div class="appointmentcost">Rs {{doctors[currentdoctorindex].payload.doc.data().DoctorFees}}</div>
           </div>
           <div class="tagscont">
             <div class="specializations">
               <div class = "tag" *ngFor = "let x of tags">{{x}}</div>
             </div>
             <div class="slotbuttons">
-              <div class = "slotbut">View all slots</div>
-              <div class = "slotbut">View Clinic</div>
+              <div class = "btn6" (click) = "getslots()">View all slots</div>
             </div>
           </div>
         </div>

@@ -5,14 +5,17 @@
 </ng-template>
 
 <div class="main">
-    <div class="consult">
+
+    <!-- Add Medical History -->
+    <div class="consult" *ngIf = "type == 1">
         <div class="list">
-            <div class="doctor" *ngFor="let x of dietplan">
+            <div class="doctor" *ngFor="let x of dietplan; let i=index" (click)="click(i, x.payload.doc.id)">
                 <div class="pic">
 
                 </div>
-                <div class="info">
-                    <div class="name">{{x.payload.doc.data().DoctorInCharge}}</div>
+                <div class="info" >
+                    <div class="name" >{{x.payload.doc.data().DoctorInCharge}}</div>
+                    <div></div>
                     <div class="reviewre">{{x.payload.doc.data().DietPlanBeginDate}} - {{x.payload.doc.data().dietPlanEndDate}}</div>
                     <div class="rating r1">
 
@@ -22,27 +25,58 @@
         </div>
 
         <div class="profile">
-            <button (click) = "test()">Add</button>
-            <ngx-extended-pdf-viewer [src]="'https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/23.pdf?alt=media&token=5c122c42-6cb2-420b-9f1b-30e62494b98c'"
-                [useBrowserLocale]="true" height="85vh"></ngx-extended-pdf-viewer>
+            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoadddiet()">Add a diet</div></div>
+            <ngx-extended-pdf-viewer [src]="dietplan[currentfamindex].payload.doc.data().link"
+                [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
+        </div>
+    </div>
 
-            <!-- <div class="profile-card">
-                <button>Add a member</button>
-                <div class="title">Profile</div>
-                <div class="introcard">
-                    <div class="photo"></div>
-                    <div class="nameandprof">
-                        <div class="name">Kyle Wilson</div>
-                        <div class="prof">83 Years</div>
-                    </div>
-                    <div class = "rating">
-                        <button>edit</button>
+    <div class="consult" *ngIf = "type == 2">
+        <div class="list">
+            <div class="doctor" *ngFor="let x of dietplan; let i=index" (click)="click(i, x.payload.doc.id)">
+                <div class="pic">
+
+                </div>
+                <div class="info" >
+                    <div class="name" >{{x.payload.doc.data().DoctorInCharge}}</div>
+                    <div></div>
+                    <div class="reviewre">{{x.payload.doc.data().DietPlanBeginDate}} - {{x.payload.doc.data().dietPlanEndDate}}</div>
+                    <div class="rating r1">
+
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="description">
+        <div class="profile">
+            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoadddiet()">Add a diet</div></div>
+            <ngx-extended-pdf-viewer [src]="dietplan[currentfamindex].payload.doc.data().link"
+                [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
+        </div>
+    </div>
+
+    <!-- Add helper -->
+    <div class="consult" *ngIf = "type == 3">
+        <div class="list">
+            <div class="doctor" *ngFor="let x of dietplan; let i=index" (click)="click(i, x.payload.doc.id)">
+                <div class="pic">
+
                 </div>
-            </div> -->
+                <div class="info" >
+                    <div class="name" >{{x.payload.doc.data().DoctorInCharge}}</div>
+                    <div></div>
+                    <div class="reviewre">{{x.payload.doc.data().DietPlanBeginDate}} - {{x.payload.doc.data().dietPlanEndDate}}</div>
+                    <div class="rating r1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoadddiet()">Add a diet</div></div>
+            <ngx-extended-pdf-viewer [src]="dietplan[currentfamindex].payload.doc.data().link"
+                [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
         </div>
     </div>
 </div>

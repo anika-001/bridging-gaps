@@ -400,3 +400,12 @@ ngb-rating {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.addbut{
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  // background-color: palegreen;
+
+}

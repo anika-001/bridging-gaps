@@ -21,7 +21,7 @@ export let navbar = [
     },
     {
         // "role":"user",
-        "name":"MedDeliver",
+        "name":"Medicine Delivery",
         "link":"/meddelivery",
     },
 ]

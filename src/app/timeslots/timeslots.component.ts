@@ -85,12 +85,13 @@ export class TimeslotsComponent implements OnInit {
       "email1": "aanchalkviit@gmail.com",
       "email2": "anikatibrewala@gmail.com",
       "time": Math.floor(Date.now()/1000),
-      "patientID": "1",
+      "patientID": "1fromangular",
       "doctorID": "2",
        "userID": "1"
   };
-    this.http.post<any>('https://hooks.zapier.com/hooks/catch/11517211/b1m66ci/', body).subscribe(data => {
+    this.http.post<any>('https://krashibrahmand.herokuapp.com/zapierapi', body).subscribe(data => {
         this.postid = data.id;
+        console.log(data);
     });
   }
 }

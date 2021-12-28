@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
     this.familymemid = this.route.snapshot.queryParams['fmid'];
 
     this.questions$ = this.getQuestions();
-    
+
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
@@ -163,7 +163,7 @@ export class FormComponent implements OnInit {
       ]
     }
     else if(this.formid == 2){
-      this.title = "Doctor Details";
+      this.title = "Doctor Profile";
       questions = [
         new TextboxField({
           key: 'DoctorName',
@@ -319,7 +319,7 @@ export class FormComponent implements OnInit {
       ]
     }
     else if(this.formid == 6){
-      this.title = "Doctor Patient Details";
+      this.title = "Upload report - Doctor";
       questions = [
         new TextboxField({
           key: 'DoctorName',
@@ -344,9 +344,9 @@ export class FormComponent implements OnInit {
           order: 3
         }),
         new TextboxField({
-          key: 'FamilyId',
-          label: 'Family Id',
-          placeholder: 'Select patient\'s family id ',
+          key: 'Familyemailid',
+          label: 'PatientEmailID',
+          placeholder: 'Enter patient\'s email id ',
           required: true,
           order: 4
         }),
@@ -373,19 +373,26 @@ export class FormComponent implements OnInit {
       this.db.create(`familymembers/${this.user.uid}/familymember`, formdata.form.value);
     }
     else if(this.formid == 2){
-      
+      let data = formdata.form.value;
+      this.db.createdoc(`Doctors/${this.user.uid}`, data);
     }
     else if(this.formid == 3){
        let data = formdata.form.value;
-       this.db.upload(`Medicalreport/${this.user.uid}/${this.familymemid}`, `MedicalReport/${this.user.uid}/MedicalReport/${this.familymemid}/medicalreports`, formdata.file, data);
+       this.db.upload(`Medicalreport/${this.user.uid}/${this.familymemid}`, `MedicalReport/${this.user.uid}/MedicalReport/${this.familymemid}/medicalreports`, formdata.file, data).then(res => {
+        this.router.navigate(['/history'], { queryParams: { id: 1, famid: this.familymemid } });
+      });
     }
     else if(this.formid==4){
       let data = formdata.form.value;
-      this.db.upload(`HelperDetails/${this.user.uid}/${this.familymemid}`, `HelperDetails/${this.user.uid}/HelperDetails/${this.familymemid}/helperdetails`, formdata.file, data);
+      this.db.upload(`HelperDetails/${this.user.uid}/${this.familymemid}`, `HelperDetails/${this.user.uid}/HelperDetails/${this.familymemid}/helperdetails`, formdata.file, data).then(res => {
+        this.router.navigate(['/history'], { queryParams: { id: 3, famid: this.familymemid } });
+      });
     }
     else if(this.formid==5){
       let data = formdata.form.value;
-      this.db.upload(`DietPlanDetails/${this.user.uid}/${this.familymemid}`, `DietPlanDetails/${this.user.uid}/DietPlanDetails/${this.familymemid}/DietPlanDetails`, formdata.file, data);
+      this.db.upload(`DietPlanDetails/${this.user.uid}/${this.familymemid}`, `DietPlanDetails/${this.user.uid}/DietPlanDetails/${this.familymemid}/DietPlanDetails`, formdata.file, data).then(res => {
+        this.router.navigate(['/history'], { queryParams: { id: 2, famid: this.familymemid } });
+      });
     }
     else if(this.formid==6){
       let data = formdata.form.value;

@@ -1,4 +1,8 @@
-<!-- <p>home works!</p> -->
+<ng-template #t let-fill="fill">
+    <span class="star1" [class.full]="fill === 100">
+        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+    </span>
+</ng-template>
 <div class="main">
     <!-- <section class="features">
         <div class="card" style="width: 18rem;">
@@ -14,7 +18,7 @@
     </section> -->
 
     <div class="appointment">
-       
+
         <div class="past">
             <div class="oldt">PAST APPOINTMENTS</div>
             <div class="oldb">
@@ -38,54 +42,62 @@
     <div class="family">
         <div class="above"> MY FAMILY</div>
         <div class="below">
-        <div class="members" *ngFor="let five of [0, 1, 2, 3] ">
+            <div class="members" *ngFor="let x of [0, 1, 2, 3] ">
+                <div class="pic">
+                    <img class="image"
+                        src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912">
+                </div>
+                <div class="info">
+                    <div>Name: {{family[x].payload.doc.data().FamilyMemberName}}</div>
+                    <div>Relation: {{family[x].payload.doc.data().Relation}}</div>
+                    <div>Age: {{family[x].payload.doc.data().FamilyMemberAge}} Years</div>
+                </div>
+            </div>
+            <!-- <div class="members">
             <div class="pic"></div>
             <div class="info">
                 Name:<br>
                 Relation:<br>
                 Age:
             </div>
+        </div> -->
+            <!-- <div class="members">
+            <div class="pic"></div>
+            <div class="info">
+                Name:<br>
+                Relation:<br>
+                Age:
+            </div>
+        </div> -->
+            <!-- <div class="members">
+            <div class="pic"></div>
+            <div class="info">
+                Name:<br>
+                Relation:<br>
+                Age:
+            </div>
+        </div> -->
         </div>
-        <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
-        <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
-        <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
-    </div>
     </div>
 
     <div class="medication">
-        <div class ="top"> MEDICATION
-            <div class ="show"> SHOW ALL
-                <div class="arrow" >&rarr;</div>
-            </div> 
+        <div class="top"> <div>MEDICATION</div>
+            <div class="show" routerLink="/meddelivery"> SHOW ALL &rarr;</div>
         </div>
-        <div class ="bottom">
-
-        <div class="medicine" *ngFor="let five of [0, 1, 2, 3] ">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <!-- <div class="medicine">
+        <div class="bottom">
+            <div class="medicine" *ngFor="let x of [0, 1, 2, 3] ">
+                <div class="types">
+                    <img class="image"
+                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
+                </div>
+                <div class="details">
+                    <div>Name: {{meddel[x].payload.doc.data().Name}}</div>
+                    <ngb-rating [max]="5" [(rate)]="meddel[x].payload.doc.data().Rating" [readonly]="true" [starTemplate]="t">
+                    </ngb-rating>
+                    <a href = "{{meddel[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
+                </div>
+            </div>
+            <!-- <div class="medicine">
             <div class="types"></div>
             <div class="details"></div>
         </div>
@@ -101,17 +113,15 @@
     </div>
 
     <div class="test">
-        <div class ="top"> LABTESTS
-            <div class ="show"> SHOW ALL
-                <div class="arrow" >&rarr;</div>
-            </div> 
+        <div class="top"> LABTESTS
+            <div class ="show"> SHOW ALL &rarr;</div> 
         </div>
-        <div class ="bottom">
-        <div class="card" *ngFor="let five of [0, 1, 2, 3] ">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <!-- <div class="card">
+        <div class="bottom">
+            <div class="card" *ngFor="let x of [0, 1, 2, 3] ">
+                <div class="types"></div>
+                <div class="details"></div>
+            </div>
+            <!-- <div class="card">
             <div class="types"></div>
             <div class="details"></div>
         </div>
