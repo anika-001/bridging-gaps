@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
 
   questions$: Observable<FormBase<any>[]>;
 
-  constructor(private as: AuthService, private route: ActivatedRoute, private db: DatabaseopService,private router: Router) {
+  constructor(private as: AuthService, private route: ActivatedRoute, private db: DatabaseopService, private router: Router) {
     this.questions$ = this.getQuestions();
   }
 
@@ -205,6 +205,17 @@ export class FormComponent implements OnInit {
           // value: this.doctorprofile.payload.doc.data().Tags,
           required: true,
           order: 5
+        }),
+        new DropdownField({
+          key: 'Gender',
+          label: 'Gender',
+          options: [
+            {key: 'Female',  value: 'Female'},
+            {key: 'Male',  value: 'Male'},
+            {key: 'Other',   value: 'Other'}
+          ],
+          required: true,
+          order: 6
         }),
       ]
     }
