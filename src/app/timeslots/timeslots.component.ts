@@ -37,6 +37,14 @@ export class TimeslotsComponent implements OnInit {
     this.mypostreq();
     this.getnowweek();
     this.initializeTimeSlots();
+    this.as.getUserState().subscribe(res => {
+      if (!res) this.router.navigate(['/signin'])
+      this.user = res;
+      this.as.getprofile(this.user.uid).subscribe((res: any) => {
+        if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
+      })
+    });
+    // this.getseconds(0);
     this.docid = this.route.snapshot.queryParams['id'];
     this.getdoctorprice();
     this.as.getUserState().subscribe(user => {

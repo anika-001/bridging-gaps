@@ -146,6 +146,15 @@
     font-weight: 600;
     padding: 0 2%;
 }
+
+// .top1
+// {
+//     text-align: center;
+//     font-size: 1.5em;
+//     font-weight: 600;
+//     // margin-left: 2vh;
+
+// }
 .show{
     height: 5vh;
     width: 20vw;
@@ -225,4 +234,11 @@
   .half {
     //color: var(--col4);
     color: #e7d74b;
+  }
+  .wsspbtn{
+      margin: 1vh 0 1vh 0;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
   }
