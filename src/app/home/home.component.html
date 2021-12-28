@@ -45,7 +45,7 @@
             <div class="members" *ngFor="let x of [0, 1, 2, 3] ">
                 <div class="pic">
                     <img class="image"
-                        src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912">
+                        src="{{getpicture(x)}}">
                 </div>
                 <div class="info">
                     <div>Name: {{family[x].payload.doc.data().FamilyMemberName}}</div>

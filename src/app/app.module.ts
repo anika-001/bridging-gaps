@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
 import { LabtestComponent } from './labtest/labtest.component';
 import { HelperComponent } from './helper/helper.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { HelperComponent } from './helper/helper.component';
     LabtestComponent,
     ReviewsComponent,
     TimeslotsComponent,
-    HelperComponent
+    HelperComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

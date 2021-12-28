@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
 import { LabtestComponent } from './labtest/labtest.component';
 import { HelperComponent } from './helper/helper.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
     path: 'slots',
     component: TimeslotsComponent,
   },
+  
   {
     path: 'consultation',
     component: ConsultationComponent,

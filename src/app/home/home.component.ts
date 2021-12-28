@@ -51,4 +51,10 @@ export class HomeComponent implements OnInit {
       this.meddel = res;
     })
   }
+  getpicture(i:any){
+    if(this.family[i].payload.doc.data().FamilyMemberGender == 'Female'){return"https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Woman%2FOldWoman.png?alt=media&token=a8bfaeb7-1ca8-4253-bcc1-a49728110865"}
+    else if(this.family[i].payload.doc.data().FamilyMemberGender == 'Male'){return"https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912"}
+    else {return"https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FNeutral%20Senior%20Citizen%2FUntitled_design__10_-removebg-preview.png?alt=media&token=f383b8d9-c7a4-48ff-9838-f2920bd80679"}
+
+  }
 }
