@@ -47,6 +47,6 @@ export class ConsultationComponent   implements OnInit {
     this.router.navigate(['/slots'], { queryParams: { id: this.currentdoctordocid }});
   }
   gotoreviews() {
-    this.router.navigate(['/form'], { queryParams: { id: 8, fmid: this.currentdoctordocid } });
+    this.router.navigate(['/form'], { queryParams: { id: 8, docid: this.currentdoctordocid } });
   }
 }

@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
 
     this.formid = this.route.snapshot.queryParams['id'];
     this.familymemid = this.route.snapshot.queryParams['fmid'];
-
+    this.docid=this.route.snapshot.queryParams['docid'];
     this.questions$ = this.getQuestions();
 
     this.as.getUserState().subscribe(res => {
