@@ -37,7 +37,7 @@ export class TimeslotsComponent implements OnInit {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
       this.as.getprofile(this.user.uid).subscribe((res: any) => {
-        if (res.payload.data().role != 2) { this.router.navigate(['/signin']); }
+        if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
       })
     });
     // this.getseconds(0);
