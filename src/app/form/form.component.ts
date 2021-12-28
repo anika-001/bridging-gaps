@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
 
   questions$: Observable<FormBase<any>[]>;
 
-  constructor(private as: AuthService, private route: ActivatedRoute, private db: DatabaseopService,private router: Router) {
+  constructor(private as: AuthService, private route: ActivatedRoute, private db: DatabaseopService, private router: Router) {
     this.questions$ = this.getQuestions();
   }
 
@@ -29,7 +29,7 @@ export class FormComponent implements OnInit {
   docid: number = 0;
   formid: number = 0;
   user: any;
-  uid:any;
+  uid: any;
   title: any;
   familymemid: any;
   doctorprofile: any;
@@ -38,13 +38,13 @@ export class FormComponent implements OnInit {
 
     this.formid = this.route.snapshot.queryParams['id'];
     this.familymemid = this.route.snapshot.queryParams['fmid'];
-    this.docid=this.route.snapshot.queryParams['docid'];
+    this.docid = this.route.snapshot.queryParams['docid'];
     this.questions$ = this.getQuestions();
 
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
-      this.uid=res?.uid;
+      this.uid = res?.uid;
       // if(this.formid != 2){
       //   this.questions$ = this.getQuestions();
       // }
@@ -68,10 +68,10 @@ export class FormComponent implements OnInit {
           key: 'brave',
           label: 'Bravery Rating',
           options: [
-            {key: 'solid',  value: 'Solid'},
-            {key: 'great',  value: 'Great'},
-            {key: 'good',   value: 'Good'},
-            {key: 'unproven', value: 'Unproven'}
+            { key: 'solid', value: 'Solid' },
+            { key: 'great', value: 'Great' },
+            { key: 'good', value: 'Good' },
+            { key: 'unproven', value: 'Unproven' }
           ],
           order: 3
         }),
@@ -109,7 +109,7 @@ export class FormComponent implements OnInit {
         }),
       ];
     }
-    else if(this.formid == 1){
+    else if (this.formid == 1) {
       this.title = "Add Family Member";
       questions = [
         new TextboxField({
@@ -124,7 +124,9 @@ export class FormComponent implements OnInit {
           label: 'Family Member Age',
           placeholder: 'Enter age of family member',
           required: true,
-          order: 2
+          order: 2,
+          type: 'number'
+
         }),
         new TextboxField({
           key: 'Relation',
@@ -138,9 +140,9 @@ export class FormComponent implements OnInit {
           label: 'Gender',
           // value: 'Enter their gender',
           options: [
-            {key: 'Female',  value: 'Female'},
-            {key: 'Male',  value: 'Male'},
-            {key: 'Other',   value: 'Other'}
+            { key: 'Female', value: 'Female' },
+            { key: 'Male', value: 'Male' },
+            { key: 'Other', value: 'Other' }
           ],
           required: true,
           order: 4
@@ -162,7 +164,7 @@ export class FormComponent implements OnInit {
 
       ]
     }
-    else if(this.formid == 2){
+    else if (this.formid == 2) {
       this.title = "Doctor Profile";
       questions = [
         new TextboxField({
@@ -172,7 +174,7 @@ export class FormComponent implements OnInit {
           // value: this.doctorprofile.payload.doc.data().DoctorName,
           required: true,
           order: 1
-        }), 
+        }),
         new TextboxField({
           key: 'DoctorSpecialization',
           label: 'Enter Doctor\'s Specialization',
@@ -193,7 +195,7 @@ export class FormComponent implements OnInit {
           key: 'DoctorFees',
           label: 'Fees Charged by Doctor',
           type: 'number',
-          placeholder:"Enter doctor\'s fees",
+          placeholder: "Enter doctor\'s fees",
           // value: this.doctorprofile.payload.doc.data().DoctorFees,
           required: true,
           order: 4
@@ -208,13 +210,13 @@ export class FormComponent implements OnInit {
         }),
       ]
     }
-    else if(this.formid == 3){
-      this.title = "Medical History";
+    else if (this.formid == 3) {
+      this.title = "Add Medical a Report";
       questions = [
         new TextboxField({
           key: 'MedicalHistoryDate',
-          label: 'Medical History Date',
-          type:'date',
+          label: 'Apointment Date',
+          type: 'date',
           required: true,
           order: 1
         }),
@@ -228,14 +230,14 @@ export class FormComponent implements OnInit {
         new FileField({
           key: 'MedicalReport',
           label: 'Medical Report File',
-          type:'file',
+          type: 'file',
           required: true,
           order: 3
         }),
       ]
     }
-    else if(this.formid == 4){
-      this.title = "Help History";
+    else if (this.formid == 4) {
+      this.title = "Add a Caretaker";
       questions = [
         new TextboxField({
           key: 'HelperName',
@@ -243,7 +245,7 @@ export class FormComponent implements OnInit {
           placeholder: 'Enter Helper Name',
           required: true,
           order: 1
-        }), 
+        }),
         new TextboxField({
           key: 'helperPhoneNumber',
           label: 'Phone Number',
@@ -262,12 +264,19 @@ export class FormComponent implements OnInit {
           key: 'Gender',
           label: 'Gender',
           options: [
-            {key: 'Female',  value: 'Female'},
-            {key: 'Male',  value: 'Male'},
-            {key: 'Other',   value: 'Other'}
+            { key: 'Female', value: 'Female' },
+            { key: 'Male', value: 'Male' },
+            { key: 'Other', value: 'Other' }
           ],
           required: true,
           order: 4
+        }),
+        new FileField({
+          key: 'HelperReport',
+          label: 'Helper Identification Details Reports',
+          type: 'file',
+          required: true,
+          order: 6
         }),
         new TextboxField({
           key: 'Age',
@@ -276,29 +285,23 @@ export class FormComponent implements OnInit {
           required: true,
           order: 5
         }),
-        new FileField({
-          key: 'HelperReport',
-          label: 'Helper Identification Details Reports',
-          type:'file',
-          required: true,
-          order: 6
-        }),
+       
       ]
     }
-    else if(this.formid == 5){
-      this.title = "Diet Plan History";
+    else if (this.formid == 5) {
+      this.title = "Add a Diet Plan";
       questions = [
         new TextboxField({
           key: 'DietPlanBeginDate',
           label: 'Diet Plan Creation Date',
-          type:'date',
+          type: 'date',
           required: true,
           order: 1
         }),
         new TextboxField({
           key: 'dietPlanEndDate',
           label: 'Diet Plan Ending Date',
-          type:'date',
+          type: 'date',
           required: true,
           order: 2
         }),
@@ -312,55 +315,64 @@ export class FormComponent implements OnInit {
         new FileField({
           key: 'DietPlanReport',
           label: 'Any supporting Diet Plan Reports',
-          type:'file',
+          type: 'file',
           required: true,
           order: 4
         }),
       ]
     }
-    else if(this.formid == 6){
+    else if (this.formid == 6) {
       this.title = "Upload report - Doctor";
       questions = [
         new TextboxField({
-          key: 'DoctorName',
+          key: 'DoctorIncharge',
           label: 'Enter Doctor Name',
           placeholder: 'Enter doctor\'s name',
           required: true,
           order: 1
-        }), 
-        new TextboxField({
-          key: 'PatientName',
-          label: 'Enter Patient Name',
-          placeholder: 'Enter name of the patient',
-          required: true,
-          order: 2
-        }), 
+        }),
+        // new TextboxField({
+        //   key: 'PatientName',
+        //   label: 'Enter Patient Name',
+        //   placeholder: 'Enter name of the patient',
+        //   required: true,
+        //   order: 2
+        // }),
         new TextboxField({
           key: 'PatientPhoneNumber',
           label: 'Patient Phone Number',
           type: 'number',
           placeholder: 'Enter patient\'s phone number',
           required: true,
-          order: 3
+          order: 2
         }),
         new TextboxField({
           key: 'Familyemailid',
-          label: 'PatientEmailID',
+          label: 'Patient Email ID',
           placeholder: 'Enter patient\'s email id ',
+          required: true,
+          order: 3
+        }),
+
+        new TextboxField({
+          key: 'MedicalHistoryDate',
+          label: 'Apointment Date',
+          type: 'date',
           required: true,
           order: 4
         }),
         new FileField({
           key: 'supportingMedicalReport',
           label: 'Any supporting Patient Medical Reports',
-          type:'file',
+          type: 'file',
           required: true,
           order: 5
         }),
         
+
       ]
     }
-    else if(this.formid == 7){
+    else if (this.formid == 7) {
       this.title = "Helper Profile";
       questions = [
         new TextboxField({
@@ -370,7 +382,7 @@ export class FormComponent implements OnInit {
           // value: this.doctorprofile.payload.doc.data().DoctorName,
           required: true,
           order: 1
-        }), 
+        }),
         new TextboxField({
           key: 'HelperOrganisation',
           label: 'Enter Helper\'s Organisation',
@@ -391,7 +403,7 @@ export class FormComponent implements OnInit {
           key: 'HelperPhoneNumber',
           label: 'Helper Phone Number',
           type: 'number',
-          placeholder:"Enter helper\'s phone number",
+          placeholder: "Enter helper\'s phone number",
           // value: this.doctorprofile.payload.doc.data().DoctorFees,
           required: true,
           order: 4
@@ -400,18 +412,19 @@ export class FormComponent implements OnInit {
           key: 'HelperAge',
           label: 'Helper Age',
           type: 'number',
-          placeholder:"Enter helper\'s age",
+          placeholder: "Enter helper\'s age",
           // value: this.doctorprofile.payload.doc.data().DoctorFees,
           required: true,
-          order: 5
+          order: 5,
+
         }),
         new DropdownField({
           key: 'Gender',
           label: 'Gender',
           options: [
-            {key: 'Female',  value: 'Female'},
-            {key: 'Male',  value: 'Male'},
-            {key: 'Other',   value: 'Other'}
+            { key: 'Female', value: 'Female' },
+            { key: 'Male', value: 'Male' },
+            { key: 'Other', value: 'Other' }
           ],
           required: true,
           order: 6
@@ -426,18 +439,18 @@ export class FormComponent implements OnInit {
         }),
       ]
     }
-    else if(this.formid == 8){
-      this.title = "Reviews";
+    else if (this.formid == 8) {
+      this.title = "Add a Reviews";
       questions = [
         new TextboxField({
           key: 'ReviewRating',
           label: 'Review Rating',
           placeholder: 'Enter Review Rating out of 10',
-          type:'number',
+          type: 'number',
           // value: this.doctorprofile.payload.doc.data().DoctorName,
           required: true,
           order: 1
-        }), 
+        }),
         new TextboxField({
           key: 'ReviewComment',
           label: 'Review Comment',
@@ -457,47 +470,61 @@ export class FormComponent implements OnInit {
     this.db.create(`familymembers/${this.user.uid}/familymember`, form1.form.value);
   }
 
-  submit(formdata: formInterface){
-    if(this.formid == 1){
+  submit(formdata: formInterface) {
+    if (this.formid == 1) {
       this.db.create(`familymembers/${this.user.uid}/familymember`, formdata.form.value);
     }
-    else if(this.formid == 2){
+    else if (this.formid == 2) {
       let data = formdata.form.value;
       this.db.createdoc(`Doctors/${this.user.uid}`, data);
     }
-    else if(this.formid == 3){
-       let data = formdata.form.value;
-       this.db.upload(`Medicalreport/${this.user.uid}/${this.familymemid}`, `MedicalReport/${this.user.uid}/MedicalReport/${this.familymemid}/medicalreports`, formdata.file, data).then(res => {
+    else if (this.formid == 3) {
+      let data = formdata.form.value;
+      this.db.upload(`Medicalreport/${this.user.uid}/${this.familymemid}`, `MedicalReport/${this.user.uid}/MedicalReport/${this.familymemid}/medicalreports`, formdata.file, data).then(res => {
         this.router.navigate(['/history'], { queryParams: { id: 1, famid: this.familymemid } });
       });
     }
-    else if(this.formid==4){
+    else if (this.formid == 4) {
       let data = formdata.form.value;
       this.db.upload(`HelperDetails/${this.user.uid}/${this.familymemid}`, `HelperDetails/${this.user.uid}/HelperDetails/${this.familymemid}/helperdetails`, formdata.file, data).then(res => {
         this.router.navigate(['/history'], { queryParams: { id: 3, famid: this.familymemid } });
       });
     }
-    else if(this.formid==5){
+    else if (this.formid == 5) {
       let data = formdata.form.value;
       this.db.upload(`DietPlanDetails/${this.user.uid}/${this.familymemid}`, `DietPlanDetails/${this.user.uid}/DietPlanDetails/${this.familymemid}/DietPlanDetails`, formdata.file, data).then(res => {
         this.router.navigate(['/history'], { queryParams: { id: 2, famid: this.familymemid } });
       });
     }
-    else if(this.formid==6){
+    else if (this.formid == 6) {
       let data = formdata.form.value;
-      this.db.upload(`DoctorPatientDetails/${this.user.uid}/${this.familymemid}`, `DoctorPatientDetails/${this.user.uid}/DoctorPatientDetails/${this.familymemid}/DoctorPatientDetails`, formdata.file, data);
+      this.db.readCollection(`Users`).snapshotChanges().subscribe((res: any) => {
+        for (let i of res ){
+          if (i.payload.doc.data().email ==data["Familyemailid"] ){
+          this.db.readCollection(`familymembers/${i.payload.doc.id}/familymember`).snapshotChanges().subscribe((res1: any)=>{
+            for (let j of res1){
+              if (j.payload.doc.data().FamilyMemberPhoneNumber ==data["PatientPhoneNumber"]){
+               delete data["PatientPhoneNumber"] ; delete data["Familyemailid"];
+                this.db.upload(`Medicalreport/${i.payload.doc.id}/${j.payload.doc.id}`, `MedicalReport/${i.payload.doc.id}/MedicalReport/${j.payload.doc.id}/medicalreports`, formdata.file, data)
+              }
+            }
+          })
+          }
+        }
+      })
+      // this.db.upload(`DoctorPatientDetails/${this.user.uid}/${this.familymemid}`, `DoctorPatientDetails/${this.user.uid}/DoctorPatientDetails/${this.familymemid}/DoctorPatientDetails`, formdata.file, data);
     }
-    else if(this.formid == 7){
+    else if (this.formid == 7) {
       this.db.create(`Caretakers/`, formdata.form.value);
     }
-    else if(this.formid == 8){
+    else if (this.formid == 8) {
       let data = formdata.form.value;
-      data["uid"]= this.user.uid;
+      data["uid"] = this.user.uid;
       this.db.create(`Reviews/${this.docid}/comments`, data);
     }
   }
 
-  getdocprofile(){
+  getdocprofile() {
     return this.db.readDoc(`Doctors/${this.uid}`);
   }
 }
