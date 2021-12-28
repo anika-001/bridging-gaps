@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
 import { LabtestComponent } from './labtest/labtest.component';
 import { HelperComponent } from './helper/helper.component';
+import { ReminderslotComponent } from './reminderslot/reminderslot.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'reminders',
+    component: ReminderslotComponent
   }
 ];
 
