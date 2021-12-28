@@ -51,4 +51,7 @@ export class ConsultationComponent   implements OnInit {
     else if (this.doctors[i].payload.doc.data().Gender == 'Male'){return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMale%20Doctor%2Fimage-removebg-preview%20(6).png?alt=media&token=9f5ec334-efb7-460d-8db6-1aed0d7865eb"}
     else {return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FNeutral%20Doctor%2FUntitled_design__9_-removebg-preview.png?alt=media&token=f051faeb-8bb6-498e-be78-33968c0deb91"}
   }
+  gotoreviews() {
+    this.router.navigate(['/form'], { queryParams: { id: 8, docid: this.currentdoctordocid } });
+  }
 }

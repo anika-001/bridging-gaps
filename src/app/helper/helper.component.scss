@@ -53,7 +53,7 @@
 {
   height: 15vh;
   width: 15vh;
-  // background-color:white;
+  background-color:white;
 }
 
 .info
@@ -103,21 +103,20 @@
 }
 
 .title{
-  height: 5vh;
+  height: 10vh;
   width: 100%;
   // background-color: burlywood;
   font-size: 220%;
   font-weight: 500;
   // align-items: center;
   display: flex;
-  // margin-top: 10vh;
   flex-direction: column;
   justify-content: center;
   // text-align: center;
 }
 
 .introcard{
-  height: 30vh;
+  height: 15vh;
   width: 100%;
   // background-color: aqua;
   display: flex;
@@ -126,16 +125,16 @@
 }
 
 .photo {
-  height: 12vh;
-  width: 20vh;
-  // background-color: #ffffff;
+  height: 10vh;
+  width: 10vh;
+  background-color: #ffffff;
   justify-content: center;
 }
 
 .nameandprof{
   // background-color: pink;
-  width: 25vw;
-  height: 20vh;
+  width: 15vw;
+  height: 15vh;
   padding-left: 2vw;
   display: flex;
   flex-direction: column;
@@ -152,11 +151,10 @@
 
 .prof
 {
-  height: 5vh;
-  font-size: 90%;
-  font-weight:600;
+  height: 4vh;
+  font-size: 80%;
   font-style: italic;
-  color: rgb(66, 65, 65);
+  color: grey;
 }
 
 .r1{
@@ -176,13 +174,13 @@
 
 .description
 {
-  height: 50vh;
+  height: 70vh;
   width: 100%;
   // background-color: aquamarine;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+//   align-items: center;
   border-bottom: solid thin silver;
 }
 
@@ -198,6 +196,22 @@
 {
   color:grey;
   font-size: 100%;
+
+}
+
+.descrow{
+    display: flex;
+    // background-color: palegoldenrod;
+    font-size: 110%;
+}
+
+.descfield{
+    flex-basis: 30%;
+    font-weight: bold;
+}
+
+.descvalue{
+    flex-basis: 70%;
 }
 .review
 {
@@ -382,6 +396,12 @@ ngb-rating {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.anchor{
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .image{
