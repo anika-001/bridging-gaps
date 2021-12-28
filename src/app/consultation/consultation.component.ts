@@ -22,11 +22,13 @@ export class ConsultationComponent   implements OnInit {
   tags: any = [];
 
   ngOnInit(): void {
+   
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
     })
     this.getdoctors();
+    this.getratings();
   }
 
   getdoctors(){
@@ -53,5 +55,13 @@ export class ConsultationComponent   implements OnInit {
   }
   gotoreviews() {
     this.router.navigate(['/form'], { queryParams: { id: 8, docid: this.currentdoctordocid } });
+  }
+  ratings:any;
+  getratings() {
+    this.db.readCollection(`Reviewsrating/${this.currentdoctordocid}/ratings`).snapshotChanges().subscribe(res => {
+      this.ratings = res; 
+      console.log("here")
+      console.log(this.ratings);
+    })
   }
 }

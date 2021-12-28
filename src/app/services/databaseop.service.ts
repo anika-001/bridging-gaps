@@ -51,5 +51,7 @@ export class DatabaseopService {
     return this.db.doc(path);
   }
 
-
+update(path:any,data:any){
+  return this.db.doc(path).update(data);
+}
 }
