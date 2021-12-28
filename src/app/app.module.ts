@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
 import { LabtestComponent } from './labtest/labtest.component';
 import { HelperComponent } from './helper/helper.component';
-import { RemindersComponent } from './reminders/reminders.component';
+
 import { ReminderslotComponent } from './reminderslot/reminderslot.component';
 
 
@@ -56,7 +56,7 @@ import { ReminderslotComponent } from './reminderslot/reminderslot.component';
     ReviewsComponent,
     TimeslotsComponent,
     HelperComponent,
-    RemindersComponent,
+   
     ReminderslotComponent
   ],
   imports: [
