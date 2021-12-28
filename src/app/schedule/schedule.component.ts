@@ -232,7 +232,7 @@ mydataapi:any;
     this.offset = WD[(new Date(this.currentyear, this.currentmonth, 1)).toString().split(" ")[0]];
 
     this.getcurrentweek();
-    for (let i = 0; i < 48; i++) {
+    for (let i = 0; i < 24; i++) {
       this.hour.push(((i + 6) % 24).toString() + ":30 - " + ((i + 7) % 24).toString() + ":00");
       this.time.push(i);
       this.hour.push(((i + 7) % 24).toString() + ":00 - " + ((i + 7) % 24).toString() + ":30");
