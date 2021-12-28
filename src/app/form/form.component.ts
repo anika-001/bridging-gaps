@@ -34,7 +34,7 @@ export class FormComponent implements OnInit {
   familymemid: any;
   doctorprofile: any;
 
-  ngOnInit(): void {
+  ngOnInit( ): void {
 
     this.formid = this.route.snapshot.queryParams['id'];
     this.familymemid = this.route.snapshot.queryParams['fmid'];
@@ -448,6 +448,28 @@ export class FormComponent implements OnInit {
         }),
       ]
     }
+    else if(this.formid == 9){
+      this.title = "Reminder";
+      questions = [
+        new TextboxField({
+          key: 'MedicineName',
+          label: 'Medicine Name',
+          placeholder: 'Enter the name of medicine',
+          // type:'number',
+          // value: this.doctorprofile.payload.doc.data().DoctorName,
+          required: true,
+          order: 1
+        }), 
+        new TextboxField({
+          key: 'Time',
+          label: 'Reminder Time',
+          placeholder: 'Enter the time to remind (HH:MM - in 24hr Format)',
+          // value: this.doctorprofile.payload.doc.data().DoctorSpecialization,
+          required: true,
+          order: 2
+        }),
+      ]
+    }
     return of(questions?.sort((a, b) => a.order - b.order));
   }
 
@@ -494,6 +516,14 @@ export class FormComponent implements OnInit {
       let data = formdata.form.value;
       data["uid"]= this.user.uid;
       this.db.create(`Reviews/${this.docid}/comments`, data);
+    }
+    else if(this.formid==9){
+      let data = formdata.form.value;
+      data["uid"]= this.user.uid;
+      this.db.create(`Reminders/${this.user.uid}/Reminders/${this.familymemid}/reminders`, data);
+      // this.db.upload(`Reminders/${this.user.uid}/${this.familymemid}`, `Reminders/${this.user.uid}/Reminders/${this.familymemid}/Reminders`, formdata.file, data);
+      this.router.navigate(['/reminders'], { queryParams: { famid: this.familymemid }})     
+    
     }
   }
 
