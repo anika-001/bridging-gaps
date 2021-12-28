@@ -1,3 +1,4 @@
+<p>helper works!</p>
 <ng-template #t let-fill="fill">
     <span class="star1" [class.full]="fill === 100">
         <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
@@ -7,14 +8,14 @@
 <div class="main">
     <div class="consult">
         <div class="list">
-            <div class="doctor" *ngFor="let x of members;let i=index" (click)="familymemberclick(i,x.payload.doc.id)">
+            <div class="doctor" *ngFor="let x of caretaker;let i=index" (click)="helperclick(i,x.payload.doc.id)">
                 <div class="pic">
                     <img class="image"
                         src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912">
                 </div>
                 <div class="info">
-                    <div class="name">{{x.payload.doc.data().FamilyMemberName}}</div>
-                    <div class="reviewre">{{x.payload.doc.data().Relation}} - {{x.payload.doc.data().FamilyMemberAge}}
+                    <div class="name">{{x.payload.doc.data().HelperName}}</div>
+                    <div class="reviewre">{{x.payload.doc.data().HelperLocation}} - {{x.payload.doc.data().HelperAge}} Years
                         Years</div>
                     <div class="rating r1"></div>
                 </div>
@@ -23,7 +24,7 @@
         <div class="profile">
             <div class="profile-card">
                 <div style="height: 5vh; display: flex; justify-content: flex-end; width: 100%;">
-                    <div class="btn6" (click)='fam()'>Add a member</div>
+                    <!-- <div class="btn6" (click)='fam()'>Add a member</div> -->
                 </div>
                 <div class="title">Profile</div>
                 <div class="introcard">
@@ -31,12 +32,12 @@
                             src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912">
                     </div>
                     <div class="nameandprof">
-                        <div class="name">{{members[currentfamilymember].payload.doc.data().FamilyMemberName}}</div>
-                        <div class="prof">{{members[currentfamilymember].payload.doc.data().FamilyMemberAge}} Years
+                        <div class="name">{{caretaker[currenthelper].payload.doc.data().HelperName}}</div>
+                        <div class="prof">{{caretaker[currenthelper].payload.doc.data().HelperAge}} Years
                         </div>
                     </div>
                     <div class="rating">
-                        <div class="btn6">edit</div>
+                        <!-- <div class="btn6">edit</div> -->
                     </div>
                 </div>
 
@@ -44,31 +45,30 @@
                     <!-- <div class="descdesc"> -->
                     <div *ngFor="let x of testArrayKeys; let i = index">
                         <div class="descrow"
-                            *ngIf="!(i > 5) && members[currentfamilymember].payload.doc.data().hasOwnProperty(x)">
+                            *ngIf="caretaker[currenthelper].payload.doc.data().hasOwnProperty(x)">
                             <div class="descfield">
                                 {{testArrayFields[i]}}:
                             </div>
                             <div class="descvalue">
-                                <div *ngIf="!(i > 5)">{{members[currentfamilymember].payload.doc.data()[x]}}</div>
+                                <div>{{caretaker[currenthelper].payload.doc.data()[x]}}</div>
                             </div>
                         </div>
 
-                      <div class="descrow" *ngIf = "i > 5">
-                          <div class="descfield">
-                              {{testArrayFields[i]}}:
-                          </div>
-                          <div class="descvalue">
-                              <!-- <div class = "anchor" *ngIf="i == 5" ">View</div> -->
-                              <div class = "anchor" *ngIf="i == 6" (click) = "medicalhis()">View</div>
-                              <div class = "anchor" *ngIf="i == 7" (click) = "diet()">View</div>
-                              <div class = "anchor" *ngIf="i == 8" (click) = "help()">View</div>
-                              <div class = "anchor" *ngIf="i == 9"><a Href="#">View</a></div>
-                          </div>
-                      </div>
-                  </div>
-                  <!-- </div> -->
-              </div>
-          </div>
-      </div>
-  </div>
+                        <!-- <div class="descrow" *ngIf="i > 5">
+                            <div class="descfield">
+                                {{testArrayFields[i]}}:
+                            </div>
+                            <div class="descvalue">
+                                <div class="anchor" *ngIf="i == 6"><a Href="#">View</a></div>
+                                <div class="anchor" *ngIf="i == 7" (click)="diet()">View</div>
+                                <div class="anchor" *ngIf="i == 8"><a Href="#">View</a></div>
+                                <div class="anchor" *ngIf="i == 9"><a Href="#">View</a></div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

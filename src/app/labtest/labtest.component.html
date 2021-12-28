@@ -8,12 +8,14 @@
 <div class="main">
     <div class="consult">
         <div class="list">
-            <div class="doctor" *ngFor="let x of links ;let i = index"(click)="currentlinkclick(i)">
+            <div class="doctor" *ngFor="let x of links ;let i = index" (click)="currentlinkclick(i)">
                 <div class="pic">
-
+                    <img class="image"
+                        src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FLab%20Test%2FLabTest.png?alt=media&token=1c9f8e98-b5bf-4f6f-a12c-dbb2dde0e973">
+                
                 </div>
                 <div class="info">
-                    <div class="name">{{x.payload.doc.data().Name }}</div>
+                    <div class="name">{{x.payload.doc.data().Name}}</div>
                     <div class="rating r1">
                         <ngb-rating [max]="5" [(rate)]="x.payload.doc.data().Rating" [readonly]="true"></ngb-rating>
                     </div>
@@ -22,15 +24,20 @@
         </div>
         <div class="profile">
             <div class="profile-card">
-                <div class="title">Application details</div>
+                <div class="title">Labs details</div>
                 <div class="introcard">
-                    <div class="photo"></div>
+                    
+                    <div class="photo">
+                        <img class="image"
+                        src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FLab%20Test%2FLabTest.png?alt=media&token=1c9f8e98-b5bf-4f6f-a12c-dbb2dde0e973">
+                    </div>
                     <div class="nameandprof">
-                        <div class="name"> {{links[currentlinks].payload.doc.data().Name}}</div>
-                        <a href="{{links[currentlinks].payload.doc.data().Link}}"class="prof">Visit link</a>
+                        <div class="name"> {{links[currentlabs].payload.doc.data().Name}}</div>
+                        <a href="{{links[currentlabs].payload.doc.data().Link}}" class="prof">Visit link</a>
                     </div>
                     <div class="rating">
-                        <ngb-rating [max]="5" [(rate)]="links[currentlinks].payload.doc.data().Rating" [readonly]="true" [starTemplate]="t">
+                        <ngb-rating [max]="5" [(rate)]="links[currentlabs].payload.doc.data().Rating" [readonly]="true"
+                            [starTemplate]="t">
                         </ngb-rating>
                     </div>
                 </div>
@@ -38,8 +45,8 @@
                 <div class="description">
                     <div class="desctitle">Description</div>
                     <div class="descdesc">
-                        {{links[currentlinks].payload.doc.data().Description}}
-                        
+                        {{links[currentlabs].payload.doc.data().Description}}
+
                     </div>
                 </div>
             </div>
