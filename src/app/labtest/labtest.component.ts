@@ -10,36 +10,36 @@ import { DatabaseopService } from '../services/databaseop.service';
 export class LabtestComponent implements OnInit {
   links: any;
   user:any;
-  currentlinks:any=0;
-  currentlinksid:any;
-  currentRating: number = 4;
+  currentlabs:any=0;
+  currentlabsid:any;
+  // currRating: number = 4;
   constructor(private as: AuthService, private router: Router,private db: DatabaseopService) {}
   
 
   tags = ["tag1", "absuhue", "t", "jjjjjjjjjjjjjjjj"];
 
   ngOnInit(): void {
-    
+    this.medicallinks();
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
-      this.medicallinks();
+  
     });
 
   }
 
-  currentlinkclick(currlinks:any){
-    this.currentlinks= currlinks;
+  currentlinkclick(currlabs:any){
+    this.currentlabs= currlabs;
     // this.currentlinksid=currentlinksid;
-   console.log(this.currentlinks);
+   console.log(this.currentlabs);
   }
   
   medicallinks(){
-    this.db.readCollection(`MedApplications`).snapshotChanges().subscribe(res => {
+    this.db.readCollection(`labtest`).snapshotChanges().subscribe(res => {
       this.links = res;
-     
+      console.log(this.links[0].payload.doc.data());
     })
-    console.log(this.links);
+    
   }
 
 }

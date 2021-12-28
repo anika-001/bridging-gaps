@@ -11,17 +11,17 @@ import { DatabaseopService } from '../services/databaseop.service';
 
 export class MeddeliveryComponent implements OnInit {
   links: any;
-  user:any;
-  currentlinks:any=0;
-  currentlinksid:any;
+  user: any;
+  currentlinks: any = 0;
+  currentlinksid: any;
   currentRating: number = 4;
-  constructor(private as: AuthService, private router: Router,private db: DatabaseopService) {}
-  
+  constructor(private as: AuthService, private router: Router, private db: DatabaseopService) { }
+
 
   tags = ["tag1", "absuhue", "t", "jjjjjjjjjjjjjjjj"];
 
   ngOnInit(): void {
-    
+
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
@@ -30,16 +30,16 @@ export class MeddeliveryComponent implements OnInit {
 
   }
 
-  currentlinkclick(currlinks:any){
-    this.currentlinks= currlinks;
+  currentlinkclick(currlinks: any) {
+    this.currentlinks = currlinks;
     // this.currentlinksid=currentlinksid;
-   console.log(this.currentlinks);
+    console.log(this.currentlinks);
   }
-  
-  medicallinks(){
+
+  medicallinks() {
     this.db.readCollection(`MedApplications`).snapshotChanges().subscribe(res => {
       this.links = res;
-     
+
     })
     console.log(this.links);
   }
