@@ -7,26 +7,25 @@
 <div class="main">
 
     <!-- Add Medical History -->
-    <div class="consult" *ngIf = "type == 1">
+    <div class="consult" *ngIf = "type ==1">
         <div class="list">
-            <div class="doctor" *ngFor="let x of dietplan; let i=index" (click)="click(i, x.payload.doc.id)">
+            <div class="doctor" *ngFor="let x of medhis; let i=index" (click)="clickmed(i, x.payload.doc.id)">
                 <div class="pic">
 
                 </div>
                 <div class="info" >
-                    <div class="name" >{{x.payload.doc.data().DoctorInCharge}}</div>
+                    <div class="name" >{{x.payload.doc.data().DoctorIncharge}}</div>
                     <div></div>
-                    <div class="reviewre">{{x.payload.doc.data().DietPlanBeginDate}} - {{x.payload.doc.data().dietPlanEndDate}}</div>
+                    <div class="reviewre">{{x.payload.doc.data().MedicalHistoryDate}}  {{x.payload.doc.data().MedicalReport}}</div>
                     <div class="rating r1">
-
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="profile">
-            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoadddiet()">Add a diet</div></div>
-            <ngx-extended-pdf-viewer [src]="dietplan[currentfamindex].payload.doc.data().link"
+            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoaddmed()">Add a Medical History</div></div>
+            <ngx-extended-pdf-viewer [src]="medhis[currentmedindex].payload.doc.data().link"
                 [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
         </div>
     </div>
@@ -40,7 +39,7 @@
                 <div class="info" >
                     <div class="name" >{{x.payload.doc.data().DoctorInCharge}}</div>
                     <div></div>
-                    <div class="reviewre">{{x.payload.doc.data().DietPlanBeginDate}} - {{x.payload.doc.data().dietPlanEndDate}}</div>
+                    <div class="reviewre">{{x.payload.doc.data().DietPlanBeginDate}} : {{x.payload.doc.data().dietPlanEndDate}}</div>
                     <div class="rating r1">
 
                     </div>
@@ -58,24 +57,23 @@
     <!-- Add helper -->
     <div class="consult" *ngIf = "type == 3">
         <div class="list">
-            <div class="doctor" *ngFor="let x of dietplan; let i=index" (click)="click(i, x.payload.doc.id)">
+            <div class="doctor" *ngFor="let x of helper; let i=index" (click)="clickhelp(i, x.payload.doc.id)">
                 <div class="pic">
 
                 </div>
                 <div class="info" >
-                    <div class="name" >{{x.payload.doc.data().DoctorInCharge}}</div>
+                    <div class="name" >{{x.payload.doc.data().HelperName}}</div>
                     <div></div>
-                    <div class="reviewre">{{x.payload.doc.data().DietPlanBeginDate}} - {{x.payload.doc.data().dietPlanEndDate}}</div>
+                    <div class="reviewre">{{x.payload.doc.data().HelperOrganisation}}, {{x.payload.doc.data().helperPhoneNumber}}, {{x.payload.doc.data().Gender}}, {{x.payload.doc.data().Age}} {{x.payload.doc.data().HelperReport}}</div>
                     <div class="rating r1">
-
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="profile">
-            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoadddiet()">Add a diet</div></div>
-            <ngx-extended-pdf-viewer [src]="dietplan[currentfamindex].payload.doc.data().link"
+            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoaddhelp()">Add a Care Taker</div></div>
+            <ngx-extended-pdf-viewer [src]="helper[currenthelpindex].payload.doc.data().link"
                 [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
         </div>
     </div>

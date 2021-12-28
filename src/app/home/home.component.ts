@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   family : any;
   user:any;
   meddel:any;
+  labtest: any;
   // currfammember:any = 0;
   // currfammemberid: any;
   // currentli:any =0;
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.medicaldel();
+    this.labs();
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
@@ -49,6 +51,11 @@ export class HomeComponent implements OnInit {
    medicaldel(){
     this.db.readCollection(`MedApplications`).snapshotChanges().subscribe(res => {
       this.meddel = res;
+    })
+  }
+  labs() {
+    this.db.readCollection(`labtest`).snapshotChanges().subscribe(res => {
+      this.labtest = res;
     })
   }
 }

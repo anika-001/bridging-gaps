@@ -9,7 +9,7 @@
     <div class="list">
       <div class="doctor" *ngFor = "let x of doctors; let i = index" (click) = "doctorclick(x.payload.doc.id, i)">
         <div class="pic">
-         <img class = "image" src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FDoctor%2Fimage-removebg-preview.png?alt=media&token=8f306bf2-ec36-46aa-ae92-e99017871148">
+         <img class = "image" src= "{{getlink(i)}}">
         </div>
         <div class="info">
           <div class="name">{{x.payload.doc.data().DoctorName}}</div>
@@ -29,7 +29,7 @@
         <div class="title">Profile</div>
         <div class="introcard">
           <div class="photo">
-            <img class = "image" src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FDoctor%2Fimage-removebg-preview.png?alt=media&token=8f306bf2-ec36-46aa-ae92-e99017871148">
+            <img class = "image" src="{{getlink(currentdoctorindex)}}">
           </div>
           <div class="nameandprof">
             <div class="name">{{doctors[currentdoctorindex].payload.doc.data().DoctorName}}</div>
@@ -66,7 +66,7 @@
         </div>
 
         <div class="review">
-          <div class="reviewtitle">64 reviews</div>
+          <div class="reviewtitle" (click)="gotoreviews();">64 reviews</div>
           <div class="lastreview">
             <div class="lastreviewtitle">Last review:
             <!-- <div class="reviewreview"></div> -->

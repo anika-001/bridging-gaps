@@ -7,10 +7,10 @@
 <div class="main">
     <div class="consult">
         <div class="list">
-            <div class="doctor" *ngFor="let x of links ;let i = index"(click)="currentlinkclick(i)">
+            <div class="doctor" *ngFor="let x of links ;let i = index" (click)="currentlinkclick(i)">
                 <div class="pic">
                     <img class="image"
-                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
+                        src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
                 </div>
                 <div class="info">
                     <div class="name">{{x.payload.doc.data().Name }}</div>
@@ -26,14 +26,15 @@
                 <div class="introcard">
                     <div class="photo">
                         <img class="image"
-                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
+                            src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
                     </div>
                     <div class="nameandprof">
                         <div class="name"> {{links[currentlinks].payload.doc.data().Name}}</div>
-                        <a href="{{links[currentlinks].payload.doc.data().Link}}"class="prof">Visit link</a>
+                        <a href="{{links[currentlinks].payload.doc.data().Link}}" class="prof">Visit link</a>
                     </div>
                     <div class="rating">
-                        <ngb-rating [max]="5" [(rate)]="links[currentlinks].payload.doc.data().Rating" [readonly]="true" [starTemplate]="t">
+                        <ngb-rating [max]="5" [(rate)]="links[currentlinks].payload.doc.data().Rating" [readonly]="true"
+                            [starTemplate]="t">
                         </ngb-rating>
                     </div>
                 </div>
@@ -42,7 +43,7 @@
                     <div class="desctitle">Description</div>
                     <div class="descdesc">
                         {{links[currentlinks].payload.doc.data().Description}}
-                        
+
                     </div>
                 </div>
             </div>
