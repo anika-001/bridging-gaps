@@ -27,7 +27,7 @@ export class DatabaseopService {
           console.log("download complete");
           ref.getDownloadURL().subscribe((res: any) => {
             console.log(res);
-            data["link"]=res;
+            data["link"] = res;
             this.db.collection(dbpath).add(data).then(e => {
               // 
               console.log(e)
@@ -43,15 +43,15 @@ export class DatabaseopService {
     })
   }
 
-  readCollection(path: any){
+  readCollection(path: any) {
     return this.db.collection(path);
   }
 
-  readDoc(path: any){
+  readDoc(path: any) {
     return this.db.doc(path);
   }
 
-update(path:any,data:any){
-  return this.db.doc(path).update(data);
-}
+  update(path: any, data: any) {
+    return this.db.doc(path).update(data);
+  }
 }

@@ -42,8 +42,9 @@ export class SigninComponent implements OnInit {
             this.as.getUserState().subscribe(res => {
               if(res){
                 this.as.getprofile(res.uid).subscribe((res:any) => {
-                  if(res.payload.data().role != 2){this.router.navigate(['/home']);}
-                  else this.router.navigate(['/schedule']);
+                  if(res.payload.data().role == 1){this.router.navigate(['/home']);}
+                  else if(res.payload.data().role == 2) this.router.navigate(['/schedule'])
+                  else {}
                 })
               }
             })
