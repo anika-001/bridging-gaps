@@ -12,6 +12,9 @@ import { DatabaseopService } from '../services/databaseop.service';
 import { AuthService } from '../services/auth.service';
 import { RatingField } from '../form-template/form-rating';
 import { TextAreaField } from '../form-template/form-textarea';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { updateLanguageServiceSourceFile } from 'typescript';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -429,10 +432,10 @@ export class FormComponent implements OnInit {
     else if(this.formid == 8){
       this.title = "Reviews";
       questions = [
-        new TextboxField({
+        new RatingField({
           key: 'ReviewRating',
           label: 'Review Rating',
-          placeholder: 'Enter Review Rating out of 10',
+          placeholder: 'Enter Review Rating out of 5',
           type:'number',
           // value: this.doctorprofile.payload.doc.data().DoctorName,
           required: true,
@@ -498,8 +501,22 @@ export class FormComponent implements OnInit {
       // delete data1['ReviewComment'];
       // console.log(data);
       // console.log(data1);
+      // ratings:any;
       this.db.create(`Reviewscomment/${this.docid}/comments`, {"uid":this.user.uid,"reviewcomment":formdata.form.value["ReviewComment"]});
-      this.db.create(`Reviewsrating/${this.docid}/ratings`, {"uid":this.user.uid,"reviewrating":formdata.form.value["ReviewRating"]});
+      this.db.createdoc(`Reviewsrating/${this.docid}/ratings/${this.user.uid}`, {"uid":this.user.uid,"reviewrating":formdata.form.value["ReviewRating"]})
+      .then(res=>{
+        this.db.readCollection(`Reviewsrating/${this.docid}/ratings`).snapshotChanges().subscribe((res:any) => {
+          // this.ratings = res; 
+          console.log("here")
+          let avg=0;
+          for(let i of res){
+            avg = avg + Number(i.payload.doc.data().reviewrating);
+          }
+          console.log(avg);
+          console.log(avg/res.length);
+          this.db.update(`Doctors/${this.docid}`,{"Rating":avg});
+        })
+      });
     }
   }
 
