@@ -491,9 +491,15 @@ export class FormComponent implements OnInit {
       this.db.create(`Caretakers/`, formdata.form.value);
     }
     else if(this.formid == 8){
-      let data = formdata.form.value;
-      data["uid"]= this.user.uid;
-      this.db.create(`Reviews/${this.docid}/comments`, data);
+      // let data = formdata.form.value;
+      // data["uid"]= this.user.uid;
+      // let data1=formdata.form.value;
+      // delete data['ReviewRating'];
+      // delete data1['ReviewComment'];
+      // console.log(data);
+      // console.log(data1);
+      this.db.create(`Reviewscomment/${this.docid}/comments`, {"uid":this.user.uid,"reviewcomment":formdata.form.value["ReviewComment"]});
+      this.db.create(`Reviewsrating/${this.docid}/ratings`, {"uid":this.user.uid,"reviewrating":formdata.form.value["ReviewRating"]});
     }
   }
 
