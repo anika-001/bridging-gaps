@@ -28,7 +28,9 @@ export class ReminderslotComponent implements OnInit {
       if(user == null) this.router.navigate(['/signin']);
       this.user = user;
       this.getremind(); 
-      
+      this.as.getprofile(this.user.uid).subscribe((res: any) => {
+        if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
+      })
     })
   }
 

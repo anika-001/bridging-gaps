@@ -17,7 +17,7 @@
           <div class="rating r1">
             <ngb-rating
               [max]="5"
-              [(rate)]="currentRating"
+              [(rate)]="x.payload.doc.data().Rating"
               [readonly]="true"
             ></ngb-rating>
           </div>
@@ -38,7 +38,7 @@
           <div class="rating">
             <ngb-rating
               [max]="5"
-              [(rate)]="currentRating"
+              [(rate)]="doctors[currentdoctorindex].payload.doc.data().Rating"
               [readonly]="true"
               [starTemplate]="t"
             ></ngb-rating>
@@ -66,7 +66,11 @@
         </div>
 
         <div class="review">
-          <div class="reviewtitle" (click)="gotoreviews();">64 reviews</div>
+
+         <div class="strip"> <div class="reviewtitle" (click)="gotoreviews();">64 reviews &rarr;
+           
+          </div><div class="btn6"  (click) ="gotoreviews();">Add a review</div>
+         </div>
           <div class="lastreview">
             <div class="lastreviewtitle">Last review:
             <!-- <div class="reviewreview"></div> -->
