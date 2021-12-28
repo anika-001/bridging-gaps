@@ -36,6 +36,7 @@ const routes: Routes = [
     component: TimeslotsComponent,
   },
   
+  
   {
     path: 'consultation',
     component: ConsultationComponent,
