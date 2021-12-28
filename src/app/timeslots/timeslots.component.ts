@@ -124,7 +124,7 @@ export class TimeslotsComponent implements OnInit {
   islesserthannow(day: number, slot: number){
     // console.log(this.getseconds(slot));
     // console.log(Date.now(), (new Date(year, month, day)).getTime(), (new Date(year, month, day)).getTime() + this.getseconds(slot))
-
+    
     let weeek = this.currentweek[0].split(" ");
     if(Date.now() > (new Date(weeek[2], weeek[1], weeek[0])).getTime() + day*24*60*60*1000 + this.getseconds(slot)) return true
     return false;
