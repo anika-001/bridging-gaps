@@ -17,9 +17,9 @@ export class HistoryComponent implements OnInit {
   user: any;
   famid: any;
   familymemid: any;
-  dietplan: any;
-  helper: any;
-  medhis: any;
+  dietplan: Array<any> = [];
+  helper: Array<any> = [];
+  medhis: Array<any> = [];
   currentfamindex: any = 0;
   currentfamid: any = 0;
   currenthelpindex: any = 0;

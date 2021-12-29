@@ -95,6 +95,7 @@ export class TimeslotsComponent implements OnInit {
     console.log(response);
     this.razorpayResponse = `Successful Transaction`;
     console.log(this.razorpayResponse);
+    this.mypostreq();
     this.router.navigate(['/home']);
 
     this.zone.run(() => {

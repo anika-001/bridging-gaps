@@ -345,13 +345,6 @@ export class FormComponent implements OnInit {
           required: true,
           order: 1
         }),
-        // new TextboxField({
-        //   key: 'PatientName',
-        //   label: 'Enter Patient Name',
-        //   placeholder: 'Enter name of the patient',
-        //   required: true,
-        //   order: 2
-        // }),
         new TextboxField({
           key: 'PatientPhoneNumber',
           label: 'Patient Phone Number',
@@ -508,7 +501,11 @@ export class FormComponent implements OnInit {
 
   submit(formdata: formInterface) {
     if (this.formid == 1) {
-      this.db.create(`familymembers/${this.user.uid}/familymember`, formdata.form.value);
+      let data = formdata.form.value;
+      this.db.create(`familymembers/${this.user.uid}/familymember`, data).then((res: any) => {
+        console.log(res);
+        this.db.create(`PhoneNumbers`, {"phno": data["FamilyMemberPhoneNumber"], "user": this.user.uid, "familymemid": res.id})
+      });
     }
     else if (this.formid == 2) {
       let data = formdata.form.value;
@@ -549,25 +546,15 @@ export class FormComponent implements OnInit {
           }
         }
       })
-      // this.db.upload(`DoctorPatientDetails/${this.user.uid}/${this.familymemid}`, `DoctorPatientDetails/${this.user.uid}/DoctorPatientDetails/${this.familymemid}/DoctorPatientDetails`, formdata.file, data);
     }
     else if (this.formid == 7) {
       this.db.create(`Caretakers/`, formdata.form.value);
     }
     else if(this.formid == 8){
-      // let data = formdata.form.value;
-      // data["uid"]= this.user.uid;
-      // let data1=formdata.form.value;
-      // delete data['ReviewRating'];
-      // delete data1['ReviewComment'];
-      // console.log(data);
-      // console.log(data1);
-      // ratings:any;
       this.db.create(`Reviewscomment/${this.docid}/comments`, {"uid":this.user.uid,"reviewcomment":formdata.form.value["ReviewComment"]});
       this.db.createdoc(`Reviewsrating/${this.docid}/ratings/${this.user.uid}`, {"uid":this.user.uid,"reviewrating":formdata.form.value["ReviewRating"]})
       .then(res=>{
         this.db.readCollection(`Reviewsrating/${this.docid}/ratings`).snapshotChanges().subscribe((res:any) => {
-          // this.ratings = res; 
           console.log("here")
           let avg=0;
           for(let i of res){
@@ -582,10 +569,15 @@ export class FormComponent implements OnInit {
     else if(this.formid==9){
       let data = formdata.form.value;
       data["uid"]= this.user.uid;
-      this.db.create(`Reminders/${this.user.uid}/Reminders/${this.familymemid}/reminders`, data);
-      // this.db.upload(`Reminders/${this.user.uid}/${this.familymemid}`, `Reminders/${this.user.uid}/Reminders/${this.familymemid}/Reminders`, formdata.file, data);
-      this.router.navigate(['/reminders'], { queryParams: { famid: this.familymemid }})     
-    
+      this.db.create(`Reminders/${this.user.uid}/Reminders/${this.familymemid}/reminders`, data).then(res => {
+        this.db.readDoc(`familymembers/${this.user.uid}/familymember/${this.familymemid}`).snapshotChanges().subscribe((res: any) => {
+          data["fmid"] = this.familymemid;
+          data["phno"] = res.payload.data().FamilyMemberPhoneNumber;
+          this.db.create(`TriggerReminders`, data).then(res => {
+            this.router.navigate(['/reminders'], { queryParams: { famid: this.familymemid,}});
+          });
+        })
+      });
     }
   }
 

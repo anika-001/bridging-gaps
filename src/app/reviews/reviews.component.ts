@@ -11,9 +11,14 @@ import { DatabaseopService } from '../services/databaseop.service';
 })
 export class ReviewsComponent implements OnInit {
   user: any;
+  docid: any;
+  
   constructor(private as: AuthService, private router: Router, private route: ActivatedRoute, private db: DatabaseopService) { }
 
   ngOnInit(): void {
+
+    this.docid = this.route.snapshot.queryParams['docid'];
+
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;

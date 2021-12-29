@@ -24,8 +24,8 @@
         </div>
 
         <div class="profile">
-            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoaddmed()">Add a Medical History</div></div>
-            <ngx-extended-pdf-viewer [src]="medhis[currentmedindex].payload.doc.data().link"
+            <div class = "addbut"><div class = "btn6" (click) = "gotoaddmed()">Add a Medical History</div></div>
+            <ngx-extended-pdf-viewer *ngIf = "medhis.length" [src]="medhis[currentmedindex].payload.doc.data().link"
                 [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
         </div>
     </div>
@@ -48,8 +48,8 @@
         </div>
 
         <div class="profile">
-            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoadddiet()">Add a diet</div></div>
-            <ngx-extended-pdf-viewer [src]="dietplan[currentfamindex].payload.doc.data().link"
+            <div class = "addbut"><div class = "btn6" (click) = "gotoadddiet()">Add a diet</div></div>
+            <ngx-extended-pdf-viewer *ngIf = "dietplan.length" [src]="dietplan[currentfamindex].payload.doc.data().link"
                 [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
         </div>
     </div>
@@ -72,8 +72,8 @@
         </div>
 
         <div class="profile">
-            <div class = "addbut"><div class = "btn6" style = "width: 15%; height: fit-content;" (click) = "gotoaddhelp()">Add a Care Taker</div></div>
-            <ngx-extended-pdf-viewer [src]="helper[currenthelpindex].payload.doc.data().link"
+            <div class = "addbut"><div class = "btn6" (click) = "gotoaddhelp()">Add a Care Taker</div></div>
+            <ngx-extended-pdf-viewer *ngIf = "helper.length" [src]="helper[currenthelpindex].payload.doc.data().link"
                 [useBrowserLocale]="true" height="80vh"></ngx-extended-pdf-viewer>
         </div>
     </div>

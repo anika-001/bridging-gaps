@@ -21,7 +21,7 @@
         </div>
         
         <div class="profile">
-            <div class="profile-card">
+            <div class="profile-card" *ngIf = "members.length">
                 <div style="height: 5vh; display: flex; justify-content: flex-end; width: 100%;">
                     <div class="btn6" (click)='fam()'>Add a member</div>
                 </div>

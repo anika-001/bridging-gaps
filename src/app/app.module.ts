@@ -26,7 +26,6 @@ import { FormTemplateComponent } from './form-template/form-template.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { FormComponent } from './form/form.component';
 import { ScheduleComponent } from './schedule/schedule.component';
-import { CartComponent } from './cart/cart.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
@@ -51,7 +50,6 @@ import { ReminderslotComponent } from './reminderslot/reminderslot.component';
     DynamicFormComponent,
     FormComponent,
     ScheduleComponent,
-    CartComponent,
     TimeslotsComponent,
     LabtestComponent,
     ReviewsComponent,

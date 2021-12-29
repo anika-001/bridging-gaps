@@ -10,7 +10,7 @@ import { DatabaseopService } from '../services/databaseop.service';
 })
 export class FamilyMembersComponent implements OnInit {
   user: any;
-  members: any;
+  members: Array<any> = [];
   remind: any;
   famid: any;
   currentfamilymember: any = 0;
