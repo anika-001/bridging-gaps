@@ -34,8 +34,6 @@ const routes: Routes = [
     path: 'slots',
     component: TimeslotsComponent,
   },
-  
-  
   {
     path: 'consultation',
     component: ConsultationComponent,
@@ -76,6 +74,10 @@ const routes: Routes = [
   {
     path: 'reminders',
     component: ReminderslotComponent
+  },
+  {
+    path: 'footer',
+    component: FooterComponent
   }
 ];
 
