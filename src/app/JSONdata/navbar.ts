@@ -24,6 +24,11 @@ export let navbar = [
         "name":"Medicine Delivery",
         "link":"/meddelivery",
     },
+    {
+        // "role":"user",
+        "name":"Caretakers",
+        "link":"/helper",
+    },
 ]
 
 export let navbardoctor = [
@@ -31,6 +36,11 @@ export let navbardoctor = [
         // "role":"user",
         "name":"Schedule",
         "link":"/schedule",
+    },
+    {
+        // "role":"user",
+        "name":"Reports",
+        "link":"/form",
     },
     {
         // "role":"user",

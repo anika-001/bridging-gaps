@@ -19,8 +19,9 @@
                 </div>
             </div>
         </div>
+        
         <div class="profile">
-            <div class="profile-card">
+            <div class="profile-card" *ngIf = "members.length">
                 <div style="height: 5vh; display: flex; justify-content: flex-end; width: 100%;">
                     <div class="btn6" (click)='fam()'>Add a member</div>
                 </div>
@@ -59,11 +60,12 @@
                               <div class = "anchor" *ngIf="i == 6" (click) = "medicalhis()">View</div>
                               <div class = "anchor" *ngIf="i == 7" (click) = "diet()">View</div>
                               <div class = "anchor" *ngIf="i == 8" (click) = "help()">View</div>
-                              <div class = "anchor" *ngIf="i == 9"><a Href="#">View</a></div>
+                              <div class = "anchor" *ngIf="i == 9" (click) = "rem()">View</div>
                           </div>
                       </div>
+                      
                   </div>
-                  <!-- </div> -->
+                  
               </div>
           </div>
       </div>

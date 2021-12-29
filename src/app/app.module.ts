@@ -32,6 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
 import { LabtestComponent } from './labtest/labtest.component';
 import { HelperComponent } from './helper/helper.component';
+import { FooterComponent } from './footer/footer.component';
+import { ReminderslotComponent } from './reminderslot/reminderslot.component';
+
 
 
 @NgModule({
@@ -53,7 +56,10 @@ import { HelperComponent } from './helper/helper.component';
     LabtestComponent,
     ReviewsComponent,
     TimeslotsComponent,
-    HelperComponent
+    HelperComponent,
+    FooterComponent,
+    ReminderslotComponent
+
   ],
   imports: [
     BrowserModule,

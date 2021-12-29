@@ -4,27 +4,17 @@
     </span>
 </ng-template>
 <div class="main">
-    <!-- <section class="features">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div> 
-        
-    </section> -->
-
     <div>
         <a href="http://wa.me/+14155238886?text=join%20larger-nuts" style="text-decoration:none">
-        <button type="button"  class="btn btn-outline-success wsspbtn">Click here to chat with us on Whatsapp! For messaging consent, kindly send the initial message.</button>
+            <button type="button" class="btn btn-outline-success wsspbtn">Click here to chat with us on Whatsapp! For
+                messaging consent, kindly send the initial message.</button>
         </a>
-   <div class="div wsspbtn">Alternatively copy this link by clicking here, and message on whatsapp to continue further!
-        <button (click)="copyMessage('http://wa.me/+14155238886?text=join%20larger-nuts')" value="click to copy" class="btn btn-outline-success" style="margin-left: 1vw;">Click here</button>
+        <div class="div wsspbtn">Alternatively copy this link by clicking here, and message on whatsapp to continue
+            further!
+            <button (click)="copyMessage('http://wa.me/+14155238886?text=join%20larger-nuts')" value="click to copy"
+                class="btn btn-outline-success" style="margin-left: 1vw;">Click here</button>
+        </div>
     </div>
-</div>
     <div class="appointment">
 
         <div class="past">
@@ -48,107 +38,68 @@
     </div>
 
     <div class="family">
-        <div class="above"> MY FAMILY</div>
+        
+            <div class="above"> MY FAMILY</div>
+            <div class="top" style="justify-content: flex-end;"> <div class="show" routerLink="/family"> SHOW ALL &rarr;</div>
+        </div>
         <div class="below">
-            <div class="members" *ngFor="let x of [0, 1, 2, 3] ">
-                <div class="pic">
-                    <img class="image"
-                        src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912">
+            <div *ngFor="let i of family; let x = index ">
+                <div  class="members" *ngIf = "!(x >= 4)">
+                    <div class="pic">
+                        <img class="image" src="{{getpicture(x)}}">
+                    </div>
+                    <div class="info">
+                        <div>Name: {{family[x].payload.doc.data().FamilyMemberName}}</div>
+                        <div>Relation: {{family[x].payload.doc.data().Relation}}</div>
+                        <div>Age: {{family[x].payload.doc.data().FamilyMemberAge}} Years</div>
+                    </div>
                 </div>
-                <div class="info">
-                    <div>Name: {{family[x].payload.doc.data().FamilyMemberName}}</div>
-                    <div>Relation: {{family[x].payload.doc.data().Relation}}</div>
-                    <div>Age: {{family[x].payload.doc.data().FamilyMemberAge}} Years</div>
-                </div>
+                
             </div>
-            <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
-            <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
-            <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
         </div>
     </div>
 
     <div class="medication">
-        <div class="top"> <div>MEDICATION</div>
+        <div class="top">
+            <div class="top1">MEDICATION</div>
             <div class="show" routerLink="/meddelivery"> SHOW ALL &rarr;</div>
         </div>
         <div class="bottom">
             <div class="medicine" *ngFor="let x of [0, 1, 2, 3] ">
                 <div class="types">
                     <img class="image"
-                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
+                        src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMedicines%2FMedicines.png?alt=media&token=540a7eac-d90d-4b35-ae42-404cbf98eb69">
                 </div>
                 <div class="details">
                     <div>Name: {{meddel[x].payload.doc.data().Name}}</div>
-                    <ngb-rating [max]="5" [(rate)]="meddel[x].payload.doc.data().Rating" [readonly]="true" [starTemplate]="t">
+                    <ngb-rating [max]="5" [(rate)]="meddel[x].payload.doc.data().Rating" [readonly]="true"
+                        [starTemplate]="t">
                     </ngb-rating>
-                    <a href = "{{meddel[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
+                    <a href="{{meddel[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
                 </div>
             </div>
-            <!-- <div class="medicine">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <div class="medicine">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <div class="medicine">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>   -->
         </div>
     </div>
 
     <div class="test">
-        <div class="top"> <div>LABTESTS</div>
-            <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
+        <div class="top">
+            <div class="top1">LABTESTS</div>
+            <div class="show" routerLink="/lab"> SHOW ALL &rarr;</div>
         </div>
         <div class="bottom">
             <div class="card" *ngFor="let x of [0, 1, 2, 3] ">
                 <div class="logo">
-                    <img class="image" 
-                    src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FLab%20Test%2FLabTest.png?alt=media&token=1c9f8e98-b5bf-4f6f-a12c-dbb2dde0e973" >
+                    <img class="image"
+                        src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FLab%20Test%2FLabTest.png?alt=media&token=1c9f8e98-b5bf-4f6f-a12c-dbb2dde0e973">
                 </div>
                 <div class="details">
                     <div>Name: {{labtest[x].payload.doc.data().Name}}</div>
-                    <ngb-rating [max]="5" [(rate)]="labtest[x].payload.doc.data().Rating" [readonly]="true" [starTemplate]="t">
+                    <ngb-rating [max]="5" [(rate)]="labtest[x].payload.doc.data().Rating" [readonly]="true"
+                        [starTemplate]="t">
                     </ngb-rating>
-                    <a href = "{{labtest[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
+                    <a href="{{labtest[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
                 </div>
             </div>
-            <!-- <div class="card">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <div class="card">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <div class="card">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div> -->
         </div>
     </div>
 

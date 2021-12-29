@@ -10,11 +10,14 @@ import { DatabaseopService } from '../services/databaseop.service';
 })
 export class FamilyMembersComponent implements OnInit {
   user: any;
-  members: any;
+  members: Array<any> = [];
+  remind: any;
+  famid: any;
   currentfamilymember: any = 0;
   currentfamilymemberid: any;
-  // currenthelper: any = 0;
-  // currenthelperid: any = 0;
+  currentremindid: any = 0;
+  currentremindindex: any = 0;
+  
 
   test: any = {
     // 'relation': this.members[currentfamilymember].payload.doc.data().Relation,
@@ -34,11 +37,15 @@ export class FamilyMembersComponent implements OnInit {
   constructor(private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
   ngOnInit(): void {
+    this.currentremindid = 0;
+    this.currentremindindex = 0;
+
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
       this.getfamilymembers();
     })
+      
   }
 
   fam() {
@@ -48,8 +55,6 @@ export class FamilyMembersComponent implements OnInit {
   familymemberclick(familymember: any, currentfammemberid: any) {
     this.currentfamilymember = familymember;
     this.currentfamilymemberid = currentfammemberid;
-    //  console.log(this.currentfamilymember);
-
   }
 
   diet() {
@@ -62,7 +67,10 @@ export class FamilyMembersComponent implements OnInit {
 
   medicalhis() {
     this.router.navigate(['/history'], { queryParams: { id: 1, famid: this.currentfamilymemberid }});
+  }
 
+  rem() {
+    this.router.navigate(['/reminders'], { queryParams: {famid: this.currentfamilymemberid }});
   }
 
   getfamilymembers() {
@@ -85,9 +93,22 @@ export class FamilyMembersComponent implements OnInit {
       this.currentfamilymemberid = res[0].payload.doc.id;
     })
   }
+
+  getremind() {
+    this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
+      this.members = res; 
+      this.currentfamilymemberid = res[0].payload.doc.id;
+    })
+  }
+
   getimage(i:any) {
     if(this.members[i].payload.doc.data().FamilyMemberGender == 'Female'){return"https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Woman%2FOldWoman.png?alt=media&token=a8bfaeb7-1ca8-4253-bcc1-a49728110865"}
     else if(this.members[i].payload.doc.data().FamilyMemberGender == 'Male'){return"https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FOld%20Man%2FOldMan.png?alt=media&token=9004a6b0-32d4-42b2-8159-f3788264d912"}
     else {return"https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FNeutral%20Senior%20Citizen%2FUntitled_design__10_-removebg-preview.png?alt=media&token=f383b8d9-c7a4-48ff-9838-f2920bd80679"}
   }
+
+  // gotoremind() {
+  //   this.router.navigate(['/reminderslot'], { queryParams: {fmid: this.famid } });
+  // }
+
 }

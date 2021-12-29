@@ -3,8 +3,9 @@ body{
 	font-family: 'Roboto', sans-serif;
 }
 .navbar {
-    height: 10vh;
+    height: 8vh;
     background-color: #005059;
+    // background-color: pink;
     overflow: hidden;
     position: absolute;
     width: 100vw;
@@ -17,7 +18,7 @@ body{
 	// // padding: 3%;
 	// color: #fff;
     // font-size: 2vh;
-    background-color: #c8e8ea;
+    // background-color: #c8e8ea;
     height: 10vh;
     margin-top: -0.6%;
     padding-left: 2%;
@@ -28,8 +29,9 @@ body{
 .logo{
     height: 8vh;
     width: 10vw;
-    background-image: url("../../assets/media/images/Logo.png");
+    background-image:url(../../assets/media/images/logo-2.png);
     background-size: 100% 100%;
+    // margin-left:2vh;
     // border: solid black;
     // margin-top: -33%;
 }

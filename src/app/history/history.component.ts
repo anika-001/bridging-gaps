@@ -17,9 +17,9 @@ export class HistoryComponent implements OnInit {
   user: any;
   famid: any;
   familymemid: any;
-  dietplan: any;
-  helper: any;
-  medhis: any;
+  dietplan: Array<any> = [];
+  helper: Array<any> = [];
+  medhis: Array<any> = [];
   currentfamindex: any = 0;
   currentfamid: any = 0;
   currenthelpindex: any = 0;
@@ -41,6 +41,9 @@ export class HistoryComponent implements OnInit {
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
+      this.as.getprofile(this.user.uid).subscribe((res: any) => {
+        if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
+      })
       if (this.type == 2) {
         this.getdietplan(); 
       }

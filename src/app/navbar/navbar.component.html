@@ -16,8 +16,10 @@
         <div class="open navbar-open" id="navbarinfo">        
             <ul class="navbar-nav ">
                 <li *ngFor="let x of navdoc" class="nav-item">
-                    <a class="nav-link" *ngIf = "x.name != 'Profile'" routerLink= "{{ x.link}}">{{x. name}}</a>
+                    
+                    <a class="nav-link" *ngIf = "x.name == 'Schedule'" routerLink= "{{ x.link}}">{{x. name}}</a>
                     <a class="nav-link" *ngIf = "x.name == 'Profile'" routerLink= "{{ x.link}}" [queryParams]="{id: 2}">{{x. name}}</a>
+                    <a class="nav-link" *ngIf = "x.name =='Reports' " routerLink= "{{ x.link}}" [queryParams]="{id: 6}">{{x. name}}</a>
                 </li>            
             </ul>
         </div>        
