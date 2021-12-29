@@ -32,13 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TimeslotsComponent } from './timeslots/timeslots.component';
 import { LabtestComponent } from './labtest/labtest.component';
 import { HelperComponent } from './helper/helper.component';
-<<<<<<< HEAD
-
 import { FooterComponent } from './footer/footer.component';
-// import { RemindersComponent } from './reminders/reminders.component';
-=======
-import { FooterComponent } from './footer/footer.component';
->>>>>>> 611c844294d70aa33d02724a8766501a97756a22
 import { ReminderslotComponent } from './reminderslot/reminderslot.component';
 
 
@@ -63,16 +57,8 @@ import { ReminderslotComponent } from './reminderslot/reminderslot.component';
     ReviewsComponent,
     TimeslotsComponent,
     HelperComponent,
-<<<<<<< HEAD
-
-    FooterComponent,
-  
-    ReminderslotComponent
-=======
     FooterComponent,
     ReminderslotComponent
-
->>>>>>> 611c844294d70aa33d02724a8766501a97756a22
   ],
   imports: [
     BrowserModule,
