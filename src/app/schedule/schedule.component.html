@@ -55,12 +55,13 @@
               <!-- {{getavailability(timeh, day)}} -->
               <div class="days" [ngClass] = "{
                 'av': checkavailability(day, i) == 'free',
-                'unav': checkavailability(day, i) == 'busy'
+                'unav': checkavailability(day, i) == 'busy',
+                'meet': checkavailability(day, i) == 'meet'
               }">
-                <div class="avunav available" *ngIf = "!isbeforedate(day)" (click) = "availability(i, day, 'free')">
+                <div class="avunav available" *ngIf = "!isbeforedate(day) && checkavailability(day, i) != 'meet'" (click) = "availability(i, day, 'free')">
                   <!-- <button>Available</button> -->
                 </div>
-                <div class="avunav unavailable" *ngIf = "!isbeforedate(day)" (click) = "availability(i, day, 'busy')">
+                <div class="avunav unavailable" *ngIf = "!isbeforedate(day) && checkavailability(day, i) != 'meet'" (click) = "availability(i, day, 'busy')">
                   <!-- <button>Unavailable</button> -->
                 </div>
               </div>
