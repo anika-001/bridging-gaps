@@ -85,6 +85,7 @@ export class TimeslotsComponent implements OnInit {
     console.log(response);
     this.razorpayResponse = `Successful Transaction`;
     console.log(this.razorpayResponse);
+    this.mypostreq();
     this.router.navigate(['/home']);
 
     this.zone.run(() => {
@@ -96,8 +97,8 @@ export class TimeslotsComponent implements OnInit {
   mypostreq(){
     console.log("in post req");
     const body = {
-      "email1": "aanchalkviit@gmail.com",
-      "email2": "anikatibrewala@gmail.com",
+      "email1": "ieeebridginggaps@gmail.com",
+      "email2": "ieeebridginggaps@gmail.com",
       "time": Math.floor(Date.now()/1000),
       "patientID": "1fromangular",
       "doctorID": "2",
