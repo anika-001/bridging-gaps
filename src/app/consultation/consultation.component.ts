@@ -57,6 +57,10 @@ export class ConsultationComponent   implements OnInit {
     else {return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FNeutral%20Doctor%2FUntitled_design__9_-removebg-preview.png?alt=media&token=f051faeb-8bb6-498e-be78-33968c0deb91"}
   }
   gotoreviews() {
+    this.router.navigate(['/review'], { queryParams: { docid: this.currentdoctordocid } });
+  }
+
+  addareview(){
     this.router.navigate(['/form'], { queryParams: { id: 8, docid: this.currentdoctordocid } });
   }
   ratings:any;

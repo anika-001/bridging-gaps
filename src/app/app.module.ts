@@ -59,6 +59,7 @@ import { ReminderslotComponent } from './reminderslot/reminderslot.component';
     HelperComponent,
     FooterComponent,
     ReminderslotComponent
+
   ],
   imports: [
     BrowserModule,
