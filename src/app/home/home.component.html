@@ -19,26 +19,18 @@
 
         <div class="past">
             <div class="oldt">PAST APPOINTMENTS</div>
-            <div class="oldb">
-                <div class="rect" *ngIf="meetings.length">
-                    <div class="inputs" *ngFor="let x of meetings; let i = index">
-                        <div *ngIf="!(i >= 10) && isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for
-                            <b>{{toIst(x.time)}} </b> <a href="{{x.link}}">Click here to go to meet</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="oldb"> 
+            <div class="rect" *ngIf = "meetings.length"> 
+                <div class="inputs" *ngFor = "let x of meetings; let i = index"><div *ngIf = "!(i >= 5) && isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for <b>{{toIst(x.time)}} </b> <a href = "{{x.link}}">Click here to go to meet</a></div></div>
+            </div>
             </div>
         </div>
         <div class="between"></div>
         <div class="upcoming">
             <div class="oldt">UPCOMING APPOINTMENTS</div>
             <div class="oldb">
-                <div class="rect" *ngIf="meetings.length">
-                    <div class="inputs" *ngFor="let x of meetings; let i = index">
-                        <div *ngIf="!(i >= 10) && !isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for
-                            <b>{{toIst(x.time)}} </b> <a href="{{x.link}}">Click here to go to meet</a>
-                        </div>
-                    </div>
+                <div class="rect" *ngIf = "meetings.length"> 
+                    <div class="inputs" *ngFor = "let x of meetings; let i = index"><div *ngIf = "!(i >= 5) && !isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for <b>{{toIst(x.time)}} </b> <a href = "{{x.link}}">Click here to go to meet</a></div></div>
                 </div>
             </div>
         </div>
@@ -85,6 +77,14 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
+         </div>
+    </div>  
+     <div class="test">
+        <div class="top2"> <div class="top1" >LAB TEST</div>
+            <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
+=======
+>>>>>>> 6a83b7a7ca121f1d7969f3f0a8a8ab075980e1db
         </div>
     </div>
     <div class="test">
