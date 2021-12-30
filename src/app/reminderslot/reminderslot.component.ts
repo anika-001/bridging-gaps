@@ -37,21 +37,12 @@ export class ReminderslotComponent implements OnInit {
   getremind() {
     this.db.readCollection(`Reminders/${this.user.uid}/Reminders/${this.famid}/reminders`).snapshotChanges().subscribe(res => {
       this.remind = res;
-      console.log(this.remind);
     })
   }
 
   gotoaddremind() {
     this.router.navigate(['/form'], { queryParams: { id: 9, fmid: this.famid } });
   }
-
- 
-
-  // clickremind(currentremindindex: any, currentremindid: any) {
-  //   this.currentremindindex = currentremindindex;
-  //   this.currentremindid = currentremindid;
-  // }
-
 }
 
 

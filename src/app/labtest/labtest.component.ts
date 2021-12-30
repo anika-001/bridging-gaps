@@ -32,14 +32,11 @@ export class LabtestComponent implements OnInit {
 
   currentlinkclick(currlabs:any){
     this.currentlabs= currlabs;
-    // this.currentlinksid=currentlinksid;
-   console.log(this.currentlabs);
   }
   
   lablink(){
     this.db.readCollection(`labtest`).snapshotChanges().subscribe(res => {
       this.links = res;
-      console.log(this.links[0].payload.doc.data());
     })
     
   }

@@ -135,7 +135,6 @@ export class FormComponent implements OnInit {
         new DropdownField({
           key: 'FamilyMemberGender',
           label: 'Gender',
-          // value: 'Enter their gender',
           options: [
             { key: 'Female', value: 'Female' },
             { key: 'Male', value: 'Male' },
@@ -375,7 +374,6 @@ export class FormComponent implements OnInit {
           key: 'HelperName',
           label: 'Helper Name',
           placeholder: 'Enter helper\'s Name',
-          // value: this.doctorprofile.payload.doc.data().DoctorName,
           required: true,
           order: 1
         }),
@@ -383,7 +381,6 @@ export class FormComponent implements OnInit {
           key: 'HelperOrganisation',
           label: 'Enter Helper\'s Organisation',
           placeholder: 'Enter Helper\'s organisation',
-          // value: this.doctorprofile.payload.doc.data().DoctorSpecialization,
           required: true,
           order: 2
         }),
@@ -391,7 +388,6 @@ export class FormComponent implements OnInit {
           key: 'HelperDescription',
           label: 'Enter helper\'s Description',
           placeholder: 'Enter Helper\'s Description/Introduction further',
-          // value: this.doctorprofile.payload.doc.data().DoctorDescription,
           required: true,
           order: 3
         }),
@@ -400,7 +396,6 @@ export class FormComponent implements OnInit {
           label: 'Helper Phone Number',
           type: 'number',
           placeholder: "Enter helper\'s phone number",
-          // value: this.doctorprofile.payload.doc.data().DoctorFees,
           required: true,
           order: 4
         }),
@@ -409,7 +404,6 @@ export class FormComponent implements OnInit {
           label: 'Helper Age',
           type: 'number',
           placeholder: "Enter helper\'s age",
-          // value: this.doctorprofile.payload.doc.data().DoctorFees,
           required: true,
           order: 5,
 
@@ -429,7 +423,6 @@ export class FormComponent implements OnInit {
           key: 'HelperLocation',
           label: 'Enter Helper\'s Location',
           placeholder: 'Enter Helper\'s location',
-          // value: this.doctorprofile.payload.doc.data().DoctorDescription,
           required: true,
           order: 7
         }),
@@ -443,7 +436,6 @@ export class FormComponent implements OnInit {
           label: 'Review Rating',
           placeholder: 'Enter Review Rating out of 5',
           type:'number',
-          // value: this.doctorprofile.payload.doc.data().DoctorName,
           required: true,
           order: 1
         }),
@@ -478,16 +470,10 @@ export class FormComponent implements OnInit {
     return of(questions?.sort((a, b) => a.order - b.order));
   }
 
-  test(form1: formInterface) {
-    console.log(form1.form.value, form1.file);
-    this.db.create(`familymembers/${this.user.uid}/familymember`, form1.form.value);
-  }
-
   submit(formdata: formInterface) {
     if (this.formid == 1) {
       let data = formdata.form.value;
       this.db.create(`familymembers/${this.user.uid}/familymember`, data).then((res: any) => {
-        console.log(res);
         this.db.create(`PhoneNumbers`, {"phno": data["FamilyMemberPhoneNumber"], "user": this.user.uid, "familymemid": res.id})
         this.router.navigate(['/family']);
       });
@@ -542,7 +528,6 @@ export class FormComponent implements OnInit {
       this.db.createdoc(`Reviewsrating/${this.docid}/ratings/${this.user.uid}`, {"uid":this.user.uid,"reviewrating":formdata.form.value["ReviewRating"]})
       .then(res=>{
         this.db.readCollection(`Reviewsrating/${this.docid}/ratings`).snapshotChanges().subscribe((res:any) => {
-          console.log("here")
           let avg=0;
           for(let i of res){
             avg = avg + Number(i.payload.doc.data().reviewrating);

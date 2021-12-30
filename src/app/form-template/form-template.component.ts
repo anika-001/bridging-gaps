@@ -14,9 +14,7 @@ export class FormTemplateComponent implements OnInit {
   value: any = null;
   currentRating: number = 0;
 
-  ngOnInit(): void {
-    console.log(this.question.options)
-  }
+  ngOnInit(): void {}
   @Input() question!: FormBase<string>;
   @Input() form!: FormGroup;
 
@@ -39,6 +37,5 @@ export class FormTemplateComponent implements OnInit {
     if (this.question.controlType == "rating"){
       this.form.get(this.question.key)?.setValue(this.currentRating);
     }
-    console.log(this.form.value, this.currentRating);
   }
 }

@@ -65,7 +65,6 @@ export class HistoryComponent implements OnInit {
   getdietplan() {
     this.db.readCollection(`DietPlanDetails/${this.user.uid}/DietPlanDetails/${this.famid}/DietPlanDetails`).snapshotChanges().subscribe(res => {
       this.dietplan = res;
-      // console.log(this.dietplan);
     })
   }
 
@@ -76,7 +75,6 @@ export class HistoryComponent implements OnInit {
   gethelp() {
     this.db.readCollection(`HelperDetails/${this.user.uid}/HelperDetails/${this.famid}/helperdetails`).snapshotChanges().subscribe(res => {
       this.helper = res;
-      console.log(this.helper);
     })
   }
 
@@ -87,7 +85,6 @@ export class HistoryComponent implements OnInit {
   getmed() {
     this.db.readCollection(`MedicalReport/${this.user.uid}/MedicalReport/${this.famid}/medicalreports`).snapshotChanges().subscribe(res => {
       this.medhis = res;
-      console.log(this.medhis);
     })
   }
 

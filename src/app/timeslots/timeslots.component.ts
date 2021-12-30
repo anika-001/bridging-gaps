@@ -120,14 +120,12 @@ export class TimeslotsComponent implements OnInit {
   public razorPaySuccessHandler(response: any) {
     this.razorpayResponse = `Successful Transaction`;
     this.mypostreq().then(res => {
-      console.log("Yayy!");
     });
   }
 
   
   mypostreq() {
     return new Promise((resolve, reject) => {
-      console.log(this.gettimeinIST(this.slots[this.index].payload.doc.data().day, this.hour[this.slots[this.index].payload.doc.data().timeslot]));
       const body = {
         "emailD": this.doctor["email"],
         "emailP": this.profile["email"],
@@ -142,7 +140,6 @@ export class TimeslotsComponent implements OnInit {
       };
       this.http.post<any>('https://krashibrahmand.herokuapp.com/zapierapi', body).subscribe(data => {
         this.postid = data.id;
-        console.log(data);
         resolve(data);
       },
       err => {
@@ -183,7 +180,6 @@ export class TimeslotsComponent implements OnInit {
   gettimeinIST(day: number, timeslot: string){
     let getday = this.getday(day);
     let hourssecs = timeslot.split(" - ")[0].split(":");
-    console.log(getday, hourssecs)
     let date = (new Date(getday[2], getday[1], getday[0])).getTime() + (Number(hourssecs[0]) * 60 * 60 * 1000) + (Number(hourssecs[1]) * 60 * 1000);
     return Math.floor(date / 1000);
   }

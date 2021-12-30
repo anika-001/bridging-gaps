@@ -115,7 +115,6 @@ export class ScheduleComponent implements OnInit {
     this.currentweek = [];
     this.getcurrentweek();
     this.resetcurrent();
-    console.log(this.currentschedule)
     this.getavailability();
   }
 

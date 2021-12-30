@@ -31,7 +31,6 @@ export class SigninComponent implements OnInit {
   submit() {
     if (this.login) {
       if (!this.formlogin.invalid) {
-        console.log(this.formlogin.value);
         this.as
           .login(this.formlogin.value)
           .then((res) => {
@@ -110,8 +109,6 @@ export class SigninComponent implements OnInit {
   );
 
   ngOnInit(): void {
-    console.log(this.formreg.value);
-    console.log(this.formlogin.value);
     this.signindata = logindata;
     this.signupdata = regdata;    
   }
