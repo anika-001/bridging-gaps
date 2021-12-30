@@ -26,6 +26,11 @@ export let navbar = [
     },
     {
         // "role":"user",
+        "name":"Lab Test",
+        "link":"/lab",
+    },
+    {
+        // "role":"user",
         "name":"Caretakers",
         "link":"/helper",
     },
