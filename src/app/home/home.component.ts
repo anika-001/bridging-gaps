@@ -9,11 +9,11 @@ import { DatabaseopService } from '../services/databaseop.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  family : any;
+  family : Array<any> = [];
   user:any;
-  meddel:any;
-  labtest: any;
-  meetings: any = null;
+  meddel: Array<any> = [];
+  labtest: Array<any> = [];
+  meetings: Array<any> = [];
   // currfammember:any = 0;
   // currfammemberid: any;
   // currentli:any =0;
@@ -29,13 +29,14 @@ export class HomeComponent implements OnInit {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
       this.myfam();
-      this.getmeetings();
+      // this.getmeetings();
     })
   }
 
    myfam() {
     this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
       this.family = res; 
+      this.getmeetings();
     })
   }
    
@@ -69,13 +70,24 @@ export class HomeComponent implements OnInit {
   }
 
   getmeetings(){
-    this.db.readCollection(`UsersMeeting/${this.user.uid}/Meetings`).snapshotChanges().subscribe(res => {
-      this.meetings = res;
+    this.db.readCollection(`UsersMeeting/${this.user.uid}/Meetings`).snapshotChanges().subscribe((res: any) => {
+      for(let m of res){
+        this.meetings.push(m.payload.doc.data());
+        for(let x of this.family){
+          if(x.payload.doc.id == m.payload.doc.data().familymember){
+            this.meetings[this.meetings.length - 1]["name"] = x.payload.doc.data().FamilyMemberName;
+          }
+        }
+      }
     })
   }
 
   isbefore(date: Date){
     if((new Date(date)).getTime() < Date.now()) return true;
     else return false;
+  }
+
+  toIst(date: Date){
+    return new Date(date).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' })
   }
 }

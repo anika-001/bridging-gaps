@@ -20,17 +20,8 @@
         <div class="past">
             <div class="oldt">PAST APPOINTMENTS</div>
             <div class="oldb"> 
-                 <div class="rect"> 
-                <div class="content">NAME</div>
-                <div class="inputs"></div>
-            </div>
-            <div class="rect"> 
-                <div class="content">DATE</div>
-                <div class="inputs"></div>
-            </div>
             <div class="rect" *ngIf = "meetings.length"> 
-                <div class="content">LINK</div>
-                <div class="inputs" *ngFor = "let x of meetings"><a *ngIf = "isbefore(x.payload.doc.data().time)">{{x.payload.doc.data().link}}</a></div>
+                <div class="inputs" *ngFor = "let x of meetings; let i = index"><div *ngIf = "!(i >= 10) && isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for <b>{{toIst(x.time)}} </b> <a href = "{{x.link}}">Click here to go to meet</a></div></div>
             </div>
             </div>
         </div>
@@ -38,17 +29,8 @@
         <div class="upcoming">
             <div class="oldt">UPCOMING APPOINTMENTS</div>
             <div class="oldb">
-                <div class="rect"> 
-                    <div class="content">NAME</div>
-                    <div class="inputs"></div>
-                </div>
-                <div class="rect"> 
-                    <div class="content">DATE</div>
-                    <div class="inputs"></div>
-                </div>
-                <div class="rect" *ngIf = "meetings"> 
-                    <div class="content">LINK</div>
-                    <div class="inputs" style="width: 20vw;" *ngFor = "let x of meetings"><a *ngIf = "!isbefore(x.payload.doc.data().time)">{{x.payload.doc.data().link}}</a></div>
+                <div class="rect" *ngIf = "meetings.length"> 
+                    <div class="inputs" *ngFor = "let x of meetings; let i = index"><div *ngIf = "!(i >= 10) && !isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for <b>{{toIst(x.time)}} </b> <a href = "{{x.link}}">Click here to go to meet</a></div></div>
                 </div>
             </div>
         </div>
@@ -78,7 +60,7 @@
     <div class="medication">
         <div class="top">MEDICATION</div>
         <div class="show1" routerLink="/meddelivery"> SHOW ALL &rarr;</div>       
-        <div class="bottom">
+        <div class="bottom" *ngIf = "meddel.length">
             <div class="medicine" *ngFor="let x of [0, 1, 2, 3] ">
                 <div class="types">
                     <img class="image"
@@ -99,7 +81,7 @@
         <div class="top2"> <div class="top1" >LABTEST</div>
             <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
         </div>
-        <div class="bottom">
+        <div class="bottom" *ngIf = "labtest.length">
             <div class="card" *ngFor="let x of [0, 1, 2, 3] ">
                 <div class="logo">
                     <img class="image"
