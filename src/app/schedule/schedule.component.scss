@@ -6,19 +6,15 @@
     background-color:#c8e8ea;
     display: flex;
     flex-direction: row;
-    // justify-content: space-evenly;
 }
 
 .monthlycal
 {
     height: 90vh;
     width: 30%;
-    // background-color: bisque;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // align-items: center;
-
 }
 
 .calendar
@@ -27,7 +23,6 @@
     background-color: #C8E8EA;
     display: flex;
     align-items: center;
-    // padding-left: 10%;
     justify-content: center;
 }
 
@@ -35,24 +30,16 @@
 {
     height: 48vh;
     width: 80%;
-    // margin-top:13vh;
     background-color: white;
     border-radius:20px;
     align-items: center;
     
 }
 
-// .adjust1
-// {
-//     width: 100%;
-//     display: flex;
-//     flex-direction:row;
-// }
 .month
 {
     height:5vh ;
     width: 100%;
-    // background-color: lightsalmon;
     display: flex;
     flex-direction:row;
 }
@@ -60,51 +47,36 @@
 .year
 {
     width: 100%;
-    // background-color:lavender;
     padding-left: 2vh;
     font-size:120%;
     font-weight: bold;
 }
 .arrow
 {
-    // height:5vh;
-    // width:15%;
-    // background-color: darkcyan;
-    // margin-left: 25vh;
     cursor: pointer;
     display: flex;
-    // flex-direction: row;
-    
 }
 .arrow1
 {
     font-size:2em;
     margin-top:-2vh;
-    // align-items: center;
-    // background-color: aqua;
 }
 .arrow2
 {
     font-size:2em;
     margin-top:-2vh;
-    // align-items: center;
-    // background-color: rgb(112, 3, 3);
 }
 .align
 {
     width: 100%;
     display: flex;
     flex-direction: row;
-    // justify-content: space-evenly;
 }
 .name
 {
-  
     height:5vh;
     width:100%;
-    // background-color: thistle;
-    font-weight: 700;
-    
+    font-weight: 700;  
 }
 
 .grid{
@@ -117,7 +89,6 @@
 {
    height: 3vh;
    width: 100%;
-//    background-color: #C8E8EA;
    margin: 3vh 0vh;
    display: flex;
    flex-direction: row;
@@ -127,7 +98,6 @@
 {
     height: 3vh;
     width: 10%;
-    // background-color: #C8E8EA;
     align-items: center;
     cursor: pointer;
 }
@@ -144,14 +114,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    // background-color: lightcoral;
 }
 
 .weeklycal
 {
     height: 90vh;
     width: 70%;
-    // background-color: burlywood;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -172,20 +140,15 @@
 {
     height:10vh;
     width: 100%;
-    // background-color: aqua;
-    
 }
 .al
 {
     display: flex;
     flex-direction: row;
-    // justify-content: space-evenly;
-    // padding-left: 15%;
 }
 .adjust
 {
     width: 15%;
-    // background-color: antiquewhite;
 }
 
 .daysofweek
@@ -201,7 +164,6 @@
     height:5vh;
     width: 100%;
     font-weight:bold;
-    //  background-color: darkgoldenrod;
      font-size:0.03em;
     font-weight:700;
     text-align: center;
@@ -220,7 +182,6 @@
 {
     height:90vh;
     width: 15%;
-    // background-color:pink;
 }
 
 .timehour
@@ -229,8 +190,6 @@
     font-weight:500;
     height:5vh;
     width: 100%;
-    // background-color: gray;
-    // margin: 3vh 0vh;
     text-align: center;
     display: flex;
     align-items: center;
@@ -240,13 +199,11 @@
 
 .cala{
   width: 85%;
-//   background-color: white;
 }
 .days
 {
     height: 5vh;
     width: 100%;
-    // background-color: coral;
     font-size:10vh;
     border-bottom: solid thin silver;
     border-right: solid thin silver;
@@ -255,12 +212,6 @@
     align-items: center;
    
 }
-// .adjust3
-// {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-// }
 
 .avunav{
     height:3vh;
@@ -281,24 +232,14 @@
     background-color: green;
 }
 
-// .available button{
-//     font-size:18px;
-//     text-align:center;
-// }
 .unavailable
 {
     background-color: rgb(175, 0, 0);   
 }
-// .unavailable button{
-//     font-size:18px;
-//     text-align:center;
-// }
 .time
 {
    height: 5vh;
    width: 100%;
-//    background-color: cadetblue;
-//    margin: 3vh 0vh;
    display: flex;
    flex-direction: row;
    justify-content: space-evenly;
