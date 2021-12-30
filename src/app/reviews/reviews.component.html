@@ -17,7 +17,7 @@
     <div class="column1" *ngFor="let x of ratings">
       <div class="log">
         <img src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FReview%2Freview.png?alt=media&token=d067f3b5-7e41-47d5-957a-ca93e9f20e27">
-        <!-- <div class="pic"></div> -->
+      
       </div>
       <div class="box2">
       
@@ -26,13 +26,13 @@
           <div class="adjust">
             <div class="box4">{{x.payload.doc.data().useremail}}</div>
             <div class="box5">
-              <!-- <div class="rating r1"> -->
+              
                 <ngb-rating
                   [max]="5"
            [(rate)]="x.payload.doc.data().reviewrating"
                   [readonly]="true"
                 ></ngb-rating>
-              <!-- </div> -->
+             
             </div>
           </div>
         </div>
