@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
   }
 
   getmeetings(){
-    this.db.readDoc(`UsersMeeting/${this.user.uid}/Meetings`).snapshotChanges().subscribe(res => {
+    this.db.readCollection(`UsersMeeting/${this.user.uid}/Meetings`).snapshotChanges().subscribe(res => {
       this.meetings = res;
     })
   }
