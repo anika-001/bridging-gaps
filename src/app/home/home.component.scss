@@ -44,7 +44,7 @@
 .oldb{
     height:30vh;
     width: 35vw;
-     background-color: #22c42f;
+    //  background-color: #22c42f;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -56,7 +56,7 @@
     width: 10vw;
     margin: 1vw;
     text-align: center;
-   background-color: rgb(248, 255, 248);
+//    background-color: rgb(248, 255, 248);
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -66,14 +66,14 @@
       width: 8vw;
     margin: 1vw;
       text-align: center;
-    background-color: rgb(4, 223, 4);
+    // background-color: rgb(4, 223, 4);
 }
 .inputs{
     height: 24vh;
     width: 10vw;
 //   margin: 1vw;
     text-align: center;
-  background-color: rgb(201, 223, 4);
+ background-color:#3c909673;
 }
 .between{
     height:40vh;
