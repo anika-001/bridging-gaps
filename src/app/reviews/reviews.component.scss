@@ -34,34 +34,49 @@
     // background-color: rgb(255, 72, 0);
 }
 .btn6{
-    width: 20%;    
+    width: 50%;
+        
 }
 .box {
     height: 85vh;
     // background-color: rgb(255, 238, 0);
-    width: 50%;
+    width: 45%;
+    // margin-left: 1vw;
     overflow-y: scroll;
 }
 .column1 {
-    // border: black solid;
-    height: 20vh;
+    // border: solid 1px black;
+    height: 12vh;
     width: 100%;
     // background-color: blueviolet;
     margin: 2vh 0vh;
     display: flex;
     flex-direction: row;
+    border-bottom: solid thin rgba(0, 0, 0, 0.822);
 }
 .log{
     
-    height: 20vh; 
-    width: 20% ;
+    height: 10vh; 
+    width: 15% ;
     // background-color: rgb(226, 125, 43);
+}
+
+.log img{
+  width: 100%;
+  height: 100%;
+}
+.pic{
+    height: 10vh;
+    align-items: center;
+    margin-top: 4vh;
+    width: 100%;
+    // background-color: cadetblue;
 }
 
 .box2{
     // border: black solid;
 
-    height: 20vh;
+    height: 10vh;
     width: 100%;
     // background-color: rgb(135, 222, 215);
 }
@@ -112,14 +127,81 @@
 
 //   }
 
-.comment{
-    height:4vh;
-    background-color: dimgrey;
-}
+// .comment{
+//     height:4vh;
+//     background-color: dimgrey;
+// }
 
 .comment1{
+    margin-top: -2vh;
     height:9vh;
     // background-color: fuchsia;
-    font-size:150%;
+    font-size:15px;
     font-weight: 600;
 }
+
+ngb-rating {
+    
+   color: #9378FF;
+  // font-size: 25px;
+  // margin-left: 35vh;
+}
+
+//rating
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  color: #9378FF;
+}
+
+.star1 {
+  position: relative;
+  display: inline-block;
+  font-size: 150%;
+  color: #d3d3d3;
+}
+
+.full {
+  //color: var(--col2vl);
+  //color: var(--col4);
+  color: #9378FF;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  //color: var(--col4);
+  color: #9378FF;
+}
+    // font-size: 25px;
+    // margin-left: 35vh;
+ 
+  
+  //rating
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #9378FF;
+  }
+  
+  .star1 {
+    position: relative;
+    display: inline-block;
+    font-size: 150%;
+    color: #d3d3d3;
+  }
+  
+  .full {
+    //color: var(--col2vl);
+    //color: var(--col4);
+    color: #9378FF;
+  }
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    //color: var(--col4);
+    color: #9378FF;
+  }
