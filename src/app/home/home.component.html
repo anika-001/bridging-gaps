@@ -21,7 +21,7 @@
             <div class="oldt">PAST APPOINTMENTS</div>
             <div class="oldb"> 
             <div class="rect" *ngIf = "meetings.length"> 
-                <div class="inputs" *ngFor = "let x of meetings; let i = index"><div *ngIf = "!(i >= 10) && isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for <b>{{toIst(x.time)}} </b> <a href = "{{x.link}}">Click here to go to meet</a></div></div>
+                <div class="inputs" *ngFor = "let x of meetings; let i = index"><div *ngIf = "!(i >= 3) && isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for <b>{{toIst(x.time)}} </b> <a href = "{{x.link}}">Click here to go to meet</a></div></div>
             </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="oldt">UPCOMING APPOINTMENTS</div>
             <div class="oldb">
                 <div class="rect" *ngIf = "meetings.length"> 
-                    <div class="inputs" *ngFor = "let x of meetings; let i = index"><div *ngIf = "!(i >= 10) && !isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for <b>{{toIst(x.time)}} </b> <a href = "{{x.link}}">Click here to go to meet</a></div></div>
+                    <div class="inputs" *ngFor = "let x of meetings; let i = index"><div *ngIf = "!(i >= 3) && !isbefore(x.time)">Meeting with <b>{{x.name}}</b> has been set for <b>{{toIst(x.time)}} </b> <a href = "{{x.link}}">Click here to go to meet</a></div></div>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
          </div>
     </div>  
      <div class="test">
-        <div class="top2"> <div class="top1" >LABTEST</div>
+        <div class="top2"> <div class="top1" >LAB TEST</div>
             <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
         </div>
         <div class="bottom" *ngIf = "labtest.length">
