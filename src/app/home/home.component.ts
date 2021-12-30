@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   user:any;
   meddel:any;
   labtest: any;
+  meetings: any = null;
   // currfammember:any = 0;
   // currfammemberid: any;
   // currentli:any =0;
@@ -28,25 +29,15 @@ export class HomeComponent implements OnInit {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
       this.myfam();
+      this.getmeetings();
     })
   }
-
-  // myfam(familymember: any, currfammemberid: any){
-  //   this.currfammember = familymember;
-  //   this.currfammemberid = currfammemberid;
-  // }
 
    myfam() {
     this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
       this.family = res; 
-      // this.currfammemberid = res[0].payload.doc.id;
     })
   }
-   
-  //  currentliclick(link:any, currentliid: any){
-  //   this.currentli = link;
-  //   this.currentliid = currentliid;
-  //  }
    
    medicaldel(){
     this.db.readCollection(`MedApplications`).snapshotChanges().subscribe(res => {
@@ -75,5 +66,16 @@ export class HomeComponent implements OnInit {
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+  }
+
+  getmeetings(){
+    this.db.readCollection(`UsersMeeting/${this.user.uid}/Meetings`).snapshotChanges().subscribe(res => {
+      this.meetings = res;
+    })
+  }
+
+  isbefore(date: Date){
+    if((new Date(date)).getTime() < Date.now()) return true;
+    else return false;
   }
 }

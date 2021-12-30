@@ -28,9 +28,9 @@
                 <div class="content">DATE</div>
                 <div class="inputs"></div>
             </div>
-            <div class="rect"> 
+            <div class="rect" *ngIf = "meetings.length"> 
                 <div class="content">LINK</div>
-                <div class="inputs"></div>
+                <div class="inputs" *ngFor = "let x of meetings"><a *ngIf = "isbefore(x.payload.doc.data().time)">{{x.payload.doc.data().link}}</a></div>
             </div>
             </div>
         </div>
@@ -46,9 +46,9 @@
                     <div class="content">DATE</div>
                     <div class="inputs"></div>
                 </div>
-                <div class="rect"> 
+                <div class="rect" *ngIf = "meetings"> 
                     <div class="content">LINK</div>
-                    <div class="inputs"></div>
+                    <div class="inputs" style="width: 20vw;" *ngFor = "let x of meetings"><a *ngIf = "!isbefore(x.payload.doc.data().time)">{{x.payload.doc.data().link}}</a></div>
                 </div>
             </div>
         </div>

@@ -12,13 +12,14 @@ import { DatabaseopService } from '../services/databaseop.service';
 export class ReviewsComponent implements OnInit {
   user: any;
   docid: any;
-  ratings:any;
+  ratings: Array<any> = [];
   rate:number=4;
   constructor(private as: AuthService, private router: Router, private route: ActivatedRoute, private db: DatabaseopService) { }
 
   ngOnInit(): void {
     this.docid = this.route.snapshot.queryParams['docid'];
 
+    this.getratings();
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
@@ -35,10 +36,10 @@ export class ReviewsComponent implements OnInit {
 
 
   getratings() {
-    this.db.readCollection(`Reviewsrating/${this.docid}/ratings`).snapshotChanges().subscribe(res => {
+    this.db.readCollection(`Reviewscomment/${this.docid}/comments`).snapshotChanges().subscribe(res => {
       this.ratings = res; 
       console.log("here")
-      console.log(this.ratings);
+      console.log(this.ratings[0].payload.doc.data());
     })
   }
 }
