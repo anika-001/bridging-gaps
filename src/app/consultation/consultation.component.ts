@@ -63,6 +63,9 @@ export class ConsultationComponent   implements OnInit {
   addareview(){
     this.router.navigate(['/form'], { queryParams: { id: 8, docid: this.currentdoctordocid } });
   }
+  viewareview(){
+    this.router.navigate(['/reviewsrating'], { queryParams: { docid: this.currentdoctordocid } });
+  }
   ratings:any;
   getratings() {
     this.db.readCollection(`Reviewsrating/${this.currentdoctordocid}/ratings`).snapshotChanges().subscribe(res => {
