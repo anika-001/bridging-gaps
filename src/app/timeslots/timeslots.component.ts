@@ -38,6 +38,7 @@ export class TimeslotsComponent implements OnInit {
   months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
   ngOnInit(): void {
+    console.log("get");
     this.mypostreq();
     this.getnowweek();
     this.initializeTimeSlots();
@@ -85,7 +86,7 @@ export class TimeslotsComponent implements OnInit {
     "image": "../../assets/media/images/Logo.png",
     "prefill": {
       "name": "Bridging Gaps",
-      "email": " ieeebridginggaps@gmail.com",
+      "email": "ieeebridginggaps@gmail.com",
       "contact": "93847563535",
       "method": ""
     },
@@ -232,6 +233,7 @@ export class TimeslotsComponent implements OnInit {
   }
 
   getdoctorprice(){
+    console.log("get");
     this.db.readDoc(`Doctors/${this.docid}`).snapshotChanges().subscribe(res => {
       this.doctor = res;
     })

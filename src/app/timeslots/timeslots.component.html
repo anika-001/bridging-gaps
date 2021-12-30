@@ -25,7 +25,7 @@
             <div class="slottitle" *ngFor="let info of info">{{info}}</div>
         </div>
         <div class="adjust">
-            <div *ngFor="let rows of slots;let i of index">
+            <div *ngFor="let rows of slots;let i = index">
                 <div class="row1" *ngIf = "!islesserthannow(rows.payload.doc.data().day, rows.payload.doc.data().timeslot) && rows.payload.doc.data().availability == 'free'">
                     <div class="column1">{{hour[rows.payload.doc.data().timeslot]}}</div>
                     <div class="column1">{{days[getday(rows.payload.doc.data().day)[3]]}}</div>
