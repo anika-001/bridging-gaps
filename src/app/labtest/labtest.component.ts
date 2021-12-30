@@ -8,7 +8,7 @@ import { DatabaseopService } from '../services/databaseop.service';
   styleUrls: ['./labtest.component.scss']
 })
 export class LabtestComponent implements OnInit {
-  links: any;
+  links: Array<any> = [];
   user:any;
   currentlabs:any=0;
   currentlabsid:any;

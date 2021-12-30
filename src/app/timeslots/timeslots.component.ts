@@ -31,7 +31,7 @@ export class TimeslotsComponent implements OnInit {
   slots: Array<any> = [];
   docid: any;
   count = 0;
-  members: any;
+  members: Array<any> = [];
   doctor: any = null;
   docemail: any = null;
   profile: any;

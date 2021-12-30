@@ -12,7 +12,7 @@ export class ReminderslotComponent implements OnInit {
   info = ["Medicine Name", "Time"];
   constructor(private as: AuthService, private router: Router, private route: ActivatedRoute, private db: DatabaseopService) { }
   response: any;
-  remind: any;
+  remind: Array<any> = [];
   famid: any;
   user:any;
   rem: any;
