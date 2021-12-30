@@ -54,16 +54,46 @@
                         <div>Age: {{family[x].payload.doc.data().FamilyMemberAge}} Years</div>
                     </div>
                 </div>
-                
+            </div> 
+            <!-- <div class="members">
+            <div class="pic"></div>
+            <div class="info">
+                Name:<br>
+                Relation:<br>
+                Age:
             </div>
-        </div>
-    </div>
+        </div> -->
+            <!-- <div class="members">
+            <div class="pic"></div>
+            <div class="info">
+                Name:<br>
+                Relation:<br>
+                Age:
+            </div>
+        </div> -->
+            <!-- <div class="members">
+            <div class="pic"></div>
+            <div class="info">
+                Name:<br>
+                Relation:<br>
+                Age:
+            </div>
+        </div> -->
+         </div>
+    </div> 
+
+
+
+
+
+
+
+
+
 
     <div class="medication">
-        <div class="top">
-            <div class="top1">MEDICATION</div>
-            <div class="show" routerLink="/meddelivery"> SHOW ALL &rarr;</div>
-        </div>
+        <div class="top">MEDICATION</div>
+        <div class="show1" routerLink="/meddelivery"> SHOW ALL &rarr;</div>       
         <div class="bottom">
             <div class="medicine" *ngFor="let x of [0, 1, 2, 3] ">
                 <div class="types">
@@ -75,16 +105,52 @@
                     <ngb-rating [max]="5" [(rate)]="meddel[x].payload.doc.data().Rating" [readonly]="true"
                         [starTemplate]="t">
                     </ngb-rating>
-                    <a href="{{meddel[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
+                    <a href = "{{meddel[x].payload.doc.data().Link}}" style="color: blue; font-size: 10px;"> Visit Here</a>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div> 
 
-    <div class="test">
-        <div class="top">
-            <div class="top1">LABTESTS</div>
-            <div class="show" routerLink="/lab"> SHOW ALL &rarr;</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="medicine">
+            <div class="types"></div>
+            <div class="details"></div>
+        </div>
+        <div class="medicine">
+            <div class="types"></div>
+            <div class="details"></div>
+        </div>
+        <div class="medicine">
+            <div class="types"></div>
+            <div class="details"></div>
+        </div>   -->
+
+
+
+         </div>
+    </div>  
+
+
+
+
+
+
+
+
+
+     <div class="test">
+        <div class="top2"> <div class="top1" >LABTEST</div>
+            <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
         </div>
         <div class="bottom">
             <div class="card" *ngFor="let x of [0, 1, 2, 3] ">
@@ -97,11 +163,40 @@
                     <ngb-rating [max]="5" [(rate)]="labtest[x].payload.doc.data().Rating" [readonly]="true"
                         [starTemplate]="t">
                     </ngb-rating>
-                    <a href="{{labtest[x].payload.doc.data().Link}}" style="color: white;"> Visit Here</a>
+                    <a href = "{{labtest[x].payload.doc.data().Link}}" style="color: blue; font-size: 10px;"> Visit Here</a>
                 </div>
-            </div>
+            </div>  
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="card">
+            <div class="types"></div>
+            <div class="details"></div>
         </div>
-    </div>
+        <div class="card">
+            <div class="types"></div>
+            <div class="details"></div>
+        </div>
+        <div class="card">
+            <div class="types"></div>
+            <div class="details"></div>
+        </div> -->
+
+
+
+
+          </div>
+    </div>  
+
+
 
 </div>
 

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './cart/cart.component';
 import { ConsultationComponent } from './consultation/consultation.component';
-// import { DoctorsProfileComponent } from './doctors-profile/doctors-profile.component';
 import { FamilyMembersComponent } from './family-members/family-members.component';
 import { FormComponent } from './form/form.component';
 import { HistoryComponent } from './history/history.component';
@@ -36,8 +34,6 @@ const routes: Routes = [
     path: 'slots',
     component: TimeslotsComponent,
   },
-  
-  
   {
     path: 'consultation',
     component: ConsultationComponent,
@@ -76,12 +72,12 @@ const routes: Routes = [
     component: FormComponent
   },
   {
-    path: 'cart',
-    component: CartComponent
-  },
-  {
     path: 'reminders',
     component: ReminderslotComponent
+  },
+  {
+    path: 'footer',
+    component: FooterComponent
   }
 ];
 
