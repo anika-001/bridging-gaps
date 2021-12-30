@@ -21,10 +21,11 @@
         </div>
         
         <div class="profile">
+            <div style="height: 5vh; display: flex; justify-content: flex-end; width: 100%;">
+                <div class="btn6" (click)='fam()'>Add a member</div>
+            </div>
             <div class="profile-card" *ngIf = "members.length">
-                <div style="height: 5vh; display: flex; justify-content: flex-end; width: 100%;">
-                    <div class="btn6" (click)='fam()'>Add a member</div>
-                </div>
+                
                 <div class="title">Profile</div>
                 <div class="introcard">
                     <div class="photo"><img class = "image" src="{{getimage(currentfamilymember)}}"></div>

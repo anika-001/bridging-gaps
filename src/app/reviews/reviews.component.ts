@@ -14,11 +14,9 @@ export class ReviewsComponent implements OnInit {
   docid: any;
   ratings:any;
   rate:number=4;
-  // currentdoctordocid: any = 0;
   constructor(private as: AuthService, private router: Router, private route: ActivatedRoute, private db: DatabaseopService) { }
 
   ngOnInit(): void {
-
     this.docid = this.route.snapshot.queryParams['docid'];
 
     this.as.getUserState().subscribe(res => {
@@ -28,7 +26,6 @@ export class ReviewsComponent implements OnInit {
         if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
       })
     })
-  
   }
    
 
@@ -43,8 +40,5 @@ export class ReviewsComponent implements OnInit {
       console.log("here")
       console.log(this.ratings);
     })
-    // this.db.readCollection(`Reviewscomment/${this.docid}/commes`).snapshotChanges().subscribe(res => {
-
-    
   }
 }
