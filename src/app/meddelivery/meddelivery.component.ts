@@ -35,15 +35,11 @@ export class MeddeliveryComponent implements OnInit {
 
   currentlinkclick(currlinks: any) {
     this.currentlinks = currlinks;
-    // this.currentlinksid=currentlinksid;
-    console.log(this.currentlinks);
   }
 
   medicallinks() {
     this.db.readCollection(`MedApplications`).snapshotChanges().subscribe(res => {
       this.links = res;
-
     })
-    console.log(this.links);
   }
 }

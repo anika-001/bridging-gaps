@@ -10,7 +10,7 @@ import { DatabaseopService } from '../services/databaseop.service';
 })
 export class HelperComponent implements OnInit {
   user: any;
-  caretaker: any;
+  caretaker: Array<any> = [];
   currenthelper: any = 0;
   currenthelperid: any;
 

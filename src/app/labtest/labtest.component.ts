@@ -8,7 +8,7 @@ import { DatabaseopService } from '../services/databaseop.service';
   styleUrls: ['./labtest.component.scss']
 })
 export class LabtestComponent implements OnInit {
-  links: any;
+  links: Array<any> = [];
   user:any;
   currentlabs:any=0;
   currentlabsid:any;
@@ -32,14 +32,11 @@ export class LabtestComponent implements OnInit {
 
   currentlinkclick(currlabs:any){
     this.currentlabs= currlabs;
-    // this.currentlinksid=currentlinksid;
-   console.log(this.currentlabs);
   }
   
   lablink(){
     this.db.readCollection(`labtest`).snapshotChanges().subscribe(res => {
       this.links = res;
-      console.log(this.links[0].payload.doc.data());
     })
     
   }

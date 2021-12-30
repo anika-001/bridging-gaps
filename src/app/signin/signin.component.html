@@ -1,116 +1,4 @@
-<!-- <div class="main">
-    <div class="titlewebsite">
-        <div class="titleweb">
-            Bridging gaps!
-        </div>
-        <div class="tagline">
-            Together we grow!
-        </div>
-    </div>
-    <div class="authcard">
-        <div class="deets" style="right: 0;" [ngClass]="{
-            'rightregdeetscont': login,
-            'leftregdeetscont': !login
-        }">
-            <div
-                style="flex-basis: 70%; display: flex; flex-direction: column; text-align: center; justify-content: center; color: white;font-size: 18px;">
-                Haven't Signed up yet? We have a lot in store for you</div>
-            <div class="switchbut" [ngClass]="{
-                'rightdeets': login,
-                'leftdeets': !login
-            }">Register now</div>
-        </div>
-        <div class="deets" style="left: 0;" [ngClass]="{
-            'rightlogindeetscont': !login,
-            'leftlogindeetscont': login
-        }">
-            <div
-                style="flex-basis: 70%; display: flex; flex-direction: column; text-align: center; justify-content: center; color: white;font-size: 18px;">
-                Already logged in? We missed you!</div>
-            <div class="switchbut" [ngClass]="{
-            'rightdeets': !login,
-            'leftdeets': login
-        }">Login</div>
-        </div>
-        <div class="imageslide" [ngClass]="{
-            'right': login,
-            'left': !login
-        }">
-            <div class="imageslideopaque" style="z-index: 1">
-                <div class="logincard" [ngClass]="{
-                    'cardleft': login,
-                    'cardright': !login
-                }">
-                    <div class="logintitle">
-                        Sign In
-                    </div>
-                    <div class="error" *ngIf="error">
-                        {{errormessage}}
-                    </div>
-                    <form [formGroup]="formlogin" class="input">
-                        <div *ngFor="let x of signindata">
-                            <input placeholder="{{x.placeholder}}" formControlformControlName={{x.formname}} type={{x.type}}
-                                class="ip" *ngIf="!x.error">
-                        </div>
-                        <a routerLink="/forgotPassword" class="forgot">
-                            Forgot Password?
-                        </a>
-                    </form>
-                    <div class="submit" (click)="submit()">
-                        <div class="custom-btn btn-4">
-                            Login
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="imageslidetransparent" (click)="move()" style="z-index: 2">
 
-            </div>
-            <div class="imageslideopaque" style="z-index: 3">
-                <div class="regcard" [ngClass]="{
-                    'regcardleft': !login,
-                    'regcardright': login
-                }">
-                    <div class="logintitle">
-                        Sign Up
-                    </div>
-                    <div class="error" *ngIf="error">
-                        {{errormessage}}
-                    </div>
-                    <form [formGroup]="formreg" class="input">
-                        <div class="regdiv">
-                            <div *ngFor="let x of signupdata" style="height: 20%;">
-                                <div *ngIf="x.type != 'dropdown'">
-                                    <input placeholder="{{x.placeholder}}" formControlformControlName={{x.formname}}
-                                        type={{x.type}} class="ip" *ngIf=!x.error>
-                                </div>
-                                <div *ngIf="x.type == 'dropdown'">
-                                    <mat-form-field>
-                                        <mat-label style="font-size: 100%;">{{x.placeholder}}</mat-label>
-                                        <mat-select [(value)]="x.value" class="ip"
-                                            style="font-size: 100%; border-bottom: none;">
-
-                                            <div *ngFor="let y of x.options">
-                                                <mat-option value="{{y.value}}" class="options">
-                                                    {{y.placeholder}}</mat-option>
-                                            </div>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="submit" (click)="submit()">
-                        <div class="custom-btn btn-4">
-                            Register
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div> -->
 <div class="main">
   <div class="loginsignup">
     <div class="imagerect"></div>
@@ -152,15 +40,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="inputfield">
-                            <div class="inputlabel"> Email ID</div>
-                            <input type="text" formControlName="email" placeholder="  Email ID" />
-                        </div>
-                        <div class="inputfield">
-                            <div class="inputlabel">Password</div>
-                                <input type="password" formControlName="password" placeholder="  Enter Your password" />
-                            
-                        </div> -->
             <div class="signup" (click)="move()">
               <strong>Don't have an account?</strong>
               <div class="btn6">Sign UP!</div>
@@ -231,26 +110,7 @@
                 </mat-form-field>
               </div>
             </div>
-            <!-- <div class="inputfield"> -->
-            <!-- <div class="inputlabel">Name</div> -->
-            <!-- <input type="text" formControlName="name" placeholder="  Enter Your Name" />
-                        </div>
-                        <div class="inputfield"> -->
-            <!-- <div class="inputlabel">Email ID</div> -->
-            <!-- <input type="text" formControlName="email" placeholder="  Enter Email ID" />
-                        </div>
-                        <div class="inputfield"> -->
-            <!-- <div class="inputlabel">Email ID</div> -->
-            <!-- <input type="text" formControlName="phone" placeholder="  Enter Phone No." />
-                        </div>
-                        <div class="inputfield"> -->
-            <!-- <div class="inputlabel">Email ID</div> -->
-            <!-- <input type="password" formControlName="password" placeholder="  Enter Password" />
-                        </div>
-                        <div class="inputfield"> -->
-            <!-- <div class="inputlabel">Email ID</div> -->
-            <!-- <input type="password" formControlName="confirmpassword" placeholder="  Confirm Password" />
-                        </div> -->
+           
 
             <div class="login">
             

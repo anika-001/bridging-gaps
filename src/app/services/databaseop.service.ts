@@ -19,7 +19,6 @@ export class DatabaseopService {
 
   upload(path: any, dbpath: any, file: any, data: any) {
     return new Promise((resolve, reject) => {
-      // console.log(file[0]);
       path = path + "/" + file[0].name;
       const ref = this.storage.ref(path);
       this.storage.upload(path, file[0]).then(

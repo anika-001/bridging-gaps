@@ -17,8 +17,6 @@ export class NavbarComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(navbar);
-    // console.log("Hello!");
     this.navdata = navbar;
     this.navdoc = navbardoctor;
     

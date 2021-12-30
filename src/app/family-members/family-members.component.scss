@@ -57,9 +57,6 @@
   display: flex;
   flex-direction: column;
   padding-left: 2vw;
-  // background-color: pink;
- 
-  // margin-left: 30px;
 }
 
 .doctor:hover{
@@ -95,20 +92,17 @@
 .title{
   height: 5vh;
   width: 100%;
-  // background-color: burlywood;
   font-size: 220%;
   font-weight: 500;
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  // text-align: center;
 }
 
 .introcard{
   height: 15vh;
   width: 100%;
-  // background-color: aqua;
   display: flex;
   align-items: center;
   border-bottom: solid thin silver;
@@ -117,12 +111,10 @@
 .photo {
   height: 10vh;
   width: 10vh;
-  // background-color: #ffffff;
   justify-content: center;
 }
 
 .nameandprof{
-  // background-color: pink;
   width: 15vw;
   height: 15vh;
   padding-left: 2vw;
@@ -153,24 +145,20 @@
 }
 
 .rating{
-  // background-color: bisque;
   width: 15vw;
   height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // font-size: 50%;
 }
 
 .description
 {
   height: 70vh;
   width: 100%;
-  // background-color: aquamarine;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-//   align-items: center;
   border-bottom: solid thin silver;
 }
 
@@ -178,7 +166,6 @@
 {
   font-size: 150%;
   width: 100%;
-  // margin-top:20px;
   font-weight: 500;
 }
 
@@ -191,7 +178,6 @@
 
 .descrow{
     display: flex;
-    // background-color: palegoldenrod;
     font-size: 110%;
 }
 
@@ -207,7 +193,6 @@
 {
   height:15vh;
   width: 30vw;
-  // background-color: red;
   display:flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -218,14 +203,12 @@
   height: 6vh;
   font-size: 120%;
   font-weight: bold;
-  // background-color: pink;
 }
 
 .lastreview
 {
   height: 15vh;
   width: 100%;
-  // background-color: bisque; 
   display: flex;
   font-size: 80%;
   flex-direction: column;
@@ -250,8 +233,6 @@
 }
 ngb-rating {
   color: #9378FF;
-  // font-size: 25px;
-  // margin-left: 35vh;
 }
 
 //rating
@@ -270,15 +251,12 @@ ngb-rating {
 }
 
 .full {
-  //color: var(--col2vl);
-  //color: var(--col4);
   color: #9378FF;
 }
 .half {
   position: absolute;
   display: inline-block;
   overflow: hidden;
-  //color: var(--col4);
   color: #9378FF;
 }
 .review h3
@@ -289,14 +267,12 @@ ngb-rating {
 .review h5
 {
   font-size:90%;
-  // margin-left: 50vh;
 }
 
 .tags
 {
  height: 20vh;
  width: 30vw;
-//  background-color:rgb(83, 44, 167);
  display: flex;
  flex-direction: column;
 }
@@ -304,7 +280,6 @@ ngb-rating {
 .tagstitle{
   height: 5vh;
   width: 100%;
-  // background-color: palevioletred;
   display: flex;
   font-weight: bold;
   font-size: 120%;
@@ -312,7 +287,6 @@ ngb-rating {
 
 .appointmenttype{
   width: 20vw;
-  // background-color: paleturquoise;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -331,7 +305,6 @@ ngb-rating {
   width: 100%;
   display: flex;
   flex-direction: column;
-  // background-color: lightsalmon;
 }
 
 .specializations{
@@ -340,7 +313,6 @@ ngb-rating {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  // background-color: lightsalmon;
 }
 
 .tag{
@@ -358,7 +330,6 @@ ngb-rating {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  // background-color: green;
 }
 
 .slotbut{
