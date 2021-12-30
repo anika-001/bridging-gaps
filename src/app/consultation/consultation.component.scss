@@ -4,7 +4,7 @@
   width: 100vw;
   padding-top: 10vh;
   height: 100vh;
-  background-color: #005059;
+  background-color:rgb(0,80,89);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,7 @@
 
 
 .consult {
-  background-color: #c8e8ea;
+  background-color: rgb(200,232,234);
   height: 90vh; height: 90vh;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@
 }
 
 .list {
-  // background-color: #0050597a;
+  // background-color: #rgb(0,80,89)7a;
   height: 85vh;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@
   // border-radius: 20px;
   display: flex;
   justify-content: center;
-  // background-color: #0050597a;
+  // background-color: #rgb(0,80,89)7a;
   align-items: center;
   border-left: solid black;
 }
@@ -204,7 +204,7 @@
   width: 30vw;
   // font-size: 120%;
   // font-weight: bold;
-  background-color:#c8e8ea;
+  background-color:rgb(200,232,234);
   display: flex;
   flex-direction: row;
 }
@@ -256,7 +256,7 @@
   font-style: italic;
 }
 ngb-rating {
-  color: #9378FF;
+  color: #FFDF00;
   // font-size: 25px;
   // margin-left: 35vh;
 }
@@ -266,7 +266,7 @@ ngb-rating {
   position: relative;
   display: inline-block;
   font-size: 3rem;
-  color: #d3d3d3;
+  color: #FFDF00;
 }
 
 .star1 {
@@ -279,14 +279,14 @@ ngb-rating {
 .full {
   //color: var(--col2vl);
   //color: var(--col4);
-  color: #9378FF;
+  color: #FFDF00;
 }
 .half {
   position: absolute;
   display: inline-block;
   overflow: hidden;
   //color: var(--col4);
-  color: #9378FF;
+  color: #FFDF00;
 }
 .review h3
 {
