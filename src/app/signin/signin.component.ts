@@ -45,7 +45,7 @@ export class SigninComponent implements OnInit {
                   if(res.payload.data().role == 1){this.router.navigate(['/home']);}
                   else if(res.payload.data().role == 2) this.router.navigate(['/schedule']);
                   else {
-                    this.router.navigate(['/form'],{ queryParams: { id: 6}})
+                     this.router.navigate(['/form'],{ queryParams: { id: 7}})
                   }
                 })
               }

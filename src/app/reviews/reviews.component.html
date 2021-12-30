@@ -9,13 +9,16 @@
 
     <div class="title2"></div>
     <div class="title1"></div>
-    <div class="btn">
-      <div class="btn6" (click) ="addareview();">Add a review</div>
+    <div class="btn" >
+      <div class="btn6" style="width: 20vh" (click) ="addareview();">Add a review</div>
     </div>
   </div>
   <div class="box">
     <div class="column1" *ngFor="let x of ratings">
-      <div class="log"></div>
+      <div class="log">
+        <img src="https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FReview%2Freview.png?alt=media&token=d067f3b5-7e41-47d5-957a-ca93e9f20e27">
+        <!-- <div class="pic"></div> -->
+      </div>
       <div class="box2">
       
         <div class="box3">
@@ -33,7 +36,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="comment"></div> -->
         <div class="comment1"> {{x.payload.doc.data().reviewcomment}}</div>
       </div>
 
