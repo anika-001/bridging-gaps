@@ -30,7 +30,7 @@
       </div>
 
     </div>
-    <div class="meet"></div>
+    <div class="meetinfo"></div>
   </div>
 
   <div class="weeklycal">
@@ -59,11 +59,10 @@
                 'meet': checkavailability(day, i) == 'meet'
               }">
                 <div class="avunav available" *ngIf = "!isbeforedate(day) && checkavailability(day, i) != 'meet'" (click) = "availability(i, day, 'free')">
-                  <!-- <button>Available</button> -->
                 </div>
                 <div class="avunav unavailable" *ngIf = "!isbeforedate(day) && checkavailability(day, i) != 'meet'" (click) = "availability(i, day, 'busy')">
-                  <!-- <button>Unavailable</button> -->
                 </div>
+                <div class = "avunav" *ngIf = "checkavailability(day, i) == 'meet'">Meet is scheduled</div>
               </div>
               
             <!-- </div> -->

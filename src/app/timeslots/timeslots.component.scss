@@ -13,7 +13,7 @@
 
 .cont
 {   
-  height: 80vh;
+  height: 70vh;
   width: 50%;
   // background-color: burlywood; 
   display: flex;
@@ -73,6 +73,7 @@
 {
   height:80vh;
   width: 100%;
+  margin: 0 5%;
   overflow-y: scroll;
   // border: solid blue;
 }
@@ -94,10 +95,13 @@
   width: 25%;
   cursor: pointer;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .btn6
 {
+  width: 50%;
   text-align: center;
 }
 
