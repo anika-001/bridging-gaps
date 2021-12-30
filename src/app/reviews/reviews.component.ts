@@ -12,7 +12,9 @@ import { DatabaseopService } from '../services/databaseop.service';
 export class ReviewsComponent implements OnInit {
   user: any;
   docid: any;
-  
+  ratings:any;
+  rate:number=4;
+  // currentdoctordocid: any = 0;
   constructor(private as: AuthService, private router: Router, private route: ActivatedRoute, private db: DatabaseopService) { }
 
   ngOnInit(): void {
@@ -26,6 +28,23 @@ export class ReviewsComponent implements OnInit {
         if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
       })
     })
+  
+  }
+   
+
+  addareview(){
+    this.router.navigate(['/form'], { queryParams: { id: 8, docid: this.docid } });
   }
 
+
+  getratings() {
+    this.db.readCollection(`Reviewsrating/${this.docid}/ratings`).snapshotChanges().subscribe(res => {
+      this.ratings = res; 
+      console.log("here")
+      console.log(this.ratings);
+    })
+    // this.db.readCollection(`Reviewscomment/${this.docid}/commes`).snapshotChanges().subscribe(res => {
+
+    
+  }
 }

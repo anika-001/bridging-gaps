@@ -36,6 +36,7 @@ export class FormComponent implements OnInit {
   title: any;
   familymemid: any;
   doctorprofile: any;
+  uemail: any;
 
   ngOnInit( ): void {
 
@@ -48,6 +49,10 @@ export class FormComponent implements OnInit {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
       this.uid = res?.uid;
+      this.as.getprofile(this.user.uid).subscribe((res: any) => {
+        this.uemail = res.payload.data().email;
+        // if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
+      })
       // if(this.formid != 2){
       //   this.questions$ = this.getQuestions();
       // }
@@ -551,7 +556,7 @@ export class FormComponent implements OnInit {
       this.db.create(`Caretakers/`, formdata.form.value);
     }
     else if(this.formid == 8){
-      this.db.create(`Reviewscomment/${this.docid}/comments`, {"uid":this.user.uid,"reviewcomment":formdata.form.value["ReviewComment"]});
+      this.db.create(`Reviewscomment/${this.docid}/comments`, {"uid":this.user.uid,"reviewcomment":formdata.form.value["ReviewComment"], "reviewrating":formdata.form.value["ReviewRating"], "useremail": this.uemail});
       this.db.createdoc(`Reviewsrating/${this.docid}/ratings/${this.user.uid}`, {"uid":this.user.uid,"reviewrating":formdata.form.value["ReviewRating"]})
       .then(res=>{
         this.db.readCollection(`Reviewsrating/${this.docid}/ratings`).snapshotChanges().subscribe((res:any) => {
