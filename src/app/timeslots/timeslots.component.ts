@@ -98,7 +98,7 @@ export class TimeslotsComponent implements OnInit {
     "image": "../../assets/media/images/Logo.png",
     "prefill": {
       "name": "Bridging Gaps",
-      "email": " ieeebridginggaps@gmail.com",
+      "email": "ieeebridginggaps@gmail.com",
       "contact": "93847563535",
       "method": ""
     },
