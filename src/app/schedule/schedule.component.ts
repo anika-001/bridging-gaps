@@ -25,6 +25,7 @@ export class ScheduleComponent implements OnInit {
   hour: Array<string> = [];
   days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
   currentschedule: Array<Array<any>> = [];
+  currentmeet: any = null;
 
   constructor(private http: HttpClient, private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
@@ -179,7 +180,7 @@ export class ScheduleComponent implements OnInit {
 
   //Check availability
   checkavailability(day: any, timeslot: number) {
-    return this.currentschedule[day][timeslot];
+    return this.currentschedule[day][timeslot].availability;
   }
 
   //Get availability from database
@@ -188,7 +189,7 @@ export class ScheduleComponent implements OnInit {
     this.db.readCollection(`Availability/${this.user.uid}/Weeks/${week}/days`).snapshotChanges().subscribe((res: any) => {
       if (res) {
         for (let r of res) {
-          this.currentschedule[r.payload.doc.data().day][r.payload.doc.data().timeslot] = r.payload.doc.data().availability;
+          this.currentschedule[r.payload.doc.data().day][r.payload.doc.data().timeslot] = r.payload.doc.data();
         }
       }
     })
@@ -241,5 +242,12 @@ export class ScheduleComponent implements OnInit {
       this.hour.push(((i + 7) % 24).toString() + ":00 - " + ((i + 7) % 24).toString() + ":30");
       this.time.push(i);
     }
+  }
+
+  getmeetingdetails(day: number, i: number){
+    this.currentmeet = this.currentschedule[day][i];
+    this.db.readDoc(`familymembers/${this.currentmeet.userid}/familymember/${this.currentmeet.patientid}`).snapshotChanges().subscribe((res:any) => {
+      this.currentmeet["name"] = res.payload.data().FamilyMemberName
+    })
   }
 }

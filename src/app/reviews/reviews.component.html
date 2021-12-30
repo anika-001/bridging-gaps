@@ -14,27 +14,27 @@
     </div>
   </div>
   <div class="box">
-    <div class="column1" *ngFor="let x of [0,1,2,3,4,5,6,7,8,9]">
+    <div class="column1" *ngFor="let x of ratings">
       <div class="log"></div>
       <div class="box2">
       
         <div class="box3">
         
           <div class="adjust">
-            <div class="box4"></div>
+            <div class="box4">{{x.payload.doc.data().useremail}}</div>
             <div class="box5">
               <!-- <div class="rating r1"> -->
                 <ngb-rating
                   [max]="5"
-           [(rate)]="rate"
+           [(rate)]="x.payload.doc.data().reviewrating"
                   [readonly]="true"
                 ></ngb-rating>
               <!-- </div> -->
             </div>
           </div>
         </div>
-        <div class="comment">comment</div>
-        <div class="comment1"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, neque.</div>
+        <!-- <div class="comment"></div> -->
+        <div class="comment1"> {{x.payload.doc.data().reviewcomment}}</div>
       </div>
 
     </div>

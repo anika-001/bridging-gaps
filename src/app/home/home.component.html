@@ -19,19 +19,37 @@
 
         <div class="past">
             <div class="oldt">PAST APPOINTMENTS</div>
-            <div class="oldb">
-                <div class="content">DAY</div>
+            <div class="oldb"> 
+                 <div class="rect"> 
                 <div class="content">NAME</div>
+                <div class="inputs"></div>
+            </div>
+            <div class="rect"> 
+                <div class="content">DATE</div>
+                <div class="inputs"></div>
+            </div>
+            <div class="rect" *ngIf = "meetings.length"> 
                 <div class="content">LINK</div>
+                <div class="inputs" *ngFor = "let x of meetings"><a *ngIf = "isbefore(x.payload.doc.data().time)">{{x.payload.doc.data().link}}</a></div>
+            </div>
             </div>
         </div>
         <div class="between"></div>
         <div class="upcoming">
             <div class="oldt">UPCOMING APPOINTMENTS</div>
             <div class="oldb">
-                <div class="content">DAY</div>
-                <div class="content">NAME</div>
-                <div class="content">LINK</div>
+                <div class="rect"> 
+                    <div class="content">NAME</div>
+                    <div class="inputs"></div>
+                </div>
+                <div class="rect"> 
+                    <div class="content">DATE</div>
+                    <div class="inputs"></div>
+                </div>
+                <div class="rect" *ngIf = "meetings"> 
+                    <div class="content">LINK</div>
+                    <div class="inputs" style="width: 20vw;" *ngFor = "let x of meetings"><a *ngIf = "!isbefore(x.payload.doc.data().time)">{{x.payload.doc.data().link}}</a></div>
+                </div>
             </div>
         </div>
 
@@ -55,42 +73,8 @@
                     </div>
                 </div>
             </div> 
-            <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
-            <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
-            <!-- <div class="members">
-            <div class="pic"></div>
-            <div class="info">
-                Name:<br>
-                Relation:<br>
-                Age:
-            </div>
-        </div> -->
          </div>
     </div> 
-
-
-
-
-
-
-
-
-
-
     <div class="medication">
         <div class="top">MEDICATION</div>
         <div class="show1" routerLink="/meddelivery"> SHOW ALL &rarr;</div>       
@@ -109,45 +93,8 @@
                 </div>
             </div> 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <div class="medicine">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <div class="medicine">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <div class="medicine">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>   -->
-
-
-
          </div>
     </div>  
-
-
-
-
-
-
-
-
-
      <div class="test">
         <div class="top2"> <div class="top1" >LABTEST</div>
             <div class ="show" routerLink="/lab"> SHOW ALL &rarr;</div> 
@@ -166,39 +113,12 @@
                     <a href = "{{labtest[x].payload.doc.data().Link}}" style="color: blue; font-size: 10px;"> Visit Here</a>
                 </div>
             </div>  
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <div class="card">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <div class="card">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div>
-        <div class="card">
-            <div class="types"></div>
-            <div class="details"></div>
-        </div> -->
-
-
-
-
           </div>
     </div>  
 
 
 
-</div>
+<!-- </div> -->
 
 <div>
     <div style="display: flex;">

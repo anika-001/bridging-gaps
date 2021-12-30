@@ -3,16 +3,16 @@
     <mat-form-field>
         <mat-select [(value)]="value" class="ip" style="font-size: 100%; border-bottom: none;">
 
-            <div *ngFor="let opt of members;let i = index">
+            <div *ngFor="let opt of members; let i = index">
                 <mat-option value="{{i}}" class="options">
                     {{opt.payload.doc.data().FamilyMemberName}}</mat-option>
             </div>
         </mat-select>
     </mat-form-field>
 
-    <div class="adjust3">
-        <div class="doc">Doctor: {{doctor.payload.data().DoctorName}}</div>
-        <div class="price">Price: {{doctor.payload.data().DoctorFees}}</div>
+    <div class="adjust3" *ngIf = "doctor">
+        <div class="doc">Doctor: {{doctor.DoctorName}}</div>
+        <div class="price">Price: {{doctor.DoctorFees}}</div>
     </div>
     <div class="adjust3 arrow">
         <div>Week: {{getweekparsed()}}</div>
@@ -25,7 +25,7 @@
             <div class="slottitle" *ngFor="let info of info">{{info}}</div>
         </div>
         <div class="adjust">
-            <div *ngFor="let rows of slots;let i = index">
+            <div *ngFor="let rows of slots; let i = index">
                 <div class="row1" *ngIf = "!islesserthannow(rows.payload.doc.data().day, rows.payload.doc.data().timeslot) && rows.payload.doc.data().availability == 'free'">
                     <div class="column1">{{hour[rows.payload.doc.data().timeslot]}}</div>
                     <div class="column1">{{days[getday(rows.payload.doc.data().day)[3]]}}</div>

@@ -17,8 +17,8 @@ export class TimeslotsComponent implements OnInit {
   info = ["Time", "Day", "Date", "Book slots"];
   constructor(private http: HttpClient, private as: AuthService, private router: Router, private route: ActivatedRoute, private db: DatabaseopService, private zone: NgZone, private razorpayService: ExternalLibraryService) { }
   response: any;
-  value:any;
-  index:any;
+  value: any;
+  index: any;
   razorpayResponse: any;
   showModal = false;
   items: any;
@@ -31,48 +31,60 @@ export class TimeslotsComponent implements OnInit {
   slots: Array<any> = [];
   docid: any;
   count = 0;
-  members:any;
+  members: any;
   doctor: any = null;
-  profile:any;
+  docemail: any = null;
+  profile: any;
+  postid: any;
   days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
   months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
   ngOnInit(): void {
-    console.log("get");
-    this.mypostreq();
+
+    this.docid = this.route.snapshot.queryParams['id'];
     this.getnowweek();
     this.initializeTimeSlots();
-    this.as.getUserState().subscribe(res => {
-      if (!res) this.router.navigate(['/signin'])
-      this.user = res;
-      this.as.getprofile(this.user.uid).subscribe((res: any) => {
-        this.profile=res;
-        if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
-      })
-    });
-    // this.getseconds(0);
-    this.docid = this.route.snapshot.queryParams['id'];
-    this.getdoctorprice();
+    this.getdoctor();
+    // console.log(this.doctor)
     this.as.getUserState().subscribe(user => {
       if (user == null) this.router.navigate(['/signin']);
       this.user = user;
       this.getslots();
-      this.getfamilymembers() ;
+      this.getfamilymembers();
       this.as.getprofile(this.user.uid).subscribe((profile: any) => {
+        if (profile.payload.data().role != 1) { this.router.navigate(['/signin']); }
+        this.profile = profile.payload.data();
         this.RAZORPAY_OPTIONS.prefill.email = this.user.email;
         this.RAZORPAY_OPTIONS.prefill.contact = profile.payload.data().phone;
         this.RAZORPAY_OPTIONS.prefill.name = profile.payload.data().name;
-
       })
     })
     this.razorpayService
       .lazyLoadLibrary('https://checkout.razorpay.com/v1/checkout.js')
       .subscribe();
   }
+
   getfamilymembers() {
     this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
-      this.members = res; 
-      // this.currentfamilymemberid = res[0].payload.doc.id;
+      this.members = res;
+    })
+  }
+
+  
+  getslots() {
+    this.slots = []
+    let week = this.currentweek[0] + " - " + this.currentweek[1];
+    this.db.readCollection(`Availability/${this.docid}/Weeks/${week}/days`).snapshotChanges().subscribe(res => {
+      this.slots = res;
+    })
+  }
+
+  getdoctor() {
+    this.db.readDoc(`Doctors/${this.docid}`).snapshotChanges().subscribe(res => {
+      this.doctor = res.payload.data();
+      this.db.readDoc(`Users/${this.docid}`).snapshotChanges().subscribe((res: any) => {
+        this.doctor["email"] = res.payload.data().email;
+      })
     })
   }
 
@@ -96,9 +108,10 @@ export class TimeslotsComponent implements OnInit {
       "color": "#3c8d93"
     }
   };
-  public proceed(index:any) {
-    this.index=index;
-    this.RAZORPAY_OPTIONS.amount = ((this.total + 100) * 100) + '';
+
+  public proceed(index: any) {
+    this.index = index;
+    this.RAZORPAY_OPTIONS.amount = ((this.doctor.DoctorFees) * 100) + '';
     this.RAZORPAY_OPTIONS['handler'] = this.razorPaySuccessHandler.bind(this);
 
     let razorpay = new Razorpay(this.RAZORPAY_OPTIONS)
@@ -106,42 +119,43 @@ export class TimeslotsComponent implements OnInit {
   }
 
   public razorPaySuccessHandler(response: any) {
-    console.log(response);
+    // console.log(response);
     this.razorpayResponse = `Successful Transaction`;
-    console.log(this.razorpayResponse);
-    this.mypostreq();
-    this.router.navigate(['/home']);
-
-    this.zone.run(() => {
-      this.router.navigateByUrl("/orders");
+    // console.log(this.razorpayResponse);
+    this.mypostreq().then(res => {
+      console.log("Yayy!");
     });
-
-  }
-  postid: any;
-  mypostreq() {
-    console.log("in post req");
-    const body = {
-      "emailD":this.doctor.payload.data().emailkey,
-      "emailP":"",//getmemeberbyid(uid)(query function made 240)
-      "Time":"", //to be done
-      "patientID":"", //getmemeberbyid(uid)(query function made 240)
-      "doctorID":"", //
-      "userID":"",
-      "timeslot":"",
-      "day":"",
-      "week":"", 
-      "patientphone":""
-      // "email1": "aanchalkviit@gmail.com",
-      // "email2": "anikatibrewala@gmail.com",
-      // "time": Math.floor(Date.now() / 1000),
-      // "patientID": "1fromangular",
-      // "doctorID": "2",
-      // "userID": "1"
-    };
-    // this.http.post<any>('https://krashibrahmand.herokuapp.com/zapierapi', body).subscribe(data => {
-    //   this.postid = data.id;
-    //   console.log(data);
+    // this.router.navigate(['/home']);
+    // this.zone.run(() => {
+    //   this.router.navigateByUrl("/orders");
     // });
+  }
+
+  
+  mypostreq() {
+    return new Promise((resolve, reject) => {
+      console.log(this.gettimeinIST(this.slots[this.index].payload.doc.data().day, this.hour[this.slots[this.index].payload.doc.data().timeslot]));
+      const body = {
+        "emailD": this.doctor["email"],
+        "emailP": this.profile["email"],
+        "time": this.gettimeinIST(this.slots[this.index].payload.doc.data().day, this.hour[this.slots[this.index].payload.doc.data().timeslot]), //to be done
+        "patientID": this.members[this.value].payload.doc.id, 
+        "doctorID": this.docid, 
+        "userID": this.user.uid,
+        "timeslot": this.slots[this.index].payload.doc.data().timeslot,
+        "day": this.slots[this.index].payload.doc.data().day,
+        "week": this.getweekforAPI(),
+        "patientphone": this.members[this.value].payload.doc.data().FamilyMemberPhoneNumber
+      };
+      this.http.post<any>('https://krashibrahmand.herokuapp.com/zapierapi', body).subscribe(data => {
+        this.postid = data.id;
+        console.log(data);
+        resolve(data);
+      },
+      err => {
+        reject(err);
+      });
+    })
   }
 
   getnowweek() {
@@ -173,19 +187,19 @@ export class TimeslotsComponent implements OnInit {
     return [date.getDate(), date.getMonth(), date.getFullYear(), date.getDay()]
   }
 
+  gettimeinIST(day: number, timeslot: string){
+    let getday = this.getday(day);
+    let hourssecs = timeslot.split(" - ")[0].split(":");
+    console.log(getday, hourssecs)
+    let date = (new Date(getday[2], getday[1], getday[0])).getTime() + (Number(hourssecs[0]) * 60 * 60 * 1000) + (Number(hourssecs[1]) * 60 * 1000);
+    return Math.floor(date / 1000);
+  }
+
   initializeTimeSlots() {
     for (let i = 0; i < 24; i++) {
       this.hour.push(((i + 6) % 24).toString() + ":30 - " + ((i + 7) % 24).toString() + ":00");
       this.hour.push(((i + 7) % 24).toString() + ":00 - " + ((i + 7) % 24).toString() + ":30");
     }
-  }
-
-  getslots() {
-    this.slots = []
-    let week = this.currentweek[0] + " - " + this.currentweek[1];
-    this.db.readCollection(`Availability/${this.docid}/Weeks/${week}/days`).snapshotChanges().subscribe(res => {
-      this.slots = res;
-    })
   }
 
   move(dir: 'f' | 'b') {
@@ -226,34 +240,14 @@ export class TimeslotsComponent implements OnInit {
     }
   }
 
+  getweekforAPI(){
+    return this.currentweek[0] + " - " + this.currentweek[1];
+  }
+
   getweekparsed() {
     let day1 = this.currentweek[0].split(" ");
     let day2 = this.currentweek[1].split(" ");
     return day1[0] + " " + this.months[day1[1]] + " " + day1[2] + " - " + day2[0] + " " + this.months[day2[1]] + " " + day2[2];
   }
 
-  getdoctorprice(){
-    console.log("get");
-    this.db.readDoc(`Doctors/${this.docid}`).snapshotChanges().subscribe(res => {
-      this.doctor = res;
-    })
-  }
-  member: any;
-  doctormail:any;
-  getmemberbyuid(uid: any) {
-    for (this.member of this.members) {
-      if (this.member == uid) {
-        this.member = uid;
-        break;
-      }
-    }
-  }
-  getdoctormailbyuid(uid: any) {
-    for (this.doctormail of this.doctor.payload.data()) {
-      if (this.docid == uid) {
-        this.doctormail = uid;
-        break;
-      }
-    }
-  }
 }
