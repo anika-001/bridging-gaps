@@ -17,6 +17,8 @@ export class TimeslotsComponent implements OnInit {
   info = ["Time", "Day", "Date", "Book slots"];
   constructor(private http: HttpClient, private as: AuthService, private router: Router, private route: ActivatedRoute, private db: DatabaseopService, private zone: NgZone, private razorpayService: ExternalLibraryService) { }
   response: any;
+  value:any;
+  index:any;
   razorpayResponse: any;
   showModal = false;
   items: any;
@@ -29,7 +31,9 @@ export class TimeslotsComponent implements OnInit {
   slots: Array<any> = [];
   docid: any;
   count = 0;
+  members:any;
   doctor: any = null;
+  profile:any;
   days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
   months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -41,6 +45,7 @@ export class TimeslotsComponent implements OnInit {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
       this.as.getprofile(this.user.uid).subscribe((res: any) => {
+        this.profile=res;
         if (res.payload.data().role != 1) { this.router.navigate(['/signin']); }
       })
     });
@@ -51,6 +56,7 @@ export class TimeslotsComponent implements OnInit {
       if (user == null) this.router.navigate(['/signin']);
       this.user = user;
       this.getslots();
+      this.getfamilymembers() ;
       this.as.getprofile(this.user.uid).subscribe((profile: any) => {
         this.RAZORPAY_OPTIONS.prefill.email = this.user.email;
         this.RAZORPAY_OPTIONS.prefill.contact = profile.payload.data().phone;
@@ -61,6 +67,12 @@ export class TimeslotsComponent implements OnInit {
     this.razorpayService
       .lazyLoadLibrary('https://checkout.razorpay.com/v1/checkout.js')
       .subscribe();
+  }
+  getfamilymembers() {
+    this.db.readCollection(`familymembers/${this.user.uid}/familymember`).snapshotChanges().subscribe(res => {
+      this.members = res; 
+      // this.currentfamilymemberid = res[0].payload.doc.id;
+    })
   }
 
   RAZORPAY_OPTIONS = {
@@ -83,7 +95,8 @@ export class TimeslotsComponent implements OnInit {
       "color": "#3c8d93"
     }
   };
-  public proceed() {
+  public proceed(index:any) {
+    this.index=index;
     this.RAZORPAY_OPTIONS.amount = ((this.total + 100) * 100) + '';
     this.RAZORPAY_OPTIONS['handler'] = this.razorPaySuccessHandler.bind(this);
 
@@ -107,17 +120,27 @@ export class TimeslotsComponent implements OnInit {
   mypostreq() {
     console.log("in post req");
     const body = {
-      "email1": "aanchalkviit@gmail.com",
-      "email2": "anikatibrewala@gmail.com",
-      "time": Math.floor(Date.now() / 1000),
-      "patientID": "1fromangular",
-      "doctorID": "2",
-      "userID": "1"
+      "emailD":this.doctor.payload.data().emailkey,
+      "emailP":"",//getmemeberbyid(uid)(query function made 240)
+      "Time":"", //to be done
+      "patientID":"", //getmemeberbyid(uid)(query function made 240)
+      "doctorID":"", //
+      "userID":"",
+      "timeslot":"",
+      "day":"",
+      "week":"", 
+      "patientphone":""
+      // "email1": "aanchalkviit@gmail.com",
+      // "email2": "anikatibrewala@gmail.com",
+      // "time": Math.floor(Date.now() / 1000),
+      // "patientID": "1fromangular",
+      // "doctorID": "2",
+      // "userID": "1"
     };
-    this.http.post<any>('https://krashibrahmand.herokuapp.com/zapierapi', body).subscribe(data => {
-      this.postid = data.id;
-      console.log(data);
-    });
+    // this.http.post<any>('https://krashibrahmand.herokuapp.com/zapierapi', body).subscribe(data => {
+    //   this.postid = data.id;
+    //   console.log(data);
+    // });
   }
 
   getnowweek() {
@@ -213,5 +236,22 @@ export class TimeslotsComponent implements OnInit {
       this.doctor = res;
     })
   }
-
+  member: any;
+  doctormail:any;
+  getmemberbyuid(uid: any) {
+    for (this.member of this.members) {
+      if (this.member == uid) {
+        this.member = uid;
+        break;
+      }
+    }
+  }
+  getdoctormailbyuid(uid: any) {
+    for (this.doctormail of this.doctor.payload.data()) {
+      if (this.docid == uid) {
+        this.doctormail = uid;
+        break;
+      }
+    }
+  }
 }
