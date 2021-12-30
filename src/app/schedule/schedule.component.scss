@@ -137,9 +137,13 @@
    width : 4vh;
    background-color: lightcoral;
 }
-.meet
+.meetinfo
 {
-    height: 40vh;
+    height: 20vh;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     // background-color: lightcoral;
 }
 
@@ -264,6 +268,14 @@
     border-radius: 50%; 
     cursor: pointer;
 }
+
+.meettext{
+    font-size: 20%;
+    color: white;
+    cursor: pointer;
+}
+
+  
  .available
  {   
     background-color: green;
