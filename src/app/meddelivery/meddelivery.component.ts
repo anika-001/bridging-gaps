@@ -10,7 +10,7 @@ import { DatabaseopService } from '../services/databaseop.service';
 })
 
 export class MeddeliveryComponent implements OnInit {
-  links: any;
+  links: Array<any> = [];
   user: any;
   currentlinks: any = 0;
   currentlinksid: any;
