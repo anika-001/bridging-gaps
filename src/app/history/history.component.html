@@ -10,9 +10,6 @@
     <div class="consult" *ngIf = "type ==1">
         <div class="list">
             <div class="doctor" *ngFor="let x of medhis; let i=index" (click)="clickmed(i, x.payload.doc.id)">
-                <div class="pic">
-
-                </div>
                 <div class="info" >
                     <div class="name" >{{x.payload.doc.data().DoctorIncharge}}</div>
                     <div></div>
@@ -33,9 +30,6 @@
     <div class="consult" *ngIf = "type == 2">
         <div class="list">
             <div class="doctor" *ngFor="let x of dietplan; let i=index" (click)="click(i, x.payload.doc.id)">
-                <div class="pic">
-
-                </div>
                 <div class="info" >
                     <div class="name" >{{x.payload.doc.data().DoctorInCharge}}</div>
                     <div></div>
@@ -58,9 +52,6 @@
     <div class="consult" *ngIf = "type == 3">
         <div class="list">
             <div class="doctor" *ngFor="let x of helper; let i=index" (click)="clickhelp(i, x.payload.doc.id)">
-                <div class="pic">
-
-                </div>
                 <div class="info" >
                     <div class="name" >{{x.payload.doc.data().HelperName}}</div>
                     <div></div>
