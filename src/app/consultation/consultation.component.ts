@@ -10,19 +10,21 @@ import { DatabaseopService } from '../services/databaseop.service';
   templateUrl: './consultation.component.html',
   styleUrls: ['./consultation.component.scss']
 })
-export class ConsultationComponent   implements OnInit {
+export class ConsultationComponent implements OnInit {
   currentRating: number = 4;
-  user:any;
+  user: any;
   doctors: any;
   currentdoctorindex: number = 0;
   currentdoctordocid: any = 0;
 
-  constructor(private as: AuthService, private router: Router, private db: DatabaseopService) {}
+  constructor(private as: AuthService, private router: Router, private db: DatabaseopService) { }
 
   tags: any = [];
+  ratings: Array<any> = [];
+  reviews: Array<any> = [];
 
   ngOnInit(): void {
-   
+
     this.as.getUserState().subscribe(res => {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
@@ -32,47 +34,55 @@ export class ConsultationComponent   implements OnInit {
     })
     this.getdoctors();
     this.getratings();
+    
   }
 
-  getdoctors(){
+  getdoctors() {
     this.db.readCollection(`Doctors`).snapshotChanges().subscribe(res => {
       this.doctors = res;
       this.tags = this.doctors[0].payload.doc.data().Tags.split(" ");
       this.currentdoctordocid = this.doctors[0].payload.doc.id;
+      this.getreviews();
     })
   }
 
-  doctorclick(id: any, ind: number){
+  doctorclick(id: any, ind: number) {
     this.tags = this.doctors[ind].payload.doc.data().Tags.split(" ");
     this.currentdoctordocid = id;
     this.currentdoctorindex = ind;
+    this.getreviews();
   }
 
-  getslots(){
-    this.router.navigate(['/slots'], { queryParams: { id: this.currentdoctordocid }});
+  getslots() {
+    this.router.navigate(['/slots'], { queryParams: { id: this.currentdoctordocid } });
   }
-  getlink(i:any){
-    if(this.doctors[i].payload.doc.data().Gender == 'Female'){return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FDoctor%2Fimage-removebg-preview.png?alt=media&token=8f306bf2-ec36-46aa-ae92-e99017871148";}
-    else if (this.doctors[i].payload.doc.data().Gender == 'Male'){return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMale%20Doctor%2Fimage-removebg-preview%20(6).png?alt=media&token=9f5ec334-efb7-460d-8db6-1aed0d7865eb"}
-    else {return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FNeutral%20Doctor%2FUntitled_design__9_-removebg-preview.png?alt=media&token=f051faeb-8bb6-498e-be78-33968c0deb91"}
+
+  getlink(i: any) {
+    if (this.doctors[i].payload.doc.data().Gender == 'Female') { return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FDoctor%2Fimage-removebg-preview.png?alt=media&token=8f306bf2-ec36-46aa-ae92-e99017871148"; }
+    else if (this.doctors[i].payload.doc.data().Gender == 'Male') { return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FMale%20Doctor%2Fimage-removebg-preview%20(6).png?alt=media&token=9f5ec334-efb7-460d-8db6-1aed0d7865eb" }
+    else { return "https://firebasestorage.googleapis.com/v0/b/bridging-gaps-677a5.appspot.com/o/Assets%2FNeutral%20Doctor%2FUntitled_design__9_-removebg-preview.png?alt=media&token=f051faeb-8bb6-498e-be78-33968c0deb91" }
   }
   gotoreviews() {
-    console.log("hello");
     this.router.navigate(['/review'], { queryParams: { docid: this.currentdoctordocid } });
   }
 
-  addareview(){
+  addareview() {
     this.router.navigate(['/form'], { queryParams: { id: 8, docid: this.currentdoctordocid } });
   }
-  viewareview(){
+
+  viewareview() {
     this.router.navigate(['/review'], { queryParams: { docid: this.currentdoctordocid } });
   }
-  ratings:any;
+
   getratings() {
     this.db.readCollection(`Reviewsrating/${this.currentdoctordocid}/ratings`).snapshotChanges().subscribe(res => {
-      this.ratings = res; 
-      console.log("here")
-      console.log(this.ratings);
+      this.ratings = res;
+    })
+  }
+
+  getreviews() {
+    this.db.readCollection(`Reviewscomment/${this.currentdoctordocid}/comments`).snapshotChanges().subscribe(res => {
+      this.reviews = res;
     })
   }
 }

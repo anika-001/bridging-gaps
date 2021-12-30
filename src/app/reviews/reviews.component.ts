@@ -38,8 +38,6 @@ export class ReviewsComponent implements OnInit {
   getratings() {
     this.db.readCollection(`Reviewscomment/${this.docid}/comments`).snapshotChanges().subscribe(res => {
       this.ratings = res; 
-      console.log("here")
-      console.log(this.ratings[0].payload.doc.data());
     })
   }
 }

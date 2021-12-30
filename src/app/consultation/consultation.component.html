@@ -7,19 +7,15 @@
 <div class="main">
   <div class="consult">
     <div class="list">
-      <div class="doctor" *ngFor = "let x of doctors; let i = index" (click) = "doctorclick(x.payload.doc.id, i)">
+      <div class="doctor" *ngFor="let x of doctors; let i = index" (click)="doctorclick(x.payload.doc.id, i)">
         <div class="pic">
-         <img class = "image" src= "{{getlink(i)}}">
+          <img class="image" src="{{getlink(i)}}">
         </div>
         <div class="info">
           <div class="name">{{x.payload.doc.data().DoctorName}}</div>
-          <div class = "reviewre">Awesome Job!</div>
+          <div class="reviewre">{{x.payload.doc.data().DoctorSpecialization}}</div>
           <div class="rating r1">
-            <ngb-rating
-              [max]="5"
-              [(rate)]="x.payload.doc.data().Rating"
-              [readonly]="true"
-            ></ngb-rating>
+            <ngb-rating [max]="5" [(rate)]="x.payload.doc.data().Rating" [readonly]="true"></ngb-rating>
           </div>
         </div>
       </div>
@@ -29,34 +25,17 @@
         <div class="title">Profile</div>
         <div class="introcard">
           <div class="photo">
-            <img class = "image" src="{{getlink(currentdoctorindex)}}">
+            <img class="image" src="{{getlink(currentdoctorindex)}}">
           </div>
           <div class="nameandprof">
             <div class="name">{{doctors[currentdoctorindex].payload.doc.data().DoctorName}}</div>
             <div class="prof">{{doctors[currentdoctorindex].payload.doc.data().DoctorSpecialization}}</div>
           </div>
           <div class="rating">
-            <ngb-rating
-              [max]="5"
-              [(rate)]="doctors[currentdoctorindex].payload.doc.data().Rating"
-              [readonly]="true"
-              [starTemplate]="t"
-            ></ngb-rating>
+            <ngb-rating [max]="5" [(rate)]="doctors[currentdoctorindex].payload.doc.data().Rating" [readonly]="true"
+              [starTemplate]="t"></ngb-rating>
           </div>
         </div>
-        <!-- <h1>profile</h1>
-        <h2>kylie wilson</h2>
-        <h5>pyshiatrist</h5>
-
-        
-        <h3>Average Rating</h3>
-
-        <ngb-rating [max]="5" [(rate)]="currentRating" [readonly]="false" [starTemplate]="t"></ngb-rating>
-        <h5>Current Rating: {{currentRating}}</h5>
-        
-        <div class="photo">
-
-        </div> -->
 
         <div class="description">
           <div class="desctitle">Description</div>
@@ -65,17 +44,19 @@
           </div>
         </div>
 
-        <div class="review">
+        <div class="review" >
 
-         <div class="strip"> <div class="reviewtitle" (click)="viewareview();">64 reviews &rarr;
-           
-          </div><div class="btn6" (click) ="addareview();">Add a review</div>
-         </div>
-          <div class="lastreview">
+          <div class="strip">
+            <div class="reviewtitle" (click)="viewareview();">{{reviews.length}} reviews &rarr;
+
+            </div>
+            <div class="btn6" (click)="addareview();">Add a review</div>
+          </div>
+          <div class="lastreview" *ngIf = "reviews.length">
             <div class="lastreviewtitle">Last review:
-            <!-- <div class="reviewreview"></div> -->
-            <div class="reviewreviewcont">Awesome job!</div>
-            <div class="reviewreviewer">Kyle Wilson</div></div>
+              <div class="reviewreviewcont">{{reviews[0].payload.doc.data().reviewcomment}}</div>
+              <div class="reviewreviewer">{{reviews[0].payload.doc.data().useremail}}</div>
+            </div>
           </div>
         </div>
 
@@ -86,10 +67,10 @@
           </div>
           <div class="tagscont">
             <div class="specializations">
-              <div class = "tag" *ngFor = "let x of tags">{{x}}</div>
+              <div class="tag" *ngFor="let x of tags">{{x}}</div>
             </div>
             <div class="slotbuttons">
-              <div class = "btn6" (click) = "getslots()">View all slots</div>
+              <div class="btn6" (click)="getslots()">View all slots</div>
             </div>
           </div>
         </div>
