@@ -157,7 +157,7 @@ body{
 :host{ ::ng-deep{ .sr-only{display:none;}}}
 
 ngb-rating {
-  color: #9378FF;
+  color: #ffdb78;
 }
 .star {
   position: relative;
@@ -176,12 +176,12 @@ ngb-rating {
 .full {
   //color: var(--col2vl);
   //color: var(--col4);
-  color: #9378FF;
+  color: #ffdb78;
 }
 .half {
   position: absolute;
   display: inline-block;
   overflow: hidden;
   //color: var(--col4);
-  color: #9378FF;
+  color: #ffdb78;
 }
