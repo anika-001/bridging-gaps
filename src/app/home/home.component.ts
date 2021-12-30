@@ -14,10 +14,6 @@ export class HomeComponent implements OnInit {
   meddel: Array<any> = [];
   labtest: Array<any> = [];
   meetings: Array<any> = [];
-  // currfammember:any = 0;
-  // currfammemberid: any;
-  // currentli:any =0;
-  // currentliid:any;
 
   constructor(private as: AuthService, private router: Router, private db: DatabaseopService) {}
   
@@ -90,4 +86,5 @@ export class HomeComponent implements OnInit {
   toIst(date: Date){
     return new Date(date).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' })
   }
+
 }
