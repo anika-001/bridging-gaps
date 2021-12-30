@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
       if (!res) this.router.navigate(['/signin'])
       this.user = res;
       this.myfam();
-      // this.getmeetings();
     })
   }
 

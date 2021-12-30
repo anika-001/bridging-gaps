@@ -41,7 +41,6 @@ export class DynamicFormComponent implements OnInit {
     if(this.files != null){
       response.file = this.files 
     }
-    // this.form.reset();
     this.newFormEvent.emit(response);
     this.form.reset();
   }

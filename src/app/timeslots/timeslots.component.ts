@@ -45,7 +45,6 @@ export class TimeslotsComponent implements OnInit {
     this.getnowweek();
     this.initializeTimeSlots();
     this.getdoctor();
-    // console.log(this.doctor)
     this.as.getUserState().subscribe(user => {
       if (user == null) this.router.navigate(['/signin']);
       this.user = user;
@@ -119,16 +118,10 @@ export class TimeslotsComponent implements OnInit {
   }
 
   public razorPaySuccessHandler(response: any) {
-    // console.log(response);
     this.razorpayResponse = `Successful Transaction`;
-    // console.log(this.razorpayResponse);
     this.mypostreq().then(res => {
       console.log("Yayy!");
     });
-    // this.router.navigate(['/home']);
-    // this.zone.run(() => {
-    //   this.router.navigateByUrl("/orders");
-    // });
   }
 
   

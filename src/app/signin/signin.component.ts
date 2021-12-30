@@ -13,15 +13,12 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  errormessage: any;
-  // user: any;
-  // role: any = null;
-
+ 
   constructor(private as: AuthService, private router: Router) {}
 
   login: boolean = true;
   error: string = '';
-  // windowRef: any;
+  errormessage: any;
   selectedrole: any;
   signindata: any;
   signupdata: any;
@@ -29,7 +26,6 @@ export class SigninComponent implements OnInit {
 
   move() {
     this.login = !this.login;
-    // this.error = false;
   }
 
   submit() {
@@ -108,7 +104,6 @@ export class SigninComponent implements OnInit {
           /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
         ),
       ]),
-      // role: new FormControl('user'),
       confirmpassword: new FormControl('', [Validators.required]),
     },
     { validators: this.checkPasswords }
@@ -118,18 +113,7 @@ export class SigninComponent implements OnInit {
     console.log(this.formreg.value);
     console.log(this.formlogin.value);
     this.signindata = logindata;
-    this.signupdata = regdata;
-    // this.formreg.setValidators(this.checkPasswords);
-    // this.as.getUserState().subscribe(res => {
-    //   if (res) {
-    //     this.as.logout();
-    //   }
-    //   // this.user = res;
-    //   // this.as.getprofile(this.user.uid).subscribe((res: any) => {
-    //   //   this.role = res.payload.data().role;
-    //   // })
-    // })
-    
+    this.signupdata = regdata;    
   }
   
 
@@ -148,11 +132,4 @@ export class SigninComponent implements OnInit {
     console.log(pass, confirmPass, pass == confirmPass);
     return pass === confirmPass ? null : { notSame: true };
   }
-
-  // forgot() {
-  //   if (this.formlogin.get('email')!.invalid) {
-  //     return;
-  //   }
-  //   this.as.forgot(this.formlogin.get('email').value);
-  // }
 }

@@ -7,20 +7,11 @@ body{
  }
 :root {
     --col1: #005059;
-    // --col4: rgb(178, 154, 231);
-    // --col4d:rgb(45, 88, 72);
-    // --col4l: rgb(66, 126, 103);
-    // --col4vl: rgb(123, 228, 188);
-    // --col5: rgb(212, 212, 212);
-    // --appbg: #FFF4F4;
  }
 
  .custom-btn {
-    // width: 130px;
-    // height: 40px;
     color: #fff;
     border-radius: 5px;
-    // padding: 10px 25px;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
     background: transparent;
@@ -103,6 +94,7 @@ body{
   .btn-3 span:hover:after {
     width: 100%;
   }
+
    //button
   .btn6, .btn6:link, .btn6:visited {
     padding: 0 1vh;
@@ -110,7 +102,6 @@ body{
     color: #333;
     font-weight: 700;
     text-transform: uppercase;
-    // font-size: 13px;
     height: fit-content;
     text-align: center;
     transition: all .2s ease-in-out;
@@ -174,14 +165,11 @@ ngb-rating {
 }
 
 .full {
-  //color: var(--col2vl);
-  //color: var(--col4);
   color: #FFDF00;
 }
 .half {
   position: absolute;
   display: inline-block;
   overflow: hidden;
-  //color: var(--col4);
   color: #FFDF00;
 }

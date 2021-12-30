@@ -33,8 +33,6 @@ export class HelperComponent implements OnInit {
   helperclick(helper: any, currenthelperid: any) {
     this.currenthelper = helper;
     this.currenthelperid = currenthelperid;
-    //  console.log(this.currentfamilymember);
-
   }
 
 
