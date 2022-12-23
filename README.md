@@ -49,7 +49,7 @@ Users can log-in with the following roles:
 
 ### Features
 
-- A family member can 
+=> A family member can 
 * Interact with ChatBot directly and give instructions
 * Check any past/future scheduled doctor apponitments for the elderly/other family members
 * View medical history,diet plan ,help history and reminders of certain medicines along with the time for a particular family member.
@@ -62,12 +62,12 @@ Users can log-in with the following roles:
 * Check various care-taker profiles and connect with them
 * Book an appointment for the elderly with various doctors available on a live interactive calander with green slots as per doctor's availability, pay the fees and get reminder notifications over WhatsApp and Emails post successful completion.
 
-- A Doctor can
+=> A Doctor can
 * Create a profile for them
 * Update their availability over the interactive calander for family members to book appointments
 * Check for meeting reminders over Email/Whatsapp/over the calander on the application
 
-- A Caretaker can
+=> A Caretaker can
 * Set their profile on the application and be open to be connected by the Family members
 
 Additionally, leveraging Twilio and Dialog-flow, we've built an interactive Chatbot that converses with the Elderly as well as gives them reminders for taking medecines, upcoming Doctor Appointments, call their family members often and more! Since GCP Dialog-flow detects intent and drives the conversation, the bot just feels like another human they're conversing with.
