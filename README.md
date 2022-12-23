@@ -4,11 +4,10 @@
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/ieeebridginggaps/bridginggaps?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/ieeebridginggaps/bridginggaps?color=%23ffff00&style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/ieeebridginggaps/bridginggaps?color=%00b3b3&style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/ieeebridginggaps/bridginggaps?color=%23ff69b4&style=for-the-badge)
 
 
-[![Link youtube to do](http://img.youtube.com/vi/E6Qo4B_lS84/0.jpg)](samplelink "sample name")
+[![Link youtube to do](http://img.youtube.com/vi/9qXYpjBakXU/0.jpg)](https://www.youtube.com/watch?v=9qXYpjBakXU)
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -104,7 +103,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-# Contributors
-
-![GitHub Contributors Image](https://contrib.rocks/image?repo=ieeebridginggaps/bridginggaps)
