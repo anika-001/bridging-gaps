@@ -6,6 +6,9 @@
 
 [![Link youtube to do](http://img.youtube.com/vi/9qXYpjBakXU/0.jpg)](https://www.youtube.com/watch?v=9qXYpjBakXU)
 
+### Figma Prototype
+[Figma Prototype](https://www.figma.com/file/OqeHItRXMJ4pklNh9epZ20/Bridging-Gaps-UI-webapp?node-id=0%3A1&t=aYVvxcBF9cUtQvK0-1)
+
 ### Submitted for IEEE Region 10 and IEEE HAC 
 - Project Presented for IEEE Region 10 and IEEE Humanitarian Activities Committee (HAC) Special Call for Proposals Focused on Addressing Local Needs During COVID Time
 - Received Award of US$250 for the project
@@ -35,13 +38,48 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-add about the proj
+Our project specifically focuses on providing emotional support that you can access as an alternate support system. Amid this deadly pandemic, it has become a task to care for our own people who are staying with us and a much bigger task to care for the ones staying away from us.
+
+The widespread has not just affected our physical health but also, the mental health especially of the senior citizens. Hence, we bring to you Bridging Gaps- your Spiritual Aid. We here at ‘Bridging Gaps’ provide the Senior Citizens with the best healthcare facilities that includes fixing and keeping track of your appointments with specialist doctors, medicine delivery and lab tests options as well as staying in constant touch with the patient through WhatsApp.
+
+Users can log-in with the following roles:
+- Family 
+- Doctor
+- Care-taker
+
+### Features
+
+- A family member can 
+* Interact with ChatBot directly and give instructions
+* Check any past/future scheduled doctor apponitments for the elderly/other family members
+* View medical history,diet plan ,help history and reminders of certain medicines along with the time for a particular family member.
+* Medication section : list of medical delivery apps/website from where the user can order various medicines
+* Lab test section : list of online laboratories along with their description and website links
+* Add/Delete a Family member
+* Add/Delete a helper for the elderly
+* Rate and add Review post an appointment with a Doctor
+* Add a diet plan for the family member
+* Check various care-taker profiles and connect with them
+* Book an appointment for the elderly with various doctors available on a live interactive calander with green slots as per doctor's availability, pay the fees and get reminder notifications over WhatsApp and Emails post successful completion.
+
+- A Doctor can
+* Create a profile for them
+* Update their availability over the interactive calander for family members to book appointments
+* Check for meeting reminders over Email/Whatsapp/over the calander on the application
+
+- A Caretaker can
+* Set their profile on the application and be open to be connected by the Family members
+
+Additionally, leveraging Twilio and Dialog-flow, we've built an interactive Chatbot that converses with the Elderly as well as gives them reminders for taking medecines, upcoming Doctor Appointments, call their family members often and more! Since GCP Dialog-flow detects intent and drives the conversation, the bot just feels like another human they're conversing with.
+
 
 ### Built With
 
 * [Firebase](https://firebase.google.com/)
 * [Angular](https://angular.io/)
 * [Node.js](https://nodejs.org/en/)
+* Twilio
+* Dialogflow
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
 
