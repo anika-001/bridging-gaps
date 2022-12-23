@@ -2,6 +2,8 @@
 <br/>
 # Brigging Gaps : Your Spiritual Aid
 
+### Video :
+
 [![Link youtube to do](http://img.youtube.com/vi/9qXYpjBakXU/0.jpg)](https://www.youtube.com/watch?v=9qXYpjBakXU)
 
 ### Submitted for IEEE Region 10 and IEEE HAC 
