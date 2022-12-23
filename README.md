@@ -2,15 +2,15 @@
 <br/>
 # Brigging Gaps : Your Spiritual Aid
 
-![GitHub Repo stars](https://img.shields.io/github/stars/ieeebridginggaps/bridginggaps?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/ieeebridginggaps/bridginggaps?color=%23ffff00&style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/ieeebridginggaps/bridginggaps?color=%23ff69b4&style=for-the-badge)
-
-
 [![Link youtube to do](http://img.youtube.com/vi/9qXYpjBakXU/0.jpg)](https://www.youtube.com/watch?v=9qXYpjBakXU)
 
-<!-- TABLE OF CONTENTS -->
-<details open="open">
+### Submitted for IEEE Region 10 and IEEE HAC 
+- Project Presented for IEEE Region 10 and IEEE Humanitarian Activities Committee (HAC) Special Call for Proposals Focused on Addressing Local Needs During COVID Time
+- Received Award of US$250 for the project
+
+![R10 HTA-055 (1)](https://user-images.githubusercontent.com/62497183/209342116-1197dea2-dda1-4a05-9323-939282cef5bd.JPG)
+
+
   <summary>Table of Contents</summary>
   <ol>
     <li>
